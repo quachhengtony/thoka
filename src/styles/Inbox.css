@@ -1,0 +1,8 @@
+.inbox {
+    width: 100%;
+    height: 100%;
+}
+
+.--inbox-container-xl {
+    min-height: 70vh;
+}

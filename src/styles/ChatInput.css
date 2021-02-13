@@ -1,0 +1,30 @@
+/* .chatinput {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin: 0 20px 20px;
+    left: 0;
+    right: 0;
+}
+
+.textfield__container {
+    flex: 0.9;
+    margin: 0 10px 0 0;
+}
+
+.buttons__container {
+    flex: 0.1;
+}
+
+.chatInput__button {
+    margin: 0 5px 0 0;
+    width: 40px !important;
+} */
+
+.chatinput {
+    display: flex;
+}
+
+.chatinput__btn {
+    margin-left: 10px;
+}

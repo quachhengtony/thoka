@@ -1,0 +1,68 @@
+.board {
+  width: 78vw;
+  float: right;
+}
+
+.--board-chat {
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+
+.board__columnsContainer {
+  display: flex;
+  height: 94vh;
+  /* min-width: 76vw; */
+  overflow-y: hidden;
+  margin: 10px;
+  /* margin: 10px 25px 0; */
+  /* border: 1px solid blue; */
+}
+
+.column__container {
+  margin: 10px;
+  border-radius: 3px;
+  background-color: transparent;
+  /* border: 1px solid blue; */
+  /* border-top: 4px solid var(--yellow); */
+}
+
+.column {
+  /* padding: 10px; */
+  width: 260px;
+  /* min-height: 85vh; */
+  max-height: auto;
+  border-radius: 3px;
+  background-color: transparent;
+  /* background-color: #fafbfc; */
+  text-align: center;
+}
+
+.column__header {
+  /* margin: 10px 0 0; */
+  display: flex;
+  /* height: auto; */
+  /* border: 1px solid red; */
+}
+
+.columnHeader__name {
+  flex: 0.5;
+}
+
+.columnHeader__button {
+  flex: 0.5;
+}
+
+.--new-column-btn {
+  margin-top: 10px;
+  margin-left: 5px;
+  /* margin: 10px; */
+}
+
+.--create-card-btn {
+  float: right;
+}

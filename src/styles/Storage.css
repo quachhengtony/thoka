@@ -1,0 +1,28 @@
+.storage {
+    width: 78vw;
+    float: right;
+    padding: 25px;
+}
+
+.--storage-header-card {
+    margin-top: 10px;
+}
+
+.--storage-header-card > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.--storage-header-card > div > div {
+    flex: 1;
+    margin: auto;
+}
+
+.--storage-btn {
+    margin: 0 0 0 10px;
+}
+
+.--storage-body-card {
+    margin-top: 10px;
+}

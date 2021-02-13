@@ -1,0 +1,13 @@
+:root {
+    --green: #34a853;
+    --green-bg: #fbfbf5;
+    --green-hover: #37e9c5;
+    --yellow: #fbc034;
+    --blue: #4285f4;
+    --blue-bg: #fbfdff;
+    --blue-hover: #e9f1fe;
+    --red: #ea4335;
+    --red-bg: #fef9f8;
+    /* --atlassian-blue: #0747A6; */
+    --atlassian-blue: #0052CC;
+}

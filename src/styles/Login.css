@@ -1,0 +1,20 @@
+.login {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login__div {
+  background: #fafbfc;
+  border-radius: 3px;
+  border-top: 5px solid #0052cc;
+  width: 30vw;
+  padding: 10px;
+}
+
+.login__div > div {
+  margin-top: 10px;
+}

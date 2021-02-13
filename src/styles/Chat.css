@@ -1,0 +1,23 @@
+.chat {
+  width: 78vw;
+  float: right;
+}
+
+.card-chat {
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.message__container {
+  padding-top: 10px;
+  height: 85vh;
+}
+
+.chatinput__container {
+  margin-top: 10px;
+  padding: 0 10px 0;
+}
