@@ -1,9 +1,12 @@
 .homepage {
-
+    height: 92.4vh;
+    justify-content: center;
+    align-items: center;
+    /* overflow-y: scroll; */
 }
 
 .homepage__hero {
-    margin: 100px 350px 0;
+    /* padding: 210px 25px 0; */
 }
 
 .homepage__footer {

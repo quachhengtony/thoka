@@ -30,7 +30,6 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/signin">
-            <Topbar />
             <Login />
           </Route>
           <Route path="/signup">
