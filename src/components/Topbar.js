@@ -171,10 +171,7 @@ function PrivateTopbar() {
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-card">
                 <div className="card">
                   <div className="card-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusamus ad amet consectetur exercitationem fugiat in ipsa
-                    ipsum, natus odio quidem quod repudiandae sapiente. Amet
-                    debitis et magni maxime necessitatibus ullam.
+                    This is a work in progress pre-alpha. Our website is under construction and everything is subject to change. Follow us for updates.
                   </div>
                 </div>
               </div>

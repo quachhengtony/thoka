@@ -45,7 +45,7 @@ function Inbox() {
             <div className="row align-items-center">
               <div className="col">
                 <h2 className="page-title">Links</h2>
-                <div className="text-muted mt-1">Workspace you are linked to</div>
+                <div className="text-muted mt-1">Workspaces you are linked to</div>
               </div>
               <div className="col-auto ms-auto d-print-none">
                 <div className="d-flex">

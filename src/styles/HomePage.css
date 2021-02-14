@@ -2,6 +2,10 @@
 
 }
 
+.homepage__hero {
+    margin: 100px 350px 0;
+}
+
 .homepage__footer {
     bottom: 0;
     left: 0;

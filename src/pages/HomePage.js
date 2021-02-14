@@ -1,9 +1,31 @@
 import React from "react";
 import "../styles/HomePage.css";
+import { useHistory } from "react-router-dom";
 
 function HomePage() {
+  const history = useHistory();
+
   return (
     <div className="homepage">
+      <div className="homepage__hero">
+        <div className="alert alert-success alert-dismissible" role="alert">
+          <h3 className="mb-1">Thoka.io Team</h3>
+          <p>
+            This is a work in progress pre-alpha. Our
+            website is currently under construction. Sign up and we'll notify
+            you when we launch. Happy Valentine's Day!
+          </p>
+          <div className="btn-list">
+            <button
+              onClick={() => history.push("/signup")}
+              className="btn btn-success"
+            >
+              Okay
+            </button>
+          </div>
+          <a className="btn-close" data-bs-dismiss="alert" aria-label="close" />
+        </div>
+      </div>
       <div className="homepage__footer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
