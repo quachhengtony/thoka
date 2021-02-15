@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import firebase from "firebase";
 import { v4 as uuidv4 } from "uuid";
 
-import "../styles/Manage.css";
+import "../styles/DashboardPage.css";
 import db from "../adapters/firebase";
 import { useStateValue } from "../contexts/StateProvider";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
-import ListWorkspace from "./ListWorkspace";
-import CreateWorkpsaceModal from "./CreateWorkpsaceModal";
+import ListWorkspace from "../components/ListWorkspace";
+import CreateWorkpsaceModal from "../components/CreateWorkpsaceModal";
 
-function Manage() {
+function DashboardPage() {
   const [workspaces, setWorkspaces] = useState([]);
   const { user, currentDate } = useStateValue();
   const [isBusinessUser, setIsBusinessUser] = useState(false);
@@ -453,4 +452,4 @@ function Manage() {
   );
 }
 
-export default Manage;
+export default DashboardPage;

@@ -19,7 +19,8 @@ export function CurrentUserDetailsProvider(props) {
           currentUserEmail: doc.data().userEmail,
           currentUserRole: doc.data().userRole,
           currentUserUUId: doc.data().userUUId,
-          currentUserBusinessName: doc.data().userBusinessName
+          currentUserBusinessName: doc.data().userBusinessName,
+          currentUserCreatedAt: doc.data().createdAt
         })
       )
       .catch((error) => console.log(error));

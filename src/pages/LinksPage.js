@@ -1,29 +1,35 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import "../styles/Inbox.css";
+import "../styles/LinksPage.css";
 import db from "../adapters/firebase";
-import { useStateValue } from "../contexts/StateProvider";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
-function Inbox() {
-  const [myWorkspaces, setMyWorkspaces] = useState([]);
+function LinksPage() {
   const [linkWorkspaces, setLinkWorkspaces] = useState([]);
-  const { user } = useStateValue();
   const history = useHistory();
-  const {
-    currentUserName,
-    currentUserEmail,
-    currentUserUUId,
-  } = useCurrentUserDetails();
+  const { currentUserEmail } = useCurrentUserDetails();
+  const [message, setMessage] = useState("");
 
-  const handleDeleteWorkspaceFromUser = async (workspaceId) => {
-    await db
-      .collection("users")
-      .doc(currentUserEmail)
-      .collection("workspaces")
-      .doc(workspaceId)
-      .delete();
+  const handleRemoveWorkspaceFromUser = async (workspaceId) => {
+    if (workspaceId === "") {
+      return;
+    }
+    try {
+      setMessage("");
+      await db
+        .collection("users")
+        .doc(currentUserEmail)
+        .collection("workspaces")
+        .doc(workspaceId)
+        .delete()
+        .then(() => {
+          setMessage("Removed workspace successfully");
+        })
+        .catch((error) => console.log(error));
+    } catch {
+      setMessage("Failed to remove workspace");
+    }
   };
 
   useEffect(() => {
@@ -35,7 +41,7 @@ function Inbox() {
           setLinkWorkspaces(snapshot.docs.map((doc) => doc.data()))
         );
     }
-  });
+  }, []);
 
   return (
     <div className="inbox">
@@ -45,7 +51,9 @@ function Inbox() {
             <div className="row align-items-center">
               <div className="col">
                 <h2 className="page-title">Links</h2>
-                <div className="text-muted mt-1">Workspaces you are linked to</div>
+                <div className="text-muted mt-1">
+                  Workspaces you are linked to
+                </div>
               </div>
               <div className="col-auto ms-auto d-print-none">
                 <div className="d-flex">
@@ -76,30 +84,10 @@ function Inbox() {
                       </span>
                     </div>
                   </div>
-                  {/* <a href="javascript:void(0)" className="btn btn-primary">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon"
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <line x1={12} y1={5} x2={12} y2={19} />
-                      <line x1={5} y1={12} x2={19} y2={12} />
-                    </svg>
-                    Add photo
-                  </a> */}
                 </div>
               </div>
             </div>
           </div>
-
         </div>
         <br></br>
         <div className="container-xl --inbox-container-xl">
@@ -131,28 +119,13 @@ function Inbox() {
                           </a>
                         </h3>
                         <div className="text-muted">
-                          {linkWorkspace.authorName}
+                          Author: {linkWorkspace.authorName}
                         </div>
-                        <div className="mt-3">
-                          <div className="row g-2 align-items-center">
-                            <div className="col-auto">25%</div>
-                            <div className="col">
-                              <div className="progress progress-sm">
-                                <div
-                                  className="progress-bar"
-                                  style={{ width: "25%" }}
-                                  role="progressbar"
-                                  aria-valuenow={25}
-                                  aria-valuemin={0}
-                                  aria-valuemax={100}
-                                >
-                                  <span className="visually-hidden">
-                                    25% Complete
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div className="text-muted">
+                          Employer: {linkWorkspace.authorBusinessName}
+                        </div>
+                        <div className="text-muted">
+                          Created at: {linkWorkspace.createdAt}
                         </div>
                       </div>
                       <div className="col-auto">
@@ -186,47 +159,30 @@ function Inbox() {
                             </svg>
                           </a>
                           <div className="dropdown-menu dropdown-menu-end">
-                            <a href="javascript:void(0)" className="dropdown-item" onClick={() => handleDeleteWorkspaceFromUser(linkWorkspace.workspaceId)}>
+                            <a
+                              href="javascript:void(0)"
+                              className="dropdown-item"
+                              onClick={() =>
+                                handleRemoveWorkspaceFromUser(
+                                  linkWorkspace.workspaceId
+                                )
+                              }
+                            >
                               Remove
                             </a>
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* {linkWorkspaces.map((linkWorkspace, index) => (
-            <div key={index}>
-              <a
-                href="javascript:void(0)"
-                onClick={() =>
-                  history.push(
-                    `/workspace/${linkWorkspace.workspaceId}/overview`
-                  )
-                }
-              >
-                {linkWorkspace.workspaceName}
-              </a>{" "}
-              |{" "}
-              <a
-                href="javascript:void(0)"
-                onClick={() =>
-                  handleDeleteWorkspaceFromUser(linkWorkspace.workspaceId)
-                }
-              >
-                Delete
-              </a>
-            </div>
-          ))} */}
         </div>
       </div>
     </div>
   );
 }
 
-export default Inbox;
+export default LinksPage;

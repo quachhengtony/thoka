@@ -1,10 +1,9 @@
-import { auth, provider } from "../adapters/firebase";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function SignInPage() {
   const history = useHistory();
   const { signIn } = useStateValue();
 
@@ -15,7 +14,6 @@ function Login() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-
     try {
       setIsSigninIn(true);
       await signIn(emailRef.current.value, passwordRef.current.value);
@@ -192,11 +190,11 @@ function Login() {
               </a>
             </div>
             <div className="text-center text-muted">
-                Back to{" "}
-                <a href="javascript:void(0)" tabIndex={-1}>
-                  <Link to="/">home</Link>
-                </a>
-              </div>
+              Back to{" "}
+              <a href="javascript:void(0)" tabIndex={-1}>
+                <Link to="/">home</Link>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -204,4 +202,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignInPage;

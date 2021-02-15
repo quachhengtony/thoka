@@ -15,6 +15,7 @@
 .message__container {
   padding-top: 10px;
   height: 85vh;
+  overflow-y: scroll;
 }
 
 .chatinput__container {

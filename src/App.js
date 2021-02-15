@@ -2,17 +2,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import Sidebar from "./components/Sidebar";
 import Chat from "./components/Chat";
-import Login from "./components/Login";
-import Manage from "./components/Manage";
+import SignInPage from "./pages/SignInPage";
+import DashboardPage from "./pages/DashboardPage";
 import { Topbar, PrivateTopbar } from "./components/Topbar";
-import Account from "./components/Account";
+import ProfileAccountPage from "./pages/ProfileAccountPage";
 import Timeline from "./components/Timeline";
 import Board from "./components/Board";
 import Schedule from "./components/Schedule";
 import Storage from "./components/Storage";
 import Settings from "./components/Settings";
 import RoomVideoConference from "./components/RoomVideoConference";
-import Inbox from "./components/Inbox";
+import LinksPage from "./pages/LinksPage";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
@@ -30,7 +30,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/signin">
-            <Login />
+            <SignInPage />
           </Route>
           <Route path="/signup">
             <SignUpPage />
@@ -38,14 +38,14 @@ function App() {
 
           <PrivateRoute path="/profile-account">
             <PrivateTopbar />
-            <Account />
+            <ProfileAccountPage />
           </PrivateRoute>
           <PrivateRoute path="/notifications">
             <PrivateTopbar />
           </PrivateRoute>
           <PrivateRoute path="/links">
             <PrivateTopbar />
-            <Inbox />
+            <LinksPage />
             <Footer />
           </PrivateRoute>
           <PrivateRoute path="/activities">
@@ -54,7 +54,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/b/dashboard">
             <PrivateTopbar />
-            <Manage />
+            <DashboardPage />
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/overview">
