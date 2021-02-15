@@ -10,13 +10,13 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function ChatInput({ roomName, roomId, workspaceId }) {
   const input = useRef("");
-  const { user, currentDate } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const history = useHistory();
   const { currentUserName, currentUserEmail, currentUserUUId } = useCurrentUserDetails();
 
   const sendMessage = (e) => {
     e.preventDefault();
-    if (user && workspaceId && roomId && input.current.value != "") {
+    if (currentUser && workspaceId && roomId && input.current.value != "") {
       db.collection("workspaces")
         .doc(workspaceId)
         .collection("rooms")
@@ -37,7 +37,7 @@ function ChatInput({ roomName, roomId, workspaceId }) {
 
   const sendMessageWithKey = (e) => {
     if (e.keyCode === 13) {
-      if (user && workspaceId && roomId && input.current.value != "") {
+      if (currentUser && workspaceId && roomId && input.current.value != "") {
         db.collection("workspaces")
           .doc(workspaceId)
           .collection("rooms")

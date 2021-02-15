@@ -7,7 +7,7 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function CreateWorkpsaceModal(props) {
   const workspaceName = useRef("");
-  const { user, currentDate } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const { currentUserName, currentUserEmail, currentUserUUId, currentUserRole, currentUserBusinessName } = useCurrentUserDetails();
 
   const handleCreateWorkspace = async () => {
@@ -67,7 +67,10 @@ function CreateWorkpsaceModal(props) {
             .collection("users")
             .add({
               userEmail: currentUserEmail,
+              userName: currentUserName,
+              userRole: currentUserRole,
               isAdmin: true,
+              isAuthor: true,
               date: currentDate,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });

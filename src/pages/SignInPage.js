@@ -10,19 +10,19 @@ function SignInPage() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [error, setError] = useState("");
-  const [isSigningIn, setIsSigninIn] = useState(false);
+  const [isSigningIn, setIsSigningIn] = useState(false);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      setIsSigninIn(true);
+      setIsSigningIn(true);
       await signIn(emailRef.current.value, passwordRef.current.value);
       history.push("/links");
       window.location.reload();
     } catch {
       setError("Failed to sign in.");
     }
-    setIsSigninIn(false);
+    setIsSigningIn(false);
   };
 
   return (

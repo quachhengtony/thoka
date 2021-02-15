@@ -8,7 +8,7 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function CreateRoom() {
   const { workspaceId } = useParams();
-  const { user, currentDate } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const { currentUserName, currentUserEmail, currentUserUUId } = useCurrentUserDetails();
 
   const createRoom = () => {

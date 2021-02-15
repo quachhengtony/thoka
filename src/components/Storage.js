@@ -402,7 +402,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 export default function Storage() {
-  const { user, currentDate } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const {
     currentUserName,
     currentUserEmail,

@@ -89,7 +89,7 @@ function Topbar() {
 
 function PrivateTopbar() {
   const history = useHistory();
-  const { user, signOut } = useStateValue();
+  const { currentUser, signOut } = useStateValue();
   const [error, setError] = useState("");
   const [isSigningOut, setIsSigningOut] = useState(false);
   const { currentUserName, currentUserRole } = useCurrentUserDetails();

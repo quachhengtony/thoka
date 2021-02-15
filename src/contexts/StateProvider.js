@@ -4,7 +4,7 @@ import db, { auth } from "../adapters/firebase";
 export const StateContext = createContext();
 
 export function StateProvider(props) {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
   const [currentDate, setCurrentDate] = useState("");
 
@@ -31,7 +31,7 @@ export function StateProvider(props) {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setUser(user);
+      setCurrentUser(user);
       setPending(false);
     });
     getCurrentDate();
@@ -42,7 +42,7 @@ export function StateProvider(props) {
   }
 
   const value = {
-    user, 
+    currentUser, 
     currentDate,
     signUp,
     signIn,

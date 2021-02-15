@@ -10,7 +10,7 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function Sidebar() {
   const { workspaceId } = useParams();
-  const { user } = useStateValue();
+  const { currentUser } = useStateValue();
   const history = useHistory();
 
   const [workspaceName, setWorkspaceName] = useState("");

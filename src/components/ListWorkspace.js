@@ -15,6 +15,11 @@ function ListWorkspace({ id, name, date, author, number }) {
       <td className="text-muted">{author ? author : "..."}</td>
       <td>
         <a className="text-reset" href="javascript:void(0)">
+          Manage
+        </a>
+      </td>
+      <td>
+        <a className="text-reset" href="javascript:void(0)">
           Settings
         </a>
       </td>

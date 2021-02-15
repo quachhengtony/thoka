@@ -25,13 +25,13 @@ import { Route, Redirect } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const { user } = useStateValue();
+  const { currentUser } = useStateValue();
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        return user ? <Component {...props} /> : <Redirect to="/login" />;
+        return currentUser ? <Component {...props} /> : <Redirect to="/login" />;
       }}
     ></Route>
   );

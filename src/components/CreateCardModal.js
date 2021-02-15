@@ -6,7 +6,7 @@ import firebase from "firebase";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function CreateCardModal({ columnId }) {
-  const { user } = useStateValue();
+  const { currentUser } = useStateValue();
   const cardTitle = useRef("");
   const cardBody = useRef("");
   const cardPriority = useRef("");

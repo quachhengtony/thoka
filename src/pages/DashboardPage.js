@@ -10,7 +10,7 @@ import CreateWorkpsaceModal from "../components/CreateWorkpsaceModal";
 
 function DashboardPage() {
   const [workspaces, setWorkspaces] = useState([]);
-  const { user, currentDate } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const [isBusinessUser, setIsBusinessUser] = useState(false);
   const [workspaceUUID, setWorkspaceUUID] = useState("");
   const {
@@ -411,6 +411,7 @@ function DashboardPage() {
                             <th>Name</th>
                             <th>Created</th>
                             <th>Author</th>
+                            <th className="w-1" />
                             <th className="w-1" />
                           </tr>
                         </thead>

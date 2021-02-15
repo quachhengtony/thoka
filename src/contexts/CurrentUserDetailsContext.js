@@ -6,12 +6,12 @@ export const CurrentUserDetailsContext = createContext();
 
 export function CurrentUserDetailsProvider(props) {
   const [currentUserDetails, setCurrentUserDetails] = useState([]);
-  const { user } = useStateValue();
+  const { currentUser } = useStateValue();
 
   useEffect(() => {
-    if (user) {
+    if (currentUser) {
     db.collection("users")
-      .doc(user.email)
+      .doc(currentUser.email)
       .get()
       .then((doc) =>
         setCurrentUserDetails({

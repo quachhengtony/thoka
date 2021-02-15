@@ -2,11 +2,13 @@ import "../styles/WorkspaceOverview.css";
 import db from "../adapters/firebase";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 export default function WorkspaceOverview() {
   const { workspaceId } = useParams();
   const [workspaceDetails, setWorkspaceDetails] = useState([]);
   const [workspaceUsers, setWorkspaceUsers] = useState([]);
+  const { currentUserEmail } = useCurrentUserDetails();
 
   useEffect(() => {
     db.collection("workspaces")
@@ -14,15 +16,21 @@ export default function WorkspaceOverview() {
       .get()
       .then((doc) => setWorkspaceDetails(doc.data()))
       .catch((error) => console.log(error));
+
     db.collection("workspaces")
       .doc(workspaceId)
       .collection("settings")
       .doc("link")
       .collection("users")
+      .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) =>
         setWorkspaceUsers(
           snapshot.docs.map((doc) => ({
             email: doc.data().userEmail,
+            name: doc.data().userName,
+            role: doc.data().userRole,
+            isAdmin: doc.data().isAdmin,
+            isAuthor: doc.data().isAuthor,
           }))
         )
       );
@@ -32,47 +40,33 @@ export default function WorkspaceOverview() {
     <div className="workspaceoverview">
       <div className="content">
         <div className="container-xl">
-          {/* Page title */}
           <div className="page-header d-print-none">
             <div className="row align-items-center">
               <div className="col">
-                <h2 className="page-title">Overview</h2>
-                <div className="text-muted mt-1">People</div>
+                <h2 className="page-title">
+                  {workspaceDetails.authorBusinessName}
+                </h2>
+                <div className="text-muted mt-1">
+                  {workspaceDetails.workspaceName} workspace
+                </div>
               </div>
-              {/* Page title actions */}
               <div className="col-auto ms-auto d-print-none">
                 <div className="d-flex">
                   <input
                     type="search"
                     className="form-control d-inline-block w-9 me-3"
-                    placeholder="Search user…"
+                    placeholder="Search people..."
                   />
-                  {/* <a href="javascript:void(0)" className="btn btn-primary">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon"
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <line x1={12} y1={5} x2={12} y2={19} />
-                      <line x1={5} y1={12} x2={19} y2={12} />
-                    </svg>
-                    New user
-                  </a> */}
                 </div>
               </div>
             </div>
           </div>
           <div className="row row-cards">
             {workspaceUsers.map((workspaceUser, index) => (
-                <div className="col-md-6 col-lg-3 --workspaceoverview-col-md-6" key={index}>
+              <div
+                className="col-md-6 col-lg-3 --workspaceoverview-col-md-6"
+                key={index}
+              >
                 <div className="card --workspaceoverview-card">
                   <div className="card-body p-4 text-center">
                     <span
@@ -83,17 +77,24 @@ export default function WorkspaceOverview() {
                       }}
                     />
                     <h3 className="m-0 mb-1">
-                      <a href="javascript:void(0)">
-                        {workspaceUser.email}
-                      </a>
+                      <a href="javascript:void(0)">{workspaceUser.email}</a>
                     </h3>
-                    <div className="text-muted">Software Engineer</div>
+                    <div className="text-muted">{workspaceUser.role}</div>
                     <div className="mt-3">
-                      <span className="badge bg-purple-lt">Author</span>
+                      {workspaceUser.isAuthor && (
+                        <span className="badge bg-red-lt">Author</span>
+                      )}
+                      {" "}
+                      {workspaceUser.isAdmin ? (
+                        <span className="badge bg-green-lt">Admin</span>
+                      ) : (
+                        <span className="badge bg-blue-lt">Member</span>
+                      )}
                     </div>
                   </div>
                   <div className="d-flex --workspaceoverview-d-flex">
-                    <a href="javascript:void(0)" className="card-btn">
+                    {workspaceUser.email !== currentUserEmail && (
+                      <a href="javascript:void(0)" className="card-btn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="icon me-2 text-muted"
@@ -113,6 +114,7 @@ export default function WorkspaceOverview() {
                       </svg>
                       Chat
                     </a>
+                    )}
                     <a href="javascript:void(0)" className="card-btn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -136,9 +138,9 @@ export default function WorkspaceOverview() {
                 </div>
               </div>
             ))}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
