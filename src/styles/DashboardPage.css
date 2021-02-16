@@ -5,4 +5,11 @@
 
 .--manage-container-xl {
     min-height: 70vh;
+    margin-top: 25px;
+}
+
+.--dashboard-page-table {
+    border-top: 3px solid #206BC4;
+    height: 50vh;
+    overflow-x: hidden !important;
 }

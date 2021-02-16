@@ -10,6 +10,77 @@ function CreateWorkpsaceModal(props) {
   const { currentUser, currentDate } = useStateValue();
   const { currentUserName, currentUserEmail, currentUserUUId, currentUserRole, currentUserBusinessName } = useCurrentUserDetails();
 
+  // const handleCreateWorkspace = async () => {
+  //   if (workspaceName.current.value !== "") {
+  //     await db
+  //       .collection("workspaces")
+  //       .doc(props.workspaceUUID)
+  //       .set({
+  //         workspaceName: workspaceName.current.value,
+  //         authorName: currentUserName,
+  //         authorEmail: currentUserEmail,
+  //         authorId: currentUserUUId,
+  //         authorRole: currentUserRole,
+  //         authorBusinessName: currentUserBusinessName,
+  //         date: currentDate,
+  //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("rooms")
+  //           .add({
+  //             roomName: "General",
+  //             authorName: currentUserName,
+  //             authorEmail: currentUserEmail,
+  //             authorId: currentUserUUId,
+  //             date: currentDate,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("storage")
+  //           .doc("Main")
+  //           .set({
+  //             groupName: "Main",
+  //             authorName: currentUserName,
+  //             authorId: currentUserUUId,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("settings")
+  //           .doc("link")
+  //           .set({
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("settings")
+  //           .doc("link")
+  //           .collection("users")
+  //           .add({
+  //             userEmail: currentUserEmail,
+  //             userName: currentUserName,
+  //             userRole: currentUserRole,
+  //             isAdmin: true,
+  //             isAuthor: true,
+  //             date: currentDate,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .catch((error) => console.error(error));
+  //   } else return;
+
+  //   workspaceName.current.value = "";
+  // };
+
   const handleCreateWorkspace = async () => {
     if (workspaceName.current.value !== "") {
       await db
@@ -37,6 +108,17 @@ function CreateWorkpsaceModal(props) {
               date: currentDate,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
+        })
+        .then(() => {
+          db.collection("workspaces")
+            .doc(props.workspaceUUID)
+            .collection("users")
+            .doc(currentUserEmail)
+            .set({
+              userName: currentUserName,
+              userEmail: currentUserEmail,
+              timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
         })
         .then(() => {
           db.collection("workspaces")

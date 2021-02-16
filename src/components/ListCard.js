@@ -17,7 +17,8 @@ function ListCard(props) {
     cardDeadline,
     cardAssignee,
     cardReporter,
-    cardDocumentGroup
+    cardDocumentGroup,
+    cardCreatedDate
   ) => {
     props.setCardTitle(cardTitle);
     props.setCardBody(cardBody);
@@ -27,6 +28,7 @@ function ListCard(props) {
     props.setCardAssignee(cardAssignee);
     props.setCardReporter(cardReporter);
     props.setCardDocumentGroup(cardDocumentGroup);
+    props.setCardCreatedDate(cardCreatedDate);
   };
 
   const handleSetSelectedCard = (card, columnId) => {
@@ -55,6 +57,7 @@ function ListCard(props) {
             assignee: doc.data().cardAssignee,
             reporter: doc.data().cardReporter,
             documentGroup: doc.data().cardDocumentGroup,
+            createdDate: doc.data().cardCreatedDate
           }))
         )
       );
@@ -83,7 +86,8 @@ function ListCard(props) {
                         card.deadline,
                         card.assignee,
                         card.reporter,
-                        card.documentGroup
+                        card.documentGroup,
+                        card.createdDate
                       );
                       handleSetSelectedCard(card, props.columnId);
                     }}

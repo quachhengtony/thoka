@@ -1,30 +1,44 @@
 import { useHistory } from "react-router-dom";
 
-function ListWorkspace({ id, name, date, author, number }) {
+export default function ListWorkspace(props) {
   const history = useHistory();
 
   return (
-    <tr>
-      <td>{number+1}</td>
-      <td onClick={() => history.push(`/workspace/${id}/overview`)}>
+    <tr key={props.index}>
+      <td>{props.number + 1}</td>
+      <td onClick={() => history.push(`/workspace/${props.id}/overview`)}>
         <a href="javascript:void(0)" className="text-reset">
-          {name ? name : "..."}
+          {props.name ? props.name : "..."}
         </a>
       </td>
-      <td className="text-muted">{date ? date : "..."}</td>
-      <td className="text-muted">{author ? author : "..."}</td>
-      <td>
-        <a className="text-reset" href="javascript:void(0)">
-          Manage
-        </a>
+      <td className="text-muted">
+        {new Date(props.timestamp?.toDate()).toUTCString()}
+      </td>
+      <td className="text-muted">
+        {props.authorBusiness ? props.authorBusiness : "..."}
       </td>
       <td>
-        <a className="text-reset" href="javascript:void(0)">
-          Settings
-        </a>
+        <span className="dropdown">
+          <button
+            className="btn dropdown-toggle align-text-top btn-sm"
+            data-bs-boundary="viewport"
+            data-bs-toggle="dropdown"
+          >
+            Actions
+          </button>
+          <div className="dropdown-menu dropdown-menu-end">
+            <a className="dropdown-item" href="#">
+              Analytics
+            </a>
+            <a className="dropdown-item" href="#">
+              Settings
+            </a>
+            <a className="dropdown-item" href="#">
+              Delete
+            </a>
+          </div>
+        </span>
       </td>
     </tr>
   );
 }
-
-export default ListWorkspace;

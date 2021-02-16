@@ -18,7 +18,8 @@
 }
 
 .--settings-room-list-card {
-    margin-top: 10px;
+    border-top: 3px solid #206BC4;
+    /* margin-top: 10px; */
 }
 
 .--settings-link-people-card {
@@ -35,5 +36,6 @@
 }
 
 .--settings-people-list-card {
-    margin-top: 10px;
+    border-top: 3px solid #206BC4;
+    margin-top: 25px;
 }

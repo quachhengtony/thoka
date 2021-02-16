@@ -77,7 +77,7 @@ export default function WorkspaceOverview() {
                       }}
                     />
                     <h3 className="m-0 mb-1">
-                      <a href="javascript:void(0)">{workspaceUser.email}</a>
+                      <a href="javascript:void(0)">{workspaceUser.name}</a>
                     </h3>
                     <div className="text-muted">{workspaceUser.role}</div>
                     <div className="mt-3">

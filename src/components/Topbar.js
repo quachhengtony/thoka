@@ -4,6 +4,7 @@ import db from "../adapters/firebase";
 import "../styles/Topbar.css";
 import { useState, useEffect } from "react";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import logo from "../assets/thoka.svg";
 
 function Topbar() {
   const history = useHistory();
@@ -24,7 +25,8 @@ function Topbar() {
           <div className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="javascript:void(0)">
               <img
-                src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
+                src={logo}
+                // src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
                 width={110}
                 height={32}
                 alt="Thoka"
@@ -132,7 +134,7 @@ function PrivateTopbar() {
           <div className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href=".">
               <img
-                src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
+                src={logo}
                 width={110}
                 height={32}
                 alt="Thoka"

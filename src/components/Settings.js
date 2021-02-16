@@ -52,61 +52,70 @@ function Settings() {
   // };
 
   // const handleAddUsers = async () => {
-  //   if (userEmail.current.value === "") {
+  //   if (userEmail.current.value !== "") {
+  //     try {
+  //       await db
+  //         .collection("users")
+  //         .doc(userEmail.current.value)
+  //         .get()
+  //         .then((doc) => {
+  //           setUserToLinkDetails(doc.data());
+  //         });
+
+  //       db.collection("workspaces")
+  //         .doc(workspaceId)
+  //         .collection("settings")
+  //         .doc("link")
+  //         .collection("users")
+  //         .add({
+  //           userEmail: userEmail.current.value,
+  //           userName: userToLinkDetails.userName,
+  //           userRole: userToLinkDetails.userRole,
+  //           isAdmin: false,
+  //           isAuthor: false,
+  //           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           date: currentDate,
+  //         });
+
+  //       db.collection("users")
+  //         .doc(userEmail.current.value)
+  //         .collection("workspaces")
+  //         .doc(workspaceId)
+  //         .set({
+  //           workspaceId: workspaceId,
+  //           workspaceName: workspaceDetails.workspaceName,
+  //           authorEmail: workspaceDetails.authorEmail,
+  //           authorName: workspaceDetails.authorName,
+  //           authorRole: workspaceDetails.authorRole,
+  //           authorBusinessName: workspaceDetails.authorBusinessName,
+  //           createdAt: workspaceDetails.date,
+  //           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //         });
+
+  //       db.collection("workspaces")
+  //         .doc(workspaceId)
+  //         .collection("users")
+  //         .doc(userEmail.current.value)
+  //         .set({
+  //           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //         });
+
+  //       userEmail.current.value = "";
+  //     } catch {
+  //       setMessage("Failed to link user");
+  //     }
+  //   } else {
   //     return;
-  //   }
-
-  //   try {
-  //     await db
-  //       .collection("users")
-  //       .doc(userEmail.current.value)
-  //       .get()
-  //       .then((doc) => {
-  //         setUserToLinkDetails(doc.data());
-
-  //         db.collection("workspaces")
-  //           .doc(workspaceId)
-  //           .collection("settings")
-  //           .doc("link")
-  //           .collection("users")
-  //           .add({
-  //             userEmail: userEmail.current.value,
-  //             userName: userToLinkDetails.userName,
-  //             userRole: userToLinkDetails.userRole,
-  //             isAdmin: false,
-  //             isAuthor: false,
-  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //             date: currentDate,
-  //           });
-  //       });
-
-  //     db.collection("users")
-  //       .doc(userEmail.current.value)
-  //       .collection("workspaces")
-  //       .doc(workspaceId)
-  //       .set({
-  //         workspaceId: workspaceId,
-  //         workspaceName: workspaceDetails.workspaceName,
-  //         authorEmail: workspaceDetails.authorEmail,
-  //         authorName: workspaceDetails.authorName,
-  //         authorRole: workspaceDetails.authorRole,
-  //         authorBusinessName: workspaceDetails.authorBusinessName,
-  //         createdAt: workspaceDetails.date,
-  //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //       });
-  //     userEmail.current.value = "";
-  //     alert("Added successfully!");
-  //   } catch {
-  //     setMessage("Failed to link user");
   //   }
   // };
 
   const handleAddUsers = async () => {
-    if (userEmail.current.value !== "") {
+    const userEmail = prompt("User email");
+    if (userEmail) {
       try {
         await db
           .collection("users")
-          .doc(userEmail.current.value)
+          .doc(userEmail)
           .get()
           .then((doc) => {
             setUserToLinkDetails(doc.data());
@@ -118,7 +127,7 @@ function Settings() {
           .doc("link")
           .collection("users")
           .add({
-            userEmail: userEmail.current.value,
+            userEmail: userEmail,
             userName: userToLinkDetails.userName,
             userRole: userToLinkDetails.userRole,
             isAdmin: false,
@@ -128,7 +137,7 @@ function Settings() {
           });
 
         db.collection("users")
-          .doc(userEmail.current.value)
+          .doc(userEmail)
           .collection("workspaces")
           .doc(workspaceId)
           .set({
@@ -141,7 +150,14 @@ function Settings() {
             createdAt: workspaceDetails.date,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           });
-        userEmail.current.value = "";
+
+        db.collection("workspaces")
+          .doc(workspaceId)
+          .collection("users")
+          .doc(userEmail)
+          .set({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          });
       } catch {
         setMessage("Failed to link user");
       }
@@ -222,7 +238,43 @@ function Settings() {
               <a className="btn btn-primary">Rename</a>
             </div>
           </div> */}
-          <div className="card --settings-room-list-card">
+          <div className="--settings-room-list-card">
+            <div>
+              <div className="card-header">
+                <h3 className="card-title">Rooms</h3>
+              </div>
+              <div className="card-body border-bottom py-3">
+                <div className="d-flex">
+                  <div className="text-muted">
+                    Found
+                    <div className="mx-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        defaultValue={1}
+                        size={3}
+                        aria-label="Invoices count"
+                        disabled
+                      />
+                    </div>
+                    rooms
+                  </div>
+                  <div className="ms-auto text-muted">
+                    <a href="javascript:void(0)" className="button">
+                      Create new room
+                    </a>
+                    {/* Search:
+                    <div className="ms-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        aria-label="Search invoice"
+                      />
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="table-responsive">
               <table className="table table-vcenter card-table">
                 <thead>
@@ -253,7 +305,7 @@ function Settings() {
               </table>
             </div>
           </div>
-          <div className="card --settings-link-people-card">
+          {/* <div className="card --settings-link-people-card">
             <div className="card-body">
               <input
                 type="text"
@@ -269,14 +321,50 @@ function Settings() {
                 Link
               </a>
             </div>
-          </div>
-          <div className="card --settings-people-list-card">
+          </div> */}
+          <div className="--settings-people-list-card">
+            <div>
+              <div className="card-header">
+                <h3 className="card-title">People</h3>
+              </div>
+              <div className="card-body border-bottom py-3">
+                <div className="d-flex">
+                  <div className="text-muted">
+                    Found
+                    <div className="mx-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        defaultValue={2}
+                        size={3}
+                        aria-label="Invoices count"
+                        disabled
+                      />
+                    </div>
+                    users
+                  </div>
+                  <div className="ms-auto text-muted">
+                    <a href="javascript:void(0)" onClick={handleAddUsers} className="button">
+                      Link new user
+                    </a>
+                    {/* Search:
+                    <div className="ms-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        aria-label="Search invoice"
+                      />
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="table-responsive">
               <table className="table table-vcenter card-table">
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Status</th>
+                    <th>Role</th>
                     <th>Linked</th>
                     <th className="w-1" />
                   </tr>

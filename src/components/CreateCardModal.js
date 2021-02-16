@@ -3,10 +3,13 @@ import db from "../adapters/firebase";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
 import firebase from "firebase";
-import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import {
+  CurrentUserDetailsContext,
+  useCurrentUserDetails,
+} from "../contexts/CurrentUserDetailsContext";
 
 function CreateCardModal({ columnId }) {
-  const { currentUser } = useStateValue();
+  const { currentUser, currentDate } = useStateValue();
   const cardTitle = useRef("");
   const cardBody = useRef("");
   const cardPriority = useRef("");
@@ -22,9 +25,10 @@ function CreateCardModal({ columnId }) {
 
   const { workspaceId, roomId } = useParams();
 
-  const handleAddCard = () => {
+  const handleAddCard = async () => {
     if (workspaceId && roomId && columnId) {
-      db.collection("workspaces")
+      await db
+        .collection("workspaces")
         .doc(workspaceId)
         .collection("rooms")
         .doc(roomId)
@@ -40,10 +44,40 @@ function CreateCardModal({ columnId }) {
           cardColor: cardColor,
           cardReporter: currentUserEmail,
           cardDocumentGroup: cardDocumentGroup.current.value,
+          cardCreatedDate: currentDate,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         .then(() => console.log("Card added"))
         .catch((error) => console.error(error));
+
+      // db.collection("workspaces")
+      // .doc(workspaceId)
+      // .collection("users")
+      // .doc(currentUserEmail)
+      // .set({
+      //   userEmail: currentUserEmail,
+      //   userName: currentUserName,
+      //   timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      // })
+
+      db.collection("workspaces")
+        .doc(workspaceId)
+        .collection("users")
+        .doc(cardAssignee.current.value)
+        .collection("tasks")
+        .add({
+          cardTitle: cardTitle.current.value,
+          cardBody: cardBody.current.value,
+          cardPriority: cardPriority.current.value,
+          cardAssignee: cardAssignee.current.value,
+          cardDeadline: cardDeadline.current.value,
+          cardColor: cardColor,
+          cardReporter: currentUserEmail,
+          cardDocumentGroup: cardDocumentGroup.current.value,
+          cardCreatedDate: currentDate,
+          
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
     }
   };
 
@@ -112,11 +146,20 @@ function CreateCardModal({ columnId }) {
                 <div className="mb-3">
                   <label className="form-label">Assignee</label>
                   <select className="form-select" ref={cardAssignee} required>
-                    {assignees.map((assignee) => (
-                      <option value={`${assignee.userEmail}`}>
+                    {assignees.map((assignee, index) => (
+                      <option key={index} value={`${assignee.userEmail}`}>
                         {assignee.userEmail}
                       </option>
                     ))}
+                    {/* {assignees.map((assignee, index) => (
+                      <>
+                        {assignee.userEmail !== currentUserEmail && (
+                          <option value={`${assignee.userEmail}`}>
+                            {assignee.userEmail}
+                          </option>
+                        )}
+                      </>
+                    ))} */}
                   </select>
                 </div>
               </div>
@@ -175,7 +218,7 @@ function CreateCardModal({ columnId }) {
                     type="text"
                     // ref={cardDocumentGroup}
                     className="form-control"
-                    placeholder={currentUserName}
+                    placeholder={currentUserName + " (you)"}
                     disabled
                   />
                 </div>

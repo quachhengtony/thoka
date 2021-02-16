@@ -49,6 +49,13 @@ function Sidebar() {
   }, [workspaceUsers]);
 
   useEffect(() => {
+    let myBtns = document.querySelectorAll(".dropdown-item");
+    myBtns.forEach(function (btn) {
+      btn.addEventListener("click", () => {
+        myBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
     db.collection("workspaces")
       .doc(workspaceId)
       .get()
@@ -264,7 +271,7 @@ function Sidebar() {
           </svg>
           {workspaceName ? workspaceName : "..."}
         </a>
-        <a href="javascript:void(0)" className="dropdown-item">
+        <a href="javascript:void(0)" className="dropdown-item" onClick={() => history.push(`/workspace/${workspaceId}/tasks`)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon dropdown-item-icon"

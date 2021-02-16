@@ -148,8 +148,8 @@ function DashboardPage() {
                   snapshot.docs.map((doc) => ({
                     id: doc.id,
                     name: doc.data().workspaceName,
-                    date: doc.data().date,
-                    author: doc.data().authorName,
+                    timestamp: doc.data().timestamp,
+                    authorBusiness: doc.data().authorBusinessName,
                   }))
                 )
               );
@@ -398,50 +398,35 @@ function DashboardPage() {
                 </div>
               </div>
             </div>
-            <br></br>
             <div className="container-xl --manage-container-xl">
               <div className="row row-cards">
                 <div className="col-12">
-                  <div className="card">
-                    <div className="table-responsive">
-                      <table className="table table-vcenter card-table">
-                        <thead>
-                          <tr>
-                            <th>No.</th>
-                            <th>Name</th>
-                            <th>Created</th>
-                            <th>Author</th>
-                            <th className="w-1" />
-                            <th className="w-1" />
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {workspaces.map((workspace, index) => (
-                            <ListWorkspace
-                              id={workspace.id}
-                              name={workspace.name}
-                              date={workspace.date}
-                              author={workspace.author}
-                              key={index}
-                              number={index}
-                            />
-                          ))}
-                          {/* <tr>
-                            <td>Smallbiz</td>
-                            <td className="text-muted">
-                              25/11/2020
-                            </td>
-                            <td className="text-muted">
-                              quachhengtony@gmail.com
-                            </td>
-                            <td>
-                              <a href="#">Settings</a>
-                            </td>
-                          </tr> */}
-                        </tbody>
-                      </table>
-                    </div>
+                  {/* <div className="card"> */}
+                  <div className="table-responsive --dashboard-page-table">
+                    <table className="table table-vcenter card-table">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Name</th>
+                          <th>Created</th>
+                          <th>Business</th>
+                          <th className="w-1" />
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {workspaces.map((workspace, index) => (
+                          <ListWorkspace
+                            id={workspace.id}
+                            name={workspace.name}
+                            timestamp={workspace.timestamp}
+                            authorBusiness={workspace.authorBusiness}
+                            number={index}
+                          />
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
+                  {/* </div> */}
                 </div>
               </div>
             </div>

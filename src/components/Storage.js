@@ -541,19 +541,26 @@ export default function Storage() {
 
   return (
     <div className="storage">
-      <ol class="breadcrumb" aria-label="breadcrumbs">
-        <li class="breadcrumb-item">
-          <a href="javascript:void(0)">Workspace</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          <a href="javascript:void(0)">Storage</a>
-        </li>
-      </ol>
-      <div className="card --storage-header-card">
-        <div className="card-body">
-          <div>
-            <div class="form-label">Document group:</div>
-            {/* <select
+      <div className="content">
+        <div className="container-xl">
+
+          <div className="page-header">
+            <div className="row align-items-center">
+              <div className="col">
+                <h2 className="page-title">Storage</h2>
+                <div className="text-muted mt-1">
+                  Share and manage documents
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div className="--storage-header-card">
+            <div className="card-body">
+              <div>
+                <div class="form-label">Document group:</div>
+                {/* <select
               class="form-select"
               value={groupToGetFiles}
               defaultValue={groupToGetFiles}
@@ -568,260 +575,279 @@ export default function Storage() {
                 </option>
               ))}
             </select> */}
-            <select
-              className="form-select"
-              ref={groupToGetFiles}
-              onChange={getFiles}
-            >
-              {storageGroups.map((storageGroup, index) => (
-                <option key={index} value={storageGroup.groupName}>
-                  {storageGroup.groupName}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <input id="file_input" type="file" onChange={uploadFile} hidden />
-            <button
-              type="button"
-              className="btn btn-light d-none d-sm-inline-block --storage-btn"
-              onClick={getFiles}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-                <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
-              </svg>
-              Refresh
-            </button>
-            <button
-              type="button"
-              className="btn btn-light d-none d-sm-inline-block --storage-btn"
-              onClick={createGroup}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <line x1={12} y1={5} x2={12} y2={19} />
-                <line x1={5} y1={12} x2={19} y2={12} />
-              </svg>
-              New group
-            </button>
+                <select
+                  className="form-select"
+                  ref={groupToGetFiles}
+                  onChange={getFiles}
+                >
+                  {storageGroups.map((storageGroup, index) => (
+                    <option key={index} value={storageGroup.groupName}>
+                      {storageGroup.groupName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <input
+                  id="file_input"
+                  type="file"
+                  onChange={uploadFile}
+                  hidden
+                />
+                <button
+                  type="button"
+                  className="btn d-none d-sm-inline-block --storage-btn"
+                  onClick={getFiles}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                  </svg>
+                  Refresh
+                </button>
+                <button
+                  type="button"
+                  className="btn d-none d-sm-inline-block --storage-btn"
+                  onClick={createGroup}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1={12} y1={5} x2={12} y2={19} />
+                    <line x1={5} y1={12} x2={19} y2={12} />
+                  </svg>
+                  New group
+                </button>
 
-            <button
-              type="button"
-              className="btn btn-light d-none d-sm-inline-block --storage-btn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <circle cx="12" cy="12" r="2" />
-                <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
-              </svg>
-              Watch
-            </button>
+                <button
+                  type="button"
+                  className="btn d-none d-sm-inline-block --storage-btn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="12" cy="12" r="2" />
+                    <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                  </svg>
+                  Watch
+                </button>
 
-            <button
-              type="button"
-              className="btn btn-primary d-none d-sm-inline-block --storage-btn"
-              data-bs-toggle="modal"
-              data-bs-target="#modal-report"
-              onClick={triggerUploadFile}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                <line x1="12" y1="11" x2="12" y2="17" />
-                <polyline points="9 14 12 11 15 14" />
-              </svg>
-              Add document
-            </button>
+                <button
+                  type="button"
+                  className="btn btn-primary d-none d-sm-inline-block --storage-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal-report"
+                  onClick={triggerUploadFile}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                    <line x1="12" y1="11" x2="12" y2="17" />
+                    <polyline points="9 14 12 11 15 14" />
+                  </svg>
+                  Add document
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="card --storage-body-card">
-        <div className="card-header">
-          <h3 className="card-title">Today</h3>
-        </div>
-        {files.map(
-          ({
-            fileDownloadURL,
-            fileName,
-            timestamp,
-            date,
-            authorName,
-            authorEmail,
-            authorPhoto,
-          }) => (
-            <>
-              {new Date(timestamp?.toDate()).toLocaleDateString() ===
-              new Date().toLocaleDateString() ? (
-                <div className="list-group list-group-flush list-group-hoverable">
-                  <div className="list-group-item">
-                    <div className="row align-items-center">
-                      <div className="col-auto">
-                        <a href="#">
-                          <span
-                            className="avatar"
-                            style={{ backgroundImage: `url(${authorPhoto})` }}
-                          />
-                        </a>
-                      </div>
-                      <div className="col text-truncate">
-                        <a
-                          href={fileDownloadURL}
-                          target="__blank"
-                          className="text-body d-block"
-                        >
-                          {fileName}
-                        </a>
-                        <small className="d-block text-muted text-truncate mt-n1">
-                          {authorName} added on {date}
-                        </small>
-                      </div>
-                      <div className="col-auto">
-                        <a href="#" className="list-group-item-actions">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon text-muted"
-                            width={24}
-                            height={24}
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                            <line x1="12" y1="11" x2="12" y2="17" />
-                            <polyline points="9 14 12 17 15 14" />
-                          </svg>
-                        </a>
+          <div className="--storage-body-card">
+            <div className="card-header">
+              <h3 className="card-title">Today</h3>
+            </div>
+            {files.map(
+              ({
+                fileDownloadURL,
+                fileName,
+                timestamp,
+                date,
+                authorName,
+                authorEmail,
+                authorPhoto,
+              }) => (
+                <>
+                  {new Date(timestamp?.toDate()).toLocaleDateString() ===
+                  new Date().toLocaleDateString() ? (
+                    <div className="list-group list-group-flush list-group-hoverable">
+                      <div className="list-group-item">
+                        <div className="row align-items-center">
+                          <div className="col-auto">
+                            <a href="#">
+                              <span
+                                className="avatar"
+                                style={{
+                                  backgroundImage: `url(${authorPhoto})`,
+                                }}
+                              />
+                            </a>
+                          </div>
+                          <div className="col text-truncate">
+                            <a
+                              href={fileDownloadURL}
+                              target="__blank"
+                              className="text-body d-block"
+                            >
+                              {fileName}
+                            </a>
+                            <small className="d-block text-muted text-truncate mt-n1">
+                              {authorName} added on {date}
+                            </small>
+                          </div>
+                          <div className="col-auto">
+                            <a href="#" className="list-group-item-actions">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="icon text-muted"
+                                width={24}
+                                height={24}
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                stroke="currentColor"
+                                fill="none"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <line x1="12" y1="11" x2="12" y2="17" />
+                                <polyline points="9 14 12 17 15 14" />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ) : null}
-            </>
-          )
-        )}
-      </div>
+                  ) : null}
+                </>
+              )
+            )}
+          </div>
 
-      <div className="card --storage-body-card">
-        <div className="card-header">
-          <h3 className="card-title">Past uploads</h3>
-        </div>
-        {files.map(
-          ({
-            fileDownloadURL,
-            fileName,
-            timestamp,
-            date,
-            authorName,
-            authorEmail,
-            authorPhoto,
-          }) => (
-            <>
-              {new Date(timestamp?.toDate()).toLocaleDateString() !==
-              new Date().toLocaleDateString() ? (
-                <div className="list-group list-group-flush list-group-hoverable">
-                  <div className="list-group-item">
-                    <div className="row align-items-center">
-                      <div className="col-auto">
-                        <a href="#">
-                          <span
-                            className="avatar"
-                            style={{ backgroundImage: `url(${authorPhoto})` }}
-                          />
-                        </a>
-                      </div>
-                      <div className="col text-truncate">
-                        <a
-                          href={fileDownloadURL}
-                          target="__blank"
-                          className="text-body d-block"
-                        >
-                          {fileName}
-                        </a>
-                        <small className="d-block text-muted text-truncate mt-n1">
-                          {authorName} added on {date}
-                        </small>
-                      </div>
-                      <div className="col-auto">
-                        <a href="#" className="list-group-item-actions">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon text-muted"
-                            width={24}
-                            height={24}
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                            <line x1="12" y1="11" x2="12" y2="17" />
-                            <polyline points="9 14 12 17 15 14" />
-                          </svg>
-                        </a>
+          <div className="--storage-body-card">
+            <div className="card-header">
+              <h3 className="card-title">Past uploads</h3>
+            </div>
+            {files.map(
+              ({
+                fileDownloadURL,
+                fileName,
+                timestamp,
+                date,
+                authorName,
+                authorEmail,
+                authorPhoto,
+              }) => (
+                <>
+                  {new Date(timestamp?.toDate()).toLocaleDateString() !==
+                  new Date().toLocaleDateString() ? (
+                    <div className="list-group list-group-flush list-group-hoverable">
+                      <div className="list-group-item">
+                        <div className="row align-items-center">
+                          <div className="col-auto">
+                            <a href="#">
+                              <span
+                                className="avatar"
+                                style={{
+                                  backgroundImage: `url(${authorPhoto})`,
+                                }}
+                              />
+                            </a>
+                          </div>
+                          <div className="col text-truncate">
+                            <a
+                              href={fileDownloadURL}
+                              target="__blank"
+                              className="text-body d-block"
+                            >
+                              {fileName}
+                            </a>
+                            <small className="d-block text-muted text-truncate mt-n1">
+                              {authorName} added on {date}
+                            </small>
+                          </div>
+                          <div className="col-auto">
+                            <a href="#" className="list-group-item-actions">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="icon text-muted"
+                                width={24}
+                                height={24}
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                stroke="currentColor"
+                                fill="none"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <line x1="12" y1="11" x2="12" y2="17" />
+                                <polyline points="9 14 12 17 15 14" />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ) : null}
-            </>
-          )
-        )}
+                  ) : null}
+                </>
+              )
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

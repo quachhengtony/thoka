@@ -1,0 +1,23 @@
+.tasks {
+  width: 78vw;
+  float: right;
+  padding: 0 25px 0;
+}
+
+.--tasks-container-xl {
+  /* border: 1px solid #0052cc; */
+}
+
+.tasks-box {
+  border-top: 3px solid #206bc4;
+}
+
+.--tasks-table {
+  /* border-top: 3px solid #206BC4; */
+  height: 50vh;
+  overflow-x: hidden !important;
+}
+
+.--tasks-col-sm-6 > div {
+  margin-right: 10px;
+}

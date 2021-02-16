@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import "../styles/ViewCardModal.css";
 import db from "../adapters/firebase";
 import { useParams } from "react-router-dom";
+import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function ViewCardModal(props) {
   const { workspaceId, roomId } = useParams();
+  const { currentUserEmail } = useCurrentUserDetails();
 
   // useEffect(() => {
   //   db.collection("workspaces")
@@ -48,14 +50,29 @@ function ViewCardModal(props) {
               </div>
               <div>
                 <h4>
-                  Status:{" "}
-                  <span className="text-muted">
-                    {props.columns.map((column) => (
-                      <a href="javascript:void(0)" onClick={() => props.handleChangeCardStatus(column.id)}>| {column.name} </a>
-                    ))}
-                  </span>
+                  Created:{" "}
+                  <span className="text-muted">{props.cardCreatedDate}</span>
                 </h4>
               </div>
+              {currentUserEmail === props.cardAssignee && (
+                <div>
+                  <h4>
+                    Status:{" "}
+                    <span className="text-muted">
+                      {props.columns.map((column) => (
+                        <a
+                          href="javascript:void(0)"
+                          onClick={() =>
+                            props.handleChangeCardStatus(column.id)
+                          }
+                        >
+                          | {column.name}{" "}
+                        </a>
+                      ))}
+                    </span>
+                  </h4>
+                </div>
+              )}
               <div>
                 <h4>
                   Deadline:{" "}

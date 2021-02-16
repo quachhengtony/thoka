@@ -19,6 +19,7 @@ import SignUpPage from "./pages/SignUpPage";
 import ActivitiesPage from "./pages/ActivitiesPage";
 import Footer from "./components/Footer";
 import WorkspaceOverview from "./components/WorkspaceOverview";
+import Tasks from "./components/Tasks";
 
 function App() {
   return (
@@ -60,6 +61,10 @@ function App() {
           <PrivateRoute path="/workspace/:workspaceId/overview">
             <Sidebar />
             <WorkspaceOverview />
+          </PrivateRoute>
+          <PrivateRoute path="/workspace/:workspaceId/tasks">
+            <Sidebar />
+            <Tasks />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/undefined/chat">
             <Sidebar />

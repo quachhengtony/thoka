@@ -24,6 +24,7 @@ function Board() {
   const [cardAssignee, setCardAssignee] = useState("");
   const [cardReporter, setCardReporter] = useState("");
   const [cardDocumentGroup, setCardDocumentGroup] = useState("");
+  const [cardCreatedDate, setCardCreatedDate] = useState("");
 
   const [selectedCard, setSelectedCard] = useState([]);
   const [selectedCardsColumnId, setSelectedCardsColumnId] = useState("");
@@ -60,7 +61,7 @@ function Board() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => console.log("Card added"))
-          .catch(error => console.log(error))
+          .catch((error) => console.log(error));
       })
       .catch((err) => {
         console.log(err);
@@ -68,8 +69,10 @@ function Board() {
   };
 
   const addColumn = () => {
-    const columnName = prompt("Enter column name:");
-    if (workspaceId && roomId && columnName !== "") {
+    const columnName = prompt("List name");
+    if (!columnName) {
+      return;
+    } else {
       db.collection("workspaces")
         .doc(workspaceId)
         .collection("rooms")
@@ -290,6 +293,7 @@ function Board() {
                       setCardAssignee={setCardAssignee}
                       setCardReporter={setCardReporter}
                       setCardDocumentGroup={setCardDocumentGroup}
+                      setCardCreatedDate={setCardCreatedDate}
                       setSelectedCard={setSelectedCard}
                       setSelectedCardsColumnId={setSelectedCardsColumnId}
                     />
@@ -319,6 +323,7 @@ function Board() {
         cardAssignee={cardAssignee}
         cardReporter={cardReporter}
         cardDocumentGroup={cardDocumentGroup}
+        cardCreatedDate={cardCreatedDate}
         columns={columns}
         handleChangeCardStatus={handleChangeCardStatus}
       />
