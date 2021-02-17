@@ -3,11 +3,40 @@ import { useParams } from "react-router-dom";
 import "../styles/Tasks.css";
 import db from "../adapters/firebase";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import TaskDescriptionModal from "./TaskDescriptionModal";
+import { ColorPaletteMenuWithoutAnalytics } from "@atlaskit/color-picker";
+import TaskUpdateModal from "./TaskUpdateModal";
 
 export default function Tasks() {
   const { workspaceId, roomId } = useParams();
   const [tasks, setTasks] = useState([]);
+  const [filterRooms, setFilterRooms] = useState([]);
   const { currentUserEmail } = useCurrentUserDetails();
+
+  const [taskColumns, setTaskColumns] = useState([]);
+  const [taskDescription, setTaskDescription] = useState("");
+  const [taskRoom, setTaskRoom] = useState("");
+
+  const handleOpenTaskDescriptionModal = (taskDescription) => {
+    setTaskDescription(taskDescription);
+  };
+
+  const handleGetTaskColumns = (cardRoomId) => {
+    db.collection("workspaces")
+      .doc(workspaceId)
+      .collection("rooms")
+      .doc(cardRoomId)
+      .collection("columns")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) =>
+        setTaskColumns(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            name: doc.data().name,
+          }))
+        )
+      );
+  };
 
   useEffect(() => {
     if (currentUserEmail) {
@@ -20,6 +49,13 @@ export default function Tasks() {
           setTasks(snapshot.docs.map((doc) => doc.data()))
         );
     }
+
+    db.collection("workspaces")
+      .doc(workspaceId)
+      .collection("rooms")
+      .onSnapshot((snapshot) =>
+        setFilterRooms(snapshot.docs.map((doc) => doc.data()))
+      );
   }, []);
 
   return (
@@ -64,11 +100,7 @@ export default function Tasks() {
                     </a>
                     <div className="dropdown-menu dropdown-menu-end dropdown-menu-card">
                       <div className="card">
-                        <div className="card-body">
-                          This is a work in progress pre-alpha. Our website is
-                          under construction and everything is subject to
-                          change. Follow us for updates.
-                        </div>
+                        <div className="card-body">notifications</div>
                       </div>
                     </div>
                     {/* <div className="input-icon">
@@ -103,7 +135,7 @@ export default function Tasks() {
           </div>
         </div>
         <div className="container-xl --tasks-container-xl">
-          <div className="row row-deck row-cards">
+          {/* <div className="row row-deck row-cards">
             <div className="col-sm-6 col-lg-3 --tasks-col-sm-6">
               <div className="dropdown">
                 <button
@@ -114,12 +146,11 @@ export default function Tasks() {
                   ROOM FILTER
                 </button>
                 <div className="dropdown-menu">
-                  <a className="dropdown-item" href="#">
-                    General
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Random
-                  </a>
+                  {filterRooms.map((filterRoom, index) => (
+                    <a className="dropdown-item" href="javascript:void(0)">
+                      {filterRoom.roomName}
+                    </a>
+                  ))}
                 </div>
               </div>
               <div className="dropdown">
@@ -157,12 +188,282 @@ export default function Tasks() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="tasks-box">
             <div>
               {/* <div className="card-header">
                 <h3 className="card-title">Invoices</h3>
               </div> */}
+              {/* <div className="card-body border-bottom py-3">
+                <div className="d-flex">
+                  <div className="text-muted">
+                    Found
+                    <div className="mx-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        defaultValue={0}
+                        size={3}
+                        aria-label="Tasks count"
+                        disabled
+                      />
+                    </div>
+                    tasks
+                  </div>
+                  <div className="ms-auto text-muted">
+                    Search:
+                    <div className="ms-2 d-inline-block">
+                      <input
+                        type="text"
+                        className="form-control form-control-sm"
+                        aria-label="Search invoice"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> */}
+              <div className="table-responsive --tasks-today-table">
+                <table className="table card-table table-vcenter">
+                  <tbody>
+                    <tr>
+                      <td className="w-1 pe-0">
+                        <input
+                          type="checkbox"
+                          className="form-check-input m-0 align-middle"
+                          aria-label="Select task"
+                          defaultChecked
+                        />
+                      </td>
+                      <td className="w-100">
+                        <a href="#" className="text-reset">
+                          Lorem ipsum dolor sit amet
+                        </a>
+                      </td>
+                      <td className="text-nowrap text-muted">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon"
+                          width={24}
+                          height={24}
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <rect x={4} y={5} width={16} height={16} rx={2} />
+                          <line x1={16} y1={3} x2={16} y2={7} />
+                          <line x1={8} y1={3} x2={8} y2={7} />
+                          <line x1={4} y1={11} x2={20} y2={11} />
+                          <line x1={11} y1={15} x2={12} y2={15} />
+                          <line x1={12} y1={15} x2={12} y2={18} />
+                        </svg>
+                        February 25, 2021
+                      </td>
+                      {/* <td className="text-nowrap">
+                        <a href="#" className="text-muted">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                          </svg>
+                          2/7
+                        </a>
+                      </td> */}
+                      <td className="text-nowrap">
+                        <a href="#" className="text-muted">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="5" y1="9" x2="19" y2="9" />
+                            <line x1="5" y1="15" x2="19" y2="15" />
+                            <line x1="11" y1="4" x2="7" y2="20" />
+                            <line x1="17" y1="4" x2="13" y2="20" />
+                          </svg>
+                          Lorem
+                        </a>
+                      </td>
+                      <td>
+                        <span
+                          className="avatar avatar-sm"
+                          style={{
+                            backgroundImage:
+                              "url('https://www.pngrepo.com/download/26474/avatar.png')",
+                          }}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="w-1 pe-0">
+                        <input
+                          type="checkbox"
+                          className="form-check-input m-0 align-middle"
+                          aria-label="Select task"
+                          defaultChecked
+                        />
+                      </td>
+                      <td className="w-100">
+                        <a href="#" className="text-reset">
+                          Lorem ipsum dolor sit amet
+                        </a>
+                      </td>
+                      <td className="text-nowrap text-muted">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon"
+                          width={24}
+                          height={24}
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <rect x={4} y={5} width={16} height={16} rx={2} />
+                          <line x1={16} y1={3} x2={16} y2={7} />
+                          <line x1={8} y1={3} x2={8} y2={7} />
+                          <line x1={4} y1={11} x2={20} y2={11} />
+                          <line x1={11} y1={15} x2={12} y2={15} />
+                          <line x1={12} y1={15} x2={12} y2={18} />
+                        </svg>
+                        February 25, 2021
+                      </td>
+                      {/* <td className="text-nowrap">
+                        <a href="#" className="text-muted">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 12l5 5l10 -10" />
+                          </svg>
+                          2/7
+                        </a>
+                      </td> */}
+                      <td className="text-nowrap">
+                        <a href="#" className="text-muted">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="icon"
+                            width={24}
+                            height={24}
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <line x1="5" y1="9" x2="19" y2="9" />
+                            <line x1="5" y1="15" x2="19" y2="15" />
+                            <line x1="11" y1="4" x2="7" y2="20" />
+                            <line x1="17" y1="4" x2="13" y2="20" />
+                          </svg>
+                          Lorem
+                        </a>
+                      </td>
+                      <td>
+                        <span
+                          className="avatar avatar-sm"
+                          style={{
+                            backgroundImage:
+                              "url('https://www.pngrepo.com/download/26474/avatar.png')",
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="row row-deck row-cards">
+                <div className="col-sm-6 col-lg-3 --tasks-col-sm-6">
+                  <div className="dropdown">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-square btn-primary"
+                      data-bs-toggle="dropdown"
+                    >
+                      ROOM FILTER
+                    </button>
+                    <div className="dropdown-menu">
+                      {filterRooms.map((filterRoom, index) => (
+                        <a className="dropdown-item" href="javascript:void(0)">
+                          {filterRoom.roomName}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="dropdown">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-square btn-primary"
+                      data-bs-toggle="dropdown"
+                    >
+                      PRIORITY FILTER
+                    </button>
+                    <div className="dropdown-menu">
+                      <a className="dropdown-item" href="#">
+                        Low to High
+                      </a>
+                      <a className="dropdown-item" href="#">
+                        High to Low
+                      </a>
+                    </div>
+                  </div>
+                  <div className="dropdown">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-square btn-primary"
+                      data-bs-toggle="dropdown"
+                    >
+                      DEADLINE FILTER
+                    </button>
+                    <div className="dropdown-menu">
+                      <a className="dropdown-item" href="#">
+                        Most to Least
+                      </a>
+                      <a className="dropdown-item" href="#">
+                        Least to Most
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="card-body border-bottom py-3">
                 <div className="d-flex">
                   <div className="text-muted">
@@ -171,7 +472,7 @@ export default function Tasks() {
                       <input
                         type="text"
                         className="form-control form-control-sm"
-                        defaultValue={1}
+                        defaultValue={0}
                         size={3}
                         aria-label="Tasks count"
                         disabled
@@ -196,18 +497,13 @@ export default function Tasks() {
               <table className="table card-table table-vcenter text-nowrap datatable">
                 <thead>
                   <tr>
-                    <th className="w-1">
-                      {/* <input
-                      className="form-check-input m-0 align-middle"
-                      type="checkbox"
-                      aria-label="Select all invoices"
-                    /> */}
-                    </th>
+                    <th className="w-1"></th>
                     <th>Subject</th>
                     <th>Assigned</th>
                     <th>Deadline</th>
                     <th>Reporter</th>
                     <th>Priority</th>
+                    <th>Room</th>
                     <th>Document group</th>
                     <th className="w-1" />
                   </tr>
@@ -224,20 +520,23 @@ export default function Tasks() {
                       </td>
                       <td>
                         <a
-                          href="javascript:void(0)"
                           className="text-reset"
-                          tabIndex={-1}
+                          href="javascript:void"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modal-task-description"
+                          onClick={() =>
+                            handleOpenTaskDescriptionModal(task.cardBody)
+                          }
                         >
                           {task.cardTitle}
                         </a>
                       </td>
-
                       <td>{task.cardCreatedDate}</td>
                       <td>{task.cardDeadline}</td>
                       <td>{task.cardReporter}</td>
                       <td>{task.cardPriority}</td>
+                      <td>{task.cardRoomName}</td>
                       <td>{task.cardDocumentGroup}</td>
-
                       <td className="text-end">
                         <span className="dropdown">
                           <button
@@ -248,14 +547,22 @@ export default function Tasks() {
                             Actions
                           </button>
                           <div className="dropdown-menu dropdown-menu-end">
-                            <a className="dropdown-item" href="#">
-                              Open
+                            <a
+                              className="dropdown-item"
+                              href="javascript:void(0)"
+                              onClick={() =>
+                                handleGetTaskColumns(task.cardRoomId)
+                              }
+                              data-bs-toggle="modal"
+                              data-bs-target="#modal-task-update"
+                            >
+                              Update Task
                             </a>
-                            <a className="dropdown-item" href="#">
-                              Update
-                            </a>
-                            <a className="dropdown-item" href="#">
-                              Remove
+                            <a
+                              className="dropdown-item"
+                              href="javascript:void(0)"
+                            >
+                              Remove Task
                             </a>
                           </div>
                         </span>
@@ -268,6 +575,11 @@ export default function Tasks() {
           </div>
         </div>
       </div>
+      <TaskDescriptionModal
+        taskRoom={taskRoom}
+        taskDescription={taskDescription}
+      />
+      <TaskUpdateModal taskColumns={taskColumns} />
     </div>
   );
 }

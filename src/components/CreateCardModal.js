@@ -3,12 +3,9 @@ import db from "../adapters/firebase";
 import { useParams } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
 import firebase from "firebase";
-import {
-  CurrentUserDetailsContext,
-  useCurrentUserDetails,
-} from "../contexts/CurrentUserDetailsContext";
+import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
-function CreateCardModal({ columnId }) {
+function CreateCardModal({ taskRoomId, roomName, columnId }) {
   const { currentUser, currentDate } = useStateValue();
   const cardTitle = useRef("");
   const cardBody = useRef("");
@@ -45,6 +42,8 @@ function CreateCardModal({ columnId }) {
           cardReporter: currentUserEmail,
           cardDocumentGroup: cardDocumentGroup.current.value,
           cardCreatedDate: currentDate,
+          cardRoomName: roomName,
+          cardRoomId: taskRoomId,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         .then(() => console.log("Card added"))
@@ -75,7 +74,8 @@ function CreateCardModal({ columnId }) {
           cardReporter: currentUserEmail,
           cardDocumentGroup: cardDocumentGroup.current.value,
           cardCreatedDate: currentDate,
-          
+          cardRoomName: roomName,
+          cardRoomId: taskRoomId,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     }

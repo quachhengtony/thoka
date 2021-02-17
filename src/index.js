@@ -10,8 +10,8 @@ import { CurrentUserDetailsProvider } from "./contexts/CurrentUserDetailsContext
 // import "@tabler/core/dist/css/demo.css";
 import "@tabler/core/dist/css/tabler.min.css";
 import "@tabler/core/dist/js/tabler.min.js";
-// import "@tabler/core/dist/css/demo.css";
-import "./styles/thokaweb.css";
+import "@tabler/core/dist/css/demo.css";
+// import "./styles/thokaweb.css";
 
 ReactDOM.render(
   <React.StrictMode>

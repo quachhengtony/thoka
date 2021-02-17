@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import firebase from "firebase";
 
@@ -12,6 +12,7 @@ import ViewCardModal from "./ViewCardModal";
 function Board() {
   const [columns, setColumns] = useState([]);
   const { workspaceId, roomId } = useParams();
+  const [roomDetails, setRoomDetails] = useState([]);
   // const [cardBody, setCardBody] = useState("");
   const history = useHistory();
   const [columnId, setColumnId] = useState("");
@@ -165,6 +166,18 @@ function Board() {
             name: doc.data().name,
           }))
         )
+      );
+
+    db.collection("workspaces")
+      .doc(workspaceId)
+      .collection("rooms")
+      .doc(roomId)
+      .get()
+      .then((doc) =>
+        setRoomDetails({
+          roomId: doc.id,
+          roomName: doc.data().roomName,
+        })
       );
   }, []);
 
@@ -327,7 +340,11 @@ function Board() {
         columns={columns}
         handleChangeCardStatus={handleChangeCardStatus}
       />
-      <CreateCardModal columnId={columnId} />
+      <CreateCardModal
+        taskRoomId={roomDetails.roomId}
+        roomName={roomDetails.roomName}
+        columnId={columnId}
+      />
     </div>
   );
 }

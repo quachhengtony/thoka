@@ -1,24 +1,8 @@
-import { useState, useEffect } from "react";
 import "../styles/ViewCardModal.css";
-import db from "../adapters/firebase";
-import { useParams } from "react-router-dom";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function ViewCardModal(props) {
-  const { workspaceId, roomId } = useParams();
   const { currentUserEmail } = useCurrentUserDetails();
-
-  // useEffect(() => {
-  //   db.collection("workspaces")
-  //     .doc(workspaceId)
-  //     .collection("rooms")
-  //     .doc(roomId)
-  //     .collection("columns")
-  //     .orderBy("timestamp", "asc")
-  //     .onSnapshot((snapshot) =>
-  //       setColumns(snapshot.docs.map((doc) => doc.data()))
-  //     );
-  // }, []);
 
   return (
     <div
@@ -50,7 +34,7 @@ function ViewCardModal(props) {
               </div>
               <div>
                 <h4>
-                  Created:{" "}
+                  Assigned:{" "}
                   <span className="text-muted">{props.cardCreatedDate}</span>
                 </h4>
               </div>

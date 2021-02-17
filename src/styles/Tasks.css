@@ -12,6 +12,10 @@
   border-top: 3px solid #206bc4;
 }
 
+.--tasks-today-table {
+  height: 20vh;
+}
+
 .--tasks-table {
   /* border-top: 3px solid #206BC4; */
   height: 50vh;

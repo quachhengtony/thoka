@@ -172,9 +172,7 @@ function PrivateTopbar() {
               </a>
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-card">
                 <div className="card">
-                  <div className="card-body">
-                    This is a work in progress pre-alpha. Our website is under construction and everything is subject to change. Follow us for updates.
-                  </div>
+                  <div className="card-body">notifications</div>
                 </div>
               </div>
             </div>
