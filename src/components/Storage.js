@@ -543,7 +543,6 @@ export default function Storage() {
     <div className="storage">
       <div className="content">
         <div className="container-xl">
-
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col">
@@ -552,29 +551,12 @@ export default function Storage() {
                   Share and manage documents
                 </div>
               </div>
-              
             </div>
           </div>
-
           <div className="--storage-header-card">
             <div className="card-body">
               <div>
                 <div class="form-label">Document group:</div>
-                {/* <select
-              class="form-select"
-              value={groupToGetFiles}
-              defaultValue={groupToGetFiles}
-              onChange={(e) => {
-                getFiles(e.target.value);
-                setGroupToUpload(e.target.value);
-              }}
-            >
-              {storageGroups.map((storageGroup, index) => (
-                <option value={storageGroup.groupName}>
-                  {storageGroup.groupName}
-                </option>
-              ))}
-            </select> */}
                 <select
                   className="form-select"
                   ref={groupToGetFiles}

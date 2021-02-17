@@ -294,7 +294,7 @@ function Sidebar() {
           </svg>
           Tasks
         </a>
-        <a href="javascript:void(0)" className="dropdown-item">
+        <a href="javascript:void(0)" className="dropdown-item" onClick={() => history.push(`/workspace/${workspaceId}/inbox`)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon dropdown-item-icon"

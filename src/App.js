@@ -66,6 +66,9 @@ function App() {
             <Sidebar />
             <Tasks />
           </PrivateRoute>
+          <PrivateRoute path="/workspace/:workspaceId/inbox">
+            <Sidebar />
+          </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/undefined/chat">
             <Sidebar />
           </PrivateRoute>
