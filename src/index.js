@@ -5,16 +5,20 @@ import App from "./App";
 import { StateProvider } from "./contexts/StateProvider";
 import { CurrentUserDetailsProvider } from "./contexts/CurrentUserDetailsContext";
 // import reducer, { initialState } from './reducer';
+// import "@tabler/core/dist/css/tabler.min.css";
+// import "@tabler/core/dist/js/tabler.min.js";
+// import "@tabler/core/dist/css/demo.css";
 import "@tabler/core/dist/css/tabler.min.css";
 import "@tabler/core/dist/js/tabler.min.js";
-import "@tabler/core/dist/css/demo.css";
+// import "@tabler/core/dist/css/demo.css";
+import "./styles/thokaweb.css";
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <StateProvider initialState={initialState} reducer={reducer}> */}
     <StateProvider>
       <CurrentUserDetailsProvider>
-      <App />
+        <App />
       </CurrentUserDetailsProvider>
     </StateProvider>
   </React.StrictMode>,
