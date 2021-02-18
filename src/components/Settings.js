@@ -6,7 +6,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import firebase from "firebase";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
-function Settings() {
+function Settings(props) {
   const { workspaceId } = useParams();
 
   const [rooms, setRooms] = useState([]);
@@ -215,7 +215,7 @@ function Settings() {
   }, []);
 
   return (
-    <div className="settings">
+    <div className="settings" id="settingsPanel" style={{ width: props.settingsPanelWidth }}>
       <div className="content">
         <div className="container-xl">
           <div className="page-header">

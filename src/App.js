@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import Sidebar from "./components/Sidebar";
@@ -22,6 +23,48 @@ import WorkspaceOverview from "./components/WorkspaceOverview";
 import Tasks from "./components/Tasks";
 
 function App() {
+  var rightBar = null;
+  // var chatPanel = null;
+  // var boardPanel = null;
+  // var tasksPanel = null;
+  // var overviewPanel = null;
+  // var overviewPanel = null;
+  const [rightBarDisplay, setRighbarDisplay] = useState("");
+  const [chatPanelWidth, setChatPanelWidth] = useState("");
+  const [boardPanelWidth, setBoardPanelWidth] = useState("");
+  const [tasksPanelWidth, setTasksPanelWidth] = useState("");
+  const [overviewPanelWidth, setOverviewPanelWidth] = useState("");
+  const [settingsPanelWidth, setSettingsPanelWidth] = useState("");
+  const [storagePanelWidth, setStoragePanelWidth] = useState("");
+
+  const handleHideRightbar = () => {
+    rightBar = document.querySelector("#rightBar");
+    // chatPanel = document.querySelector("#chatPanel");
+    // boardPanel = document.querySelector("#boardPanel");
+    // tasksPanel = document.querySelector("#tasksPanel");
+    // overviewPanel = document.querySelector("#overviewPanel");
+
+    if (rightBar.style.display === "") {
+      rightBar.style.display = "none";
+      setRighbarDisplay("none");
+      setBoardPanelWidth("97vw");
+      setChatPanelWidth("97vw");
+      setTasksPanelWidth("97vw");
+      setOverviewPanelWidth("97vw");
+      setSettingsPanelWidth("97vw");
+      setStoragePanelWidth("97vw");
+    } else {
+      rightBar.style.display = "";
+      setRighbarDisplay("");
+      setChatPanelWidth("78vw");
+      setBoardPanelWidth("78vw");
+      setTasksPanelWidth("78vw");
+      setOverviewPanelWidth("78vw");
+      setSettingsPanelWidth("78vw");
+      setStoragePanelWidth("78vw");
+    }
+  };
+
   return (
     <Router>
       <div className="app">
@@ -59,56 +102,56 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/overview">
-            <Sidebar />
-            <WorkspaceOverview />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <WorkspaceOverview overviewPanelWidth={overviewPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/tasks">
-            <Sidebar />
-            <Tasks />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Tasks tasksPanelWidth={tasksPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/inbox">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/undefined/chat">
             <Sidebar />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/:roomId/chat">
-            <Sidebar />
-            <Chat />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Chat chatPanelWidth={chatPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/:roomId/board">
-            <Sidebar />
-            <Board />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Board boardPanelWidth={boardPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/:roomId/schedule">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
             <Schedule />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/timeline">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
             <Timeline />
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/reports">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/search">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/links">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/account">
-            <Sidebar />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/storage">
-            <Sidebar />
-            <Storage />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Storage storagePanelWidth={storagePanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/settings">
-            <Sidebar />
-            <Settings />
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Settings settingsPanelWidth={settingsPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/:roomId/video/:videoId">
             <RoomVideoConference />

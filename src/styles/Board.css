@@ -1,6 +1,8 @@
 .board {
   width: 78vw;
   float: right;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .--board-chat {

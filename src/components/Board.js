@@ -9,7 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 import CreateCardModal from "./CreateCardModal";
 import ViewCardModal from "./ViewCardModal";
 
-function Board() {
+function Board(props) {
   const [columns, setColumns] = useState([]);
   const { workspaceId, roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState([]);
@@ -182,7 +182,7 @@ function Board() {
   }, []);
 
   return (
-    <div className="board">
+    <div className="board" id="board" style={{ width: props.boardPanelWidth }}>
       <div className="card card-sm --board-chat">
         <ul class="nav nav-tabs nav-tabs-alt" data-bs-toggle="tabs">
           <li class="nav-item">

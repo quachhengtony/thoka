@@ -7,7 +7,7 @@ import TaskDescriptionModal from "./TaskDescriptionModal";
 import { ColorPaletteMenuWithoutAnalytics } from "@atlaskit/color-picker";
 import TaskUpdateModal from "./TaskUpdateModal";
 
-export default function Tasks() {
+export default function Tasks(props) {
   const { workspaceId, roomId } = useParams();
   const [tasks, setTasks] = useState([]);
   const [filterRooms, setFilterRooms] = useState([]);
@@ -59,7 +59,7 @@ export default function Tasks() {
   }, []);
 
   return (
-    <div className="tasks">
+    <div className="tasks" id="tasksPanel" style={{ width: props.tasksPanelWidth }}>
       <div className="content">
         <div className="container-xl">
           <div className="page-header">

@@ -401,7 +401,7 @@ import db, { storage } from "../adapters/firebase";
 import { useStateValue } from "../contexts/StateProvider";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
-export default function Storage() {
+export default function Storage(props) {
   const { currentUser, currentDate } = useStateValue();
   const {
     currentUserName,
@@ -540,7 +540,7 @@ export default function Storage() {
   }, []);
 
   return (
-    <div className="storage">
+    <div className="storage" id="storagePanel" style={{ width: props.storagePanelWidth }}>
       <div className="content">
         <div className="container-xl">
           <div className="page-header">

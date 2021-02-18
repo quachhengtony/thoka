@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
-export default function WorkspaceOverview() {
+export default function WorkspaceOverview(props) {
   const { workspaceId } = useParams();
   const [workspaceDetails, setWorkspaceDetails] = useState([]);
   const [workspaceUsers, setWorkspaceUsers] = useState([]);
@@ -37,7 +37,7 @@ export default function WorkspaceOverview() {
   }, []);
 
   return (
-    <div className="workspaceoverview">
+    <div className="workspaceoverview" id="overviewPanel" style={{ width: props.overviewPanelWidth }}>
       <div className="content">
         <div className="container-xl">
           <div className="page-header d-print-none">

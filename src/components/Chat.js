@@ -6,7 +6,7 @@ import db from "../adapters/firebase";
 import Message from "./Message";
 import ChatInput from "./ChatInput";
 
-function Chat() {
+function Chat(props) {
   const { roomId, workspaceId } = useParams();
   const [roomDetails, setRoomDetails] = useState([]);
   const [roomMessages, setRoomMessages] = useState([]);
@@ -32,7 +32,7 @@ function Chat() {
   }, [roomId]);
 
   return (
-    <div className="chat">
+    <div className="chat" id="chat" style={{ width: props.chatPanelWidth }}>
       <div className="card card-sm card-chat">
         <ul class="nav nav-tabs nav-tabs-alt" data-bs-toggle="tabs">
           <li class="nav-item">
