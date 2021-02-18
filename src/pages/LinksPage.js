@@ -52,7 +52,7 @@ function LinksPage() {
               <div className="col">
                 <h2 className="page-title">Links</h2>
                 <div className="text-muted mt-1">
-                  Workspaces you are linked to
+                  Your team workspaces
                 </div>
               </div>
               <div className="col-auto ms-auto d-print-none">

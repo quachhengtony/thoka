@@ -9,7 +9,7 @@ export default function ActivitiesPage() {
             <div className="col">
               <h2 className="page-title">Activities</h2>
               <div className="text-muted mt-1">
-                Mentions, tasks with high priority and private messages
+                Mentions, tasks and private messages
               </div>
             </div>
             <div className="col-auto ms-auto d-print-none">
