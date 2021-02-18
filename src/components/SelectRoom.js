@@ -19,13 +19,6 @@ function SelectRoom({ text, id }) {
   };
 
   useEffect(() => {
-    // let myBtns = document.querySelectorAll(".room-dropdwon-item");
-    // myBtns.forEach(function (btn) {
-    //   btn.addEventListener("click", () => {
-    //     myBtns.forEach((b) => b.classList.remove("active"));
-    //     btn.classList.add("active");
-    //   });
-    // });
     let myBtns = document.querySelectorAll(".dropdown-item");
     myBtns.forEach(function (btn) {
       btn.addEventListener("click", () => {
@@ -33,7 +26,7 @@ function SelectRoom({ text, id }) {
         btn.classList.add("active");
       });
     });
-  }, [])
+  }, []);
 
   return (
     <a
@@ -56,10 +49,7 @@ function SelectRoom({ text, id }) {
         strokeLinejoin="round"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <line x1="5" y1="9" x2="19" y2="9" />
-        <line x1="5" y1="15" x2="19" y2="15" />
-        <line x1="11" y1="4" x2="7" y2="20" />
-        <line x1="17" y1="4" x2="13" y2="20" />
+        <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
       </svg>
       {text || "..."}
       <span class="badge bg-primary ms-auto"></span>

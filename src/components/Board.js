@@ -186,6 +186,26 @@ function Board() {
       <div className="card card-sm --board-chat">
         <ul class="nav nav-tabs nav-tabs-alt" data-bs-toggle="tabs">
           <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" data-bs-toggle="tab">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon me-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12.077 20h-5.077v-16h11v14h-5.077" />
+              </svg>
+              Page
+            </a>
+          </li>
+          <li class="nav-item">
             <a
               onClick={() =>
                 history.push(`/workspace/${workspaceId}/room/${roomId}/chat`)
@@ -242,7 +262,32 @@ function Board() {
             </a>
           </li>
           <li class="nav-item">
-            <a href="#tabs-profile-ex6" class="nav-link" data-bs-toggle="tab">
+            <a class="nav-link" href="javascript:void(0)" data-bs-toggle="tab">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon me-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="9" y1="6" x2="20" y2="6" />
+                <line x1="9" y1="12" x2="20" y2="12" />
+                <line x1="9" y1="18" x2="20" y2="18" />
+                <line x1="5" y1="6" x2="5" y2="6.01" />
+                <line x1="5" y1="12" x2="5" y2="12.01" />
+                <line x1="5" y1="18" x2="5" y2="18.01" />
+              </svg>
+              Discussion
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:void(0)" class="nav-link" data-bs-toggle="tab">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon me-2"
