@@ -119,7 +119,7 @@ function CreateWorkpsaceModal(props) {
                 type="text"
                 className="form-control"
                 name="example-text-input"
-                placeholder="Your workspace's name"
+                placeholder="Name"
                 ref={workspaceName}
               />
             </div>
@@ -156,6 +156,7 @@ function CreateWorkpsaceModal(props) {
                     name="report-type"
                     defaultValue={1}
                     className="form-selectgroup-input"
+                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -173,7 +174,6 @@ function CreateWorkpsaceModal(props) {
                 </label>
               </div>
             </div>
-
             <div className="form-selectgroup-boxes row mb-3">
             <div className="col-lg-6">
                 <label className="form-selectgroup-item">
@@ -181,6 +181,7 @@ function CreateWorkpsaceModal(props) {
                     type="radio"
                     defaultValue={1}
                     className="form-selectgroup-input"
+                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -191,7 +192,6 @@ function CreateWorkpsaceModal(props) {
                         More workspace templates
                       </span>
                       <span className="d-block text-muted">
-                        
                       </span>
                     </span>
                   </span>
@@ -276,14 +276,13 @@ function CreateWorkpsaceModal(props) {
             </div>
           </div> */}
           <div className="modal-footer">
-            <a
-              href="#"
-              className="btn btn-link link-secondary"
+            <button
+              className="btn link-secondary"
               data-bs-dismiss="modal"
             >
               Cancel
-            </a>
-            <a
+            </button>
+            <button
               className="btn btn-primary ms-auto"
               data-bs-dismiss="modal"
               onClick={handleCreateWorkspace}
@@ -305,7 +304,7 @@ function CreateWorkpsaceModal(props) {
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
               Create new workspace
-            </a>
+            </button>
           </div>
         </div>
       </div>

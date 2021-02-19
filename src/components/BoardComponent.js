@@ -9,7 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 import CreateCardModal from "./CreateCardModal";
 import ViewCardModal from "./ViewCardModal";
 
-function Board(props) {
+function BoardComponent(props) {
   const [columns, setColumns] = useState([]);
   const { workspaceId, roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState([]);
@@ -42,7 +42,6 @@ function Board(props) {
       .delete()
       .then((doc) => {
         console.log("Card deleted");
-
         db.collection("workspaces")
           .doc(workspaceId)
           .collection("rooms")
@@ -88,70 +87,6 @@ function Board(props) {
     }
   };
 
-  // const onDragStart = (result) => {
-  //   db.collection("workspaces")
-  //     .doc(workspaceId)
-  //     .collection("rooms")
-  //     .doc(roomId)
-  //     .collection("columns")
-  //     .doc(result.source.droppableId)
-  //     .collection("cards")
-  //     .doc(result.draggableId)
-  //     .get()
-  //     .then((doc) => {
-  //       setCardBody(doc.data().body);
-  //       console.log("Card copied");
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // const onDragEnd = (result) => {
-  //   var cardPromise = new Promise((resolve, reject) => {
-  //     if (result.destination.droppableId != result.source.droppableId) {
-  //       resolve();
-  //     } else if (result.destination.droppableId == result.source.droppableId) {
-  //       return;
-  //     } else {
-  //       return;
-  //     }
-  //   });
-
-  //   cardPromise
-  //     .then(() => {
-  //       db.collection("workspaces")
-  //         .doc(workspaceId)
-  //         .collection("rooms")
-  //         .doc(roomId)
-  //         .collection("columns")
-  //         .doc(result.source.droppableId)
-  //         .collection("cards")
-  //         .doc(result.draggableId)
-  //         .delete()
-  //         .then(() => {
-  //           console.log("Card deleted");
-  //         })
-  //         .catch((err) => console.log(err));
-  //     })
-  //     .then(() => {
-  //       db.collection("workspaces")
-  //         .doc(workspaceId)
-  //         .collection("rooms")
-  //         .doc(roomId)
-  //         .collection("columns")
-  //         .doc(result.destination.droppableId)
-  //         .collection("cards")
-  //         .add({
-  //           body: cardBody,
-  //           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //         })
-  //         .then(() => console.log("Card added"))
-  //         .catch((err) => console.log(err));
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   useEffect(() => {
     db.collection("workspaces")
       .doc(workspaceId)
@@ -179,71 +114,10 @@ function Board(props) {
           roomName: doc.data().roomName,
         })
       );
-  }, [roomId]);
+  }, [props.roomId]);
 
   return (
-    <div className="board" id="board" style={{ width: props.boardPanelWidth }}>
-      <div className="card card-sm --board-chat">
-        <ul class="nav nav-tabs nav-tabs-alt" data-bs-toggle="tabs">
-          <li class="nav-item">
-            <a
-              onClick={() =>
-                history.push(`/workspace/${workspaceId}/room/${roomId}/board`)
-              }
-              class="nav-link"
-              data-bs-toggle="tab"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon me-2"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <line x1="4" y1="4" x2="10" y2="4" />
-                <line x1="14" y1="4" x2="20" y2="4" />
-                <rect x="4" y="8" width="6" height="12" rx="2" />
-                <rect x="14" y="8" width="6" height="6" rx="2" />
-              </svg>
-              {roomDetails ? roomDetails.roomName : "..."}
-            </a>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Filter
-            </a>
-            <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div className="board" id="board" style={{ width: props.projectRoomPanelWidth }}>
       <DragDropContext
       // onDragStart={(result) => onDragStart(result)}
       // onDragEnd={(result) => onDragEnd(result)}
@@ -326,4 +200,4 @@ function Board(props) {
   );
 }
 
-export default Board;
+export default BoardComponent;

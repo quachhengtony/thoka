@@ -61,7 +61,7 @@ function ListCard(props) {
           }))
         )
       );
-  }, []);
+  }, [props.columnId]);
 
   return (
     <>

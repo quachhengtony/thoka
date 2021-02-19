@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-
 import "../styles/Sidebar.css";
 import db from "../adapters/firebase";
 import { useHistory, useParams } from "react-router-dom";
@@ -36,6 +35,7 @@ function Sidebar(props) {
           snapshot.docs.map((doc) => ({
             roomId: doc.id,
             roomName: doc.data().roomName,
+            roomType: doc.data().roomType,
           }))
         )
       );
@@ -54,7 +54,7 @@ function Sidebar(props) {
 
   useEffect(() => {
     let myBtns = document.querySelectorAll(".dropdown-item");
-    myBtns.forEach(function (btn) {
+    myBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         myBtns.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
@@ -63,7 +63,7 @@ function Sidebar(props) {
     db.collection("workspaces")
       .doc(workspaceId)
       .get()
-      .then(function (doc) {
+      .then((doc) => {
         setWorkspaceName(doc.data().workspaceName);
       });
     memoizedSetRooms();
@@ -83,15 +83,14 @@ function Sidebar(props) {
     <>
       <aside className="navbar navbar-vertical navbar-expand-lg sidebar">
         <div className="left" id="leftBar">
-          <a
-            href="javascript:void(0)"
+          <button
             onClick={() => history.push("/links")}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-skype"
+              className="icon icon-tabler icon-tabler-brand-skype"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -102,19 +101,20 @@ function Sidebar(props) {
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 3a9 9 0 0 1 8.603 11.65a4.5 4.5 0 0 1 -5.953 5.953a9 9 0 0 1 -11.253 -11.253a4.5 4.5 0 0 1 5.953 -5.954a8.987 8.987 0 0 1 2.65 -.396z" />
-              <path d="M8 14.5c.5 2 2.358 2.5 4 2.5c2.905 0 4 -1.187 4 -2.5c0 -1.503 -1.927 -2.5 -4 -2.5s-4 -.997 -4 -2.5c0 -1.313 1.095 -2.5 4 -2.5c1.642 0 3.5 .5 4 2.5" />
+              <line x1="5" y1="9" x2="19" y2="9" />
+              <line x1="5" y1="15" x2="19" y2="15" />
+              <line x1="11" y1="4" x2="7" y2="20" />
+              <line x1="17" y1="4" x2="13" y2="20" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/reports`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-file-report"
+              className="icon icon-tabler icon-tabler-file-report"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -125,21 +125,22 @@ function Sidebar(props) {
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <circle cx="17" cy="17" r="4" />
-              <path d="M17 13v4h4" />
-              <path d="M12 3v4a1 1 0 0 0 1 1h4" />
-              <path d="M11.5 21h-6.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v2m0 3v4" />
+              <circle cx="7" cy="7" r="4" />
+              <path d="M7 3v4h4" />
+              <line x1="9" y1="17" x2="9" y2="21" />
+              <line x1="17" y1="14" x2="17" y2="21" />
+              <line x1="13" y1="13" x2="13" y2="21" />
+              <line x1="21" y1="12" x2="21" y2="21" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/search`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-search"
+              className="icon icon-tabler icon-tabler-search"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -153,16 +154,15 @@ function Sidebar(props) {
               <circle cx="10" cy="10" r="7" />
               <line x1="21" y1="21" x2="15" y2="15" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/storage`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-files"
+              className="icon icon-tabler icon-tabler-files"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -173,20 +173,21 @@ function Sidebar(props) {
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 3v4a1 1 0 0 0 1 1h4" />
-              <path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2z" />
-              <path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" />
+              <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" />
+              <line x1="12" y1="12" x2="20" y2="7.5" />
+              <line x1="12" y1="12" x2="12" y2="21" />
+              <line x1="12" y1="12" x2="4" y2="7.5" />
+              <line x1="16" y1="5.25" x2="8" y2="9.75" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/settings`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-settings"
+              className="icon icon-tabler icon-tabler-settings"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -200,16 +201,15 @@ function Sidebar(props) {
               <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
               <circle cx="12" cy="12" r="3" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/links`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-link"
+              className="icon icon-tabler icon-tabler-link"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -223,16 +223,15 @@ function Sidebar(props) {
               <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
               <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
             </svg>
-          </a>
-          <a
-            href="javascript:void(0)"
+          </button>
+          <button
             onClick={() => history.push(`/workspace/${workspaceId}/account`)}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-user"
+              className="icon icon-tabler icon-tabler-user"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -246,18 +245,17 @@ function Sidebar(props) {
               <circle cx="12" cy="7" r="4" />
               <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
             </svg>
-          </a>
+          </button>
 
-          <a
-            href="javascript:void(0)"
+          <button
             onClick={props.handleHideRightbar}
-            class="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn"
             style={{ marginTop: "55vh" }}
             aria-label="Button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-user"
+              className="icon icon-tabler icon-tabler-user"
               width="64"
               height="64"
               viewBox="0 0 24 24"
@@ -273,7 +271,7 @@ function Sidebar(props) {
               <line x1="4" y1="12" x2="8" y2="8" />
               <line x1="20" y1="4" x2="20" y2="20" />
             </svg>
-          </a>
+          </button>
         </div>
 
         <div className="dropdown-menu dropdown-menu-demo right" id="rightBar">
@@ -360,32 +358,19 @@ function Sidebar(props) {
           <div className="dropdown-divider" />
           <h6 className="dropdown-header">Rooms</h6>
           {rooms.map((room, index) => (
-            <SelectRoom text={room.roomName} id={room.roomId} key={index} />
+            <SelectRoom
+              text={room.roomName}
+              id={room.roomId}
+              key={index}
+              roomType={room.roomType}
+            />
           ))}
           <h6 className="dropdown-header">People</h6>
-          {/* <a href="#" className="dropdown-item">
-          <span
-            className="avatar avatar-xs rounded me-2"
-            style={{ backgroundImage: "url(./static/avatars/000m.jpg)" }}
-          />
-          Paweł Kuna 
-          <span class="badge bg-red-lt ms-auto">red</span>
-        </a> */}
           <a href="javascript:void(0)" className="dropdown-item">
             <span className="avatar avatar-xs rounded me-2">T</span>
             {currentUserName}
-            <span class="badge bg-red-lt ms-auto">you</span>
+            <span className="badge bg-red-lt ms-auto">you</span>
           </a>
-          {/* <a href="javascript:void(0)" className="dropdown-item">
-          <span className="avatar avatar-xs rounded me-2">QH</span>
-          Quách Hêng Tôny
-          <span class="badge bg-green ms-auto"></span>
-        </a> */}
-          {/* <a href="javascript:void(0)" className="dropdown-item">
-          <span className="avatar avatar-xs rounded me-2">TQ</span>
-          Tôny Quách
-          <span class="badge bg-green ms-auto"></span>
-        </a> */}
           <div className="dropdown-divider" />
           <h6 className="dropdown-header">Actions</h6>
           <a
@@ -433,7 +418,6 @@ function Sidebar(props) {
             Logout
           </a>
         </div>
-        {/* </div> */}
       </aside>
       <CreateRoomModal />
     </>

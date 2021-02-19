@@ -1,0 +1,36 @@
+.projectRoom {
+  width: 78vw;
+  float: right;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.card-chat {
+  border-radius: 0 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.message__container {
+  padding-top: 10px;
+  height: 85vh;
+  overflow-y: scroll;
+}
+
+.--project-room-message-container {
+  margin: 0 !important;
+  /* border: 1px solid green; */
+}
+
+.--project-room-card-body {
+  padding: 0 !important;
+  background-color: #F4F6FA;
+}
+
+.chatinput__container {
+  margin-top: 10px;
+  padding: 0 10px 0;
+}

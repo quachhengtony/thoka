@@ -24,60 +24,71 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
 
   const handleAddCard = async () => {
     if (workspaceId && roomId && columnId) {
-      await db
-        .collection("workspaces")
-        .doc(workspaceId)
-        .collection("rooms")
-        .doc(roomId)
-        .collection("columns")
-        .doc(columnId)
-        .collection("cards")
-        .add({
-          cardTitle: cardTitle.current.value,
-          cardBody: cardBody.current.value,
-          cardPriority: cardPriority.current.value,
-          cardAssignee: cardAssignee.current.value,
-          cardDeadline: cardDeadline.current.value,
-          cardColor: cardColor,
-          cardReporter: currentUserEmail,
-          cardDocumentGroup: cardDocumentGroup.current.value,
-          cardCreatedDate: currentDate,
-          cardRoomName: roomName,
-          cardRoomId: taskRoomId,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        })
-        .then(() => console.log("Card added"))
-        .catch((error) => console.error(error));
+      if (
+        cardTitle.current.value !== "" &&
+        cardBody.current.value !== "" &&
+        cardPriority.current.value !== "" &&
+        cardAssignee.current.value !== "" &&
+        cardDeadline.current.value !== ""
+      ) {
+        await db
+          .collection("workspaces")
+          .doc(workspaceId)
+          .collection("rooms")
+          .doc(roomId)
+          .collection("columns")
+          .doc(columnId)
+          .collection("cards")
+          .add({
+            cardTitle: cardTitle.current.value,
+            cardBody: cardBody.current.value,
+            cardPriority: cardPriority.current.value,
+            cardAssignee: cardAssignee.current.value,
+            cardDeadline: cardDeadline.current.value,
+            cardColor: cardColor,
+            cardReporter: currentUserEmail,
+            cardDocumentGroup: cardDocumentGroup.current.value,
+            cardCreatedDate: currentDate,
+            cardRoomName: roomName,
+            cardRoomId: taskRoomId,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          })
+          .then(() => console.log("Card added"))
+          .catch((error) => console.error(error));
 
-      // db.collection("workspaces")
-      // .doc(workspaceId)
-      // .collection("users")
-      // .doc(currentUserEmail)
-      // .set({
-      //   userEmail: currentUserEmail,
-      //   userName: currentUserName,
-      //   timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      // })
+        // db.collection("workspaces")
+        // .doc(workspaceId)
+        // .collection("users")
+        // .doc(currentUserEmail)
+        // .set({
+        //   userEmail: currentUserEmail,
+        //   userName: currentUserName,
+        //   timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        // })
 
-      db.collection("workspaces")
-        .doc(workspaceId)
-        .collection("users")
-        .doc(cardAssignee.current.value)
-        .collection("tasks")
-        .add({
-          cardTitle: cardTitle.current.value,
-          cardBody: cardBody.current.value,
-          cardPriority: cardPriority.current.value,
-          cardAssignee: cardAssignee.current.value,
-          cardDeadline: cardDeadline.current.value,
-          cardColor: cardColor,
-          cardReporter: currentUserEmail,
-          cardDocumentGroup: cardDocumentGroup.current.value,
-          cardCreatedDate: currentDate,
-          cardRoomName: roomName,
-          cardRoomId: taskRoomId,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        });
+        db.collection("workspaces")
+          .doc(workspaceId)
+          .collection("users")
+          .doc(cardAssignee.current.value)
+          .collection("tasks")
+          .add({
+            cardTitle: cardTitle.current.value,
+            cardBody: cardBody.current.value,
+            cardPriority: cardPriority.current.value,
+            cardAssignee: cardAssignee.current.value,
+            cardDeadline: cardDeadline.current.value,
+            cardColor: cardColor,
+            cardReporter: currentUserEmail,
+            cardDocumentGroup: cardDocumentGroup.current.value,
+            cardCreatedDate: currentDate,
+            cardRoomName: roomName,
+            cardRoomId: taskRoomId,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+      }
+    } else {
+      alert("Please fill in all information required to create an item");
+      return
     }
   };
 
@@ -139,6 +150,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
                 ref={cardTitle}
                 className="form-control"
                 name="example-text-input"
+                required
               />
             </div>
             <div className="row">
@@ -183,6 +195,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
                     type="date"
                     ref={cardDeadline}
                     className="form-control"
+                    required
                   />
                 </div>
               </div>
@@ -196,6 +209,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
                   <select
                     className="form-select"
                     ref={cardDocumentGroup}
+                    required
                     // value={groupToGetFiles}
                     // defaultValue={groupToGetFiles}
                     // onChange={e => {
@@ -332,7 +346,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <label className="form-label">Priority</label>
-                  <select className="form-select" ref={cardPriority}>
+                  <select className="form-select" ref={cardPriority} required>
                     <option value="Normal" selected>
                       Normal
                     </option>
@@ -350,6 +364,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
                     ref={cardBody}
                     rows={3}
                     defaultValue={""}
+                    required
                   />
                 </div>
               </div>

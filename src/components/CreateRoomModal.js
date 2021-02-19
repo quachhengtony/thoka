@@ -39,7 +39,6 @@ export default function CreateRoomModal() {
       tabIndex={-1}
       role="dialog"
       aria-hidden="true"
-      //   style={{ paddingTop: "100px" }}
     >
       <div className="modal-dialog modal-lg" role="document">
         <div className="modal-content">
@@ -84,7 +83,7 @@ export default function CreateRoomModal() {
                         Project
                       </span>
                       <span className="d-block text-muted">
-                        Everything you need for a project in one place
+                        Everything you need to collaborate in one place
                       </span>
                     </span>
                   </span>
@@ -98,6 +97,7 @@ export default function CreateRoomModal() {
                     value="Discussion"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
+                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -175,6 +175,7 @@ export default function CreateRoomModal() {
                     value="Discussion"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
+                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -182,7 +183,7 @@ export default function CreateRoomModal() {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Discussion
+                        Discussions
                       </span>
                       <span className="d-block text-muted">
                         Organized, well articulated communication
@@ -199,6 +200,7 @@ export default function CreateRoomModal() {
                     value="Event"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
+                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -206,7 +208,7 @@ export default function CreateRoomModal() {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Event
+                        Events
                       </span>
                       <span className="d-block text-muted">
                         Planning ahead, scheduling, roadmap, timeline
@@ -216,19 +218,16 @@ export default function CreateRoomModal() {
                 </label>
               </div>
             </div>
-
             <div className="form-selectgroup-boxes row mb-3"></div>
           </div>
-
           <div className="modal-footer">
-            <a
-              href="#"
-              className="btn btn-link link-secondary"
+            <button
+              className="btn link-secondary"
               data-bs-dismiss="modal"
             >
               Cancel
-            </a>
-            <a
+            </button>
+            <button
               className="btn btn-primary ms-auto"
               data-bs-dismiss="modal"
               onClick={handleCreateRoom}
@@ -250,7 +249,7 @@ export default function CreateRoomModal() {
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
               Create new room
-            </a>
+            </button>
           </div>
         </div>
       </div>
