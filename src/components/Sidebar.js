@@ -84,7 +84,7 @@ function Sidebar(props) {
       <aside className="navbar navbar-vertical navbar-expand-lg sidebar">
         <div className="left" id="leftBar">
           <button
-            onClick={() => history.push("/links")}
+            onClick={() => history.push("/workspaces")}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
           >
@@ -101,10 +101,9 @@ function Sidebar(props) {
               stroke-linejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <line x1="5" y1="9" x2="19" y2="9" />
-              <line x1="5" y1="15" x2="19" y2="15" />
-              <line x1="11" y1="4" x2="7" y2="20" />
-              <line x1="17" y1="4" x2="13" y2="20" />
+                        <rect x="10" y="5" width="10" height="14" rx="2" />
+                        <line x1="7" y1="7" x2="7" y2="17" />
+                        <line x1="4" y1="8" x2="4" y2="16" />
             </svg>
           </button>
           <button

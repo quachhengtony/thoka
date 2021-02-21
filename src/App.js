@@ -238,18 +238,27 @@ function App() {
           <PrivateRoute path="/notifications">
             <PrivateTopbar />
           </PrivateRoute>
-          <PrivateRoute path="/links">
+          {/* <PrivateRoute path="/links">
             <PrivateTopbar />
             <LinksPage />
             <Footer />
-          </PrivateRoute>
+          </PrivateRoute> */}
           <PrivateRoute path="/activities">
             <PrivateTopbar />
             <ActivitiesPage />
           </PrivateRoute>
-          <PrivateRoute path="/b/dashboard">
+          <PrivateRoute path="/workspaces">
             <PrivateTopbar />
             <DashboardPage />
+          </PrivateRoute>
+          <PrivateRoute path="/home">
+            <PrivateTopbar />
+          </PrivateRoute>
+          <PrivateRoute path="/teams">
+            <PrivateTopbar />
+          </PrivateRoute>
+          <PrivateRoute path="/announcements">
+            <PrivateTopbar />
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/overview">
