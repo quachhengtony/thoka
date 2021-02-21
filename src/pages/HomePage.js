@@ -11,8 +11,22 @@ function HomePage() {
         <div className="container-xl">
           <div className="page-header">
             <div className="row align-items-center">
-              <h3>Thoka.io is an online workplace collaboration solution. Want to know more? Sign up.</h3>
-              <div
+              <h3>Phase 1 Thoka sẽ là:</h3>
+              <h5>
+                - Giải pháp cộng tác online <b>dễ dàng</b> nhất. Bắt đầu cộng tác chỉ với vài click chuột via
+                Workspaces, Activities. Workspaces thì có ABCDXYZ. Activities thì sẽ ABCDXYZ. (sản phẩm nền).
+              </h5>
+              <h5>- Mạng truyền thông nội bộ cho teams. Facebook page cho toàn startup (Home) và facebook groups riêng cho từng teams (Teams). Kênh tin tức, thông báo... (Announcements)</h5>
+              <h5>(PR tập trung vào Startups)</h5>
+              <h5>
+                <a
+                  href="javascript:void(0)"
+                  onClick={() => history.push("/workspaces")}
+                >
+                  Click me to go to your account if you are still signed in!
+                </a>
+              </h5>
+              {/* <div
                 className="alert alert-success alert-dismissible"
                 role="alert"
               >
@@ -30,7 +44,7 @@ function HomePage() {
                     Okay
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <div className="homepage__hero">

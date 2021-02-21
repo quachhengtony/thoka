@@ -370,8 +370,7 @@ function Topbar() {
           <div className="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="javascript:void(0)">
               <img
-                src={logo}
-                // src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
+                src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
                 width={110}
                 height={32}
                 alt="Thoka"

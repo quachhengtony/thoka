@@ -17,7 +17,7 @@ function SignInPage() {
     try {
       setIsSigningIn(true);
       await signIn(emailRef.current.value, passwordRef.current.value);
-      history.push("/links");
+      history.push("/workspaces");
       window.location.reload();
     } catch {
       setError("Failed to sign in.");

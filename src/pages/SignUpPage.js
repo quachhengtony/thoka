@@ -41,7 +41,7 @@ function SignUpPage() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
       await signUp(emailRef.current.value, passwordRef.current.value);
-      history.push("/links");
+      history.push("/workspaces");
       window.location.reload();
     } catch {
       setError("Failed to create account.");
