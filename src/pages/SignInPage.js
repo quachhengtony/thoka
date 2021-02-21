@@ -1,11 +1,13 @@
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 
 function SignInPage() {
   const history = useHistory();
   const { signIn } = useStateValue();
+  const { currentUserName } = useCurrentUserDetails();
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -24,6 +26,14 @@ function SignInPage() {
     }
     setIsSigningIn(false);
   };
+
+  useEffect(() => {
+    if (!currentUserName) {
+      return
+    } else {
+      history.push("/workspaces");
+    }
+  }, [])
 
   return (
     <div className="content">

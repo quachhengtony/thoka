@@ -4,7 +4,6 @@ import "../styles/Tasks.css";
 import db from "../adapters/firebase";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 import TaskDescriptionModal from "./TaskDescriptionModal";
-import { ColorPaletteMenuWithoutAnalytics } from "@atlaskit/color-picker";
 import TaskUpdateModal from "./TaskUpdateModal";
 
 export default function Tasks(props) {
@@ -67,7 +66,8 @@ export default function Tasks(props) {
               <div className="col">
                 <h2 className="page-title">Tasks</h2>
                 <div className="text-muted mt-1">
-                  Assigned tasks, details and related documents
+                  Những tasks được giao và chi tiết của nó
+                  {/* Assigned tasks and details */}
                 </div>
               </div>
               <div className="col-auto ms-auto d-print-none">
@@ -223,21 +223,14 @@ export default function Tasks(props) {
                 </div>
               </div>
             </div> */}
-              <div className="table-responsive --tasks-today-table">
+              {/* <div className="table-responsive --tasks-today-table">
                 <table className="table card-table table-vcenter">
                   <tbody>
+                  {tasks.map((task, index) => (
                     <tr>
-                      <td className="w-1 pe-0">
-                        <input
-                          type="checkbox"
-                          className="form-check-input m-0 align-middle"
-                          aria-label="Select task"
-                          defaultChecked
-                        />
-                      </td>
                       <td className="w-100">
                         <a href="#" className="text-reset">
-                          Lorem ipsum dolor sit amet
+                          {task.cardTitle}
                         </a>
                       </td>
                       <td className="text-nowrap text-muted">
@@ -263,26 +256,6 @@ export default function Tasks(props) {
                         </svg>
                         February 25, 2021
                       </td>
-                      {/* <td className="text-nowrap">
-                        <a href="#" className="text-muted">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon"
-                            width={24}
-                            height={24}
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M5 12l5 5l10 -10" />
-                          </svg>
-                          2/7
-                        </a>
-                      </td> */}
                       <td className="text-nowrap">
                         <a href="#" className="text-muted">
                           <svg
@@ -316,99 +289,10 @@ export default function Tasks(props) {
                         />
                       </td>
                     </tr>
-                    <tr>
-                      <td className="w-1 pe-0">
-                        <input
-                          type="checkbox"
-                          className="form-check-input m-0 align-middle"
-                          aria-label="Select task"
-                          defaultChecked
-                        />
-                      </td>
-                      <td className="w-100">
-                        <a href="#" className="text-reset">
-                          Lorem ipsum dolor sit amet
-                        </a>
-                      </td>
-                      <td className="text-nowrap text-muted">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="icon"
-                          width={24}
-                          height={24}
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                          <rect x={4} y={5} width={16} height={16} rx={2} />
-                          <line x1={16} y1={3} x2={16} y2={7} />
-                          <line x1={8} y1={3} x2={8} y2={7} />
-                          <line x1={4} y1={11} x2={20} y2={11} />
-                          <line x1={11} y1={15} x2={12} y2={15} />
-                          <line x1={12} y1={15} x2={12} y2={18} />
-                        </svg>
-                        February 25, 2021
-                      </td>
-                      {/* <td className="text-nowrap">
-                        <a href="#" className="text-muted">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon"
-                            width={24}
-                            height={24}
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M5 12l5 5l10 -10" />
-                          </svg>
-                          2/7
-                        </a>
-                      </td> */}
-                      <td className="text-nowrap">
-                        <a href="#" className="text-muted">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="icon"
-                            width={24}
-                            height={24}
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <line x1="5" y1="9" x2="19" y2="9" />
-                            <line x1="5" y1="15" x2="19" y2="15" />
-                            <line x1="11" y1="4" x2="7" y2="20" />
-                            <line x1="17" y1="4" x2="13" y2="20" />
-                          </svg>
-                          Lorem
-                        </a>
-                      </td>
-                      <td>
-                        <span
-                          className="avatar avatar-sm"
-                          style={{
-                            backgroundImage:
-                              "url('https://www.pngrepo.com/download/26474/avatar.png')",
-                          }}
-                        />
-                      </td>
-                    </tr>
+                  ))}
                   </tbody>
                 </table>
-              </div>
+              </div> */}
 
               <div className="row row-deck row-cards">
                 <div className="col-sm-6 col-lg-3 --tasks-col-sm-6">
@@ -418,7 +302,7 @@ export default function Tasks(props) {
                       className="btn btn-sm btn-square btn-primary"
                       data-bs-toggle="dropdown"
                     >
-                      ROOM FILTER
+                      Lọc theo room
                     </button>
                     <div className="dropdown-menu">
                       {filterRooms.map((filterRoom, index) => (
@@ -434,14 +318,14 @@ export default function Tasks(props) {
                       className="btn btn-sm btn-square btn-primary"
                       data-bs-toggle="dropdown"
                     >
-                      PRIORITY FILTER
+                      Lọc theo ưu tiên
                     </button>
                     <div className="dropdown-menu">
                       <a className="dropdown-item" href="#">
-                        Low to High
+                        Ưu tiên thấp tới cao
                       </a>
                       <a className="dropdown-item" href="#">
-                        High to Low
+                        Ưu tiên cao tới thấp
                       </a>
                     </div>
                   </div>
@@ -451,14 +335,14 @@ export default function Tasks(props) {
                       className="btn btn-sm btn-square btn-primary"
                       data-bs-toggle="dropdown"
                     >
-                      DEADLINE FILTER
+                      Lọc theo deadline
                     </button>
                     <div className="dropdown-menu">
                       <a className="dropdown-item" href="#">
-                        Most to Least
+                        Còn hạn nhiều nhất trước
                       </a>
                       <a className="dropdown-item" href="#">
-                        Least to Most
+                        Gần hết hạn nhất trước
                       </a>
                     </div>
                   </div>
@@ -467,7 +351,7 @@ export default function Tasks(props) {
               <div className="card-body border-bottom py-3">
                 <div className="d-flex">
                   <div className="text-muted">
-                    Found
+                    Tìm thấy
                     <div className="mx-2 d-inline-block">
                       <input
                         type="text"
@@ -497,27 +381,27 @@ export default function Tasks(props) {
               <table className="table card-table table-vcenter text-nowrap datatable">
                 <thead>
                   <tr>
-                    <th className="w-1"></th>
-                    <th>Subject</th>
-                    <th>Assigned</th>
+                    {/* <th className="w-1"></th> */}
+                    <th>Tiêu đề</th>
+                    <th>Được giao</th>
                     <th>Deadline</th>
-                    <th>Reporter</th>
-                    <th>Priority</th>
-                    <th>Room</th>
-                    <th>Document group</th>
+                    <th>Người giao</th>
+                    <th>Ưu tiên</th>
+                    <th>Phòng</th>
+                    <th>Nhóm tài liệu</th>
                     <th className="w-1" />
                   </tr>
                 </thead>
                 <tbody>
                   {tasks.map((task, index) => (
                     <tr key={index}>
-                      <td>
+                      {/* <td>
                         <input
                           className="form-check-input m-0 align-middle"
                           type="checkbox"
                           aria-label="Select tasks"
                         />
-                      </td>
+                      </td> */}
                       <td>
                         <a
                           className="text-reset"
@@ -544,7 +428,7 @@ export default function Tasks(props) {
                             data-bs-boundary="viewport"
                             data-bs-toggle="dropdown"
                           >
-                            Actions
+                            Thực hiện
                           </button>
                           <div className="dropdown-menu dropdown-menu-end">
                             <a
@@ -556,13 +440,13 @@ export default function Tasks(props) {
                               data-bs-toggle="modal"
                               data-bs-target="#modal-task-update"
                             >
-                              Update Task
+                              Cập nhật tiến trình
                             </a>
                             <a
                               className="dropdown-item"
                               href="javascript:void(0)"
                             >
-                              Remove Task
+                              Xóa task
                             </a>
                           </div>
                         </span>

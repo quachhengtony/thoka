@@ -121,7 +121,7 @@ function SelectRoom({ text, id, roomType }) {
             <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
           </svg>
           {text || "..."}
-          <span class="badge bg-primary ms-auto"></span>
+          {/* <span class="badge bg-primary ms-auto"></span> */}
         </a>
       ) : roomType === "Chat" ? (
         <a
@@ -148,7 +148,7 @@ function SelectRoom({ text, id, roomType }) {
             <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" />
           </svg>
           {text || "..."}
-          <span class="badge bg-primary ms-auto"></span>
+          {/* <span class="badge bg-primary ms-auto"></span> */}
         </a>
       ) : (
         <a
@@ -177,7 +177,7 @@ function SelectRoom({ text, id, roomType }) {
             <rect x="14" y="8" width="6" height="6" rx="2" />
           </svg>
           {text || "..."}
-          <span class="badge bg-primary ms-auto"></span>
+          {/* <span class="badge bg-primary ms-auto"></span> */}
         </a>
       )}
     </>

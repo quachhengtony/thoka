@@ -1,7 +1,9 @@
 .settings {
     width: 78vw;
     float: right;
-    padding: 0 25px 0;
+    height: 100vh;
+    /* padding: 0 25px 0; */
+    overflow-y: scroll;
 }
 
 .--settings-workspace-rename-card {

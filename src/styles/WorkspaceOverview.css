@@ -1,7 +1,9 @@
 .workspaceoverview {
     width: 78vw;
     float: right;
-    padding: 0 25px 0;
+    height: 100vh;
+    overflow-y: scroll;
+    /* padding: 0 25px 0; */
 }
 
 .--workspaceoverview-d-flex {

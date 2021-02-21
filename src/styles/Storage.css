@@ -1,7 +1,7 @@
 .storage {
   width: 78vw;
   float: right;
-  padding: 0 25px 0;
+  /* padding: 0 25px 0; */
 }
 
 .--storage-header-card {

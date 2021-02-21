@@ -1,7 +1,9 @@
 .tasks {
   width: 78vw;
   float: right;
-  padding: 0 25px 0;
+  height: 100vh;
+  /* padding: 0 10px 0; */
+  overflow-y: scroll;
 }
 
 .--tasks-container-xl {
@@ -9,11 +11,11 @@
 }
 
 .tasks-box {
-  border-top: 3px solid #206bc4;
+  /* border-top: 3px solid #206bc4; */
 }
 
 .--tasks-today-table {
-  height: 20vh;
+  /* height: 30vh; */
 }
 
 .--tasks-table {

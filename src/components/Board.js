@@ -222,23 +222,11 @@ function Board(props) {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Filter
+              Options
             </a>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
-              </a>
-              <a className="dropdown-item" href="#">
-                Lorem ipsuum dolor sit amet
+                Show my tasks only
               </a>
             </div>
           </li>

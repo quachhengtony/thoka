@@ -93,7 +93,7 @@ function ListCard(props) {
                     }}
                     data-bs-toggle="modal"
                     data-bs-target="#modal-card-details"
-                    style={{ border: `2px solid ${card.color}` }}
+                    style={{ borderTop: `2px solid ${card.color}` }}
                   >
                     <div className="card-body">
                       <p>{card.title}</p>
