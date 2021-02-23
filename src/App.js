@@ -179,6 +179,7 @@ import Footer from "./components/Footer";
 import WorkspaceOverview from "./components/WorkspaceOverview";
 import Tasks from "./components/Tasks";
 import ProjectRoom from "./components/ProjectRoom";
+import MaintenancePage from "./pages/MaintenancePage";
 
 function App() {
   var rightBar = null;
@@ -237,12 +238,8 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/notifications">
             <PrivateTopbar />
+            <MaintenancePage />
           </PrivateRoute>
-          {/* <PrivateRoute path="/links">
-            <PrivateTopbar />
-            <LinksPage />
-            <Footer />
-          </PrivateRoute> */}
           <PrivateRoute path="/activities">
             <PrivateTopbar />
             <ActivitiesPage />
@@ -253,12 +250,15 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/home">
             <PrivateTopbar />
+            <MaintenancePage />
           </PrivateRoute>
           <PrivateRoute path="/teams">
             <PrivateTopbar />
+            <MaintenancePage />
           </PrivateRoute>
           <PrivateRoute path="/announcements">
             <PrivateTopbar />
+            <MaintenancePage />
           </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/overview">

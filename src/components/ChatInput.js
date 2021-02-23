@@ -69,7 +69,7 @@ function ChatInput({ roomName, roomId, workspaceId }) {
         onKeyDown={sendMessageWithKey}
         type="text"
         className="form-control"
-        placeholder="Hi @Tony..."
+        placeholder=""
       />
       <a
         href="javascript:void(0)"

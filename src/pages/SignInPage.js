@@ -19,7 +19,7 @@ function SignInPage() {
     try {
       setIsSigningIn(true);
       await signIn(emailRef.current.value, passwordRef.current.value);
-      history.push("/workspaces");
+      history.push("/home");
       window.location.reload();
     } catch {
       setError("Failed to sign in.");
@@ -31,7 +31,7 @@ function SignInPage() {
     if (!currentUserName) {
       return
     } else {
-      history.push("/workspaces");
+      history.push("/home");
     }
   }, [])
 
