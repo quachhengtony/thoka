@@ -17,12 +17,11 @@
 
 .board__columnsContainer {
   display: flex;
-  height: 94vh;
-  /* min-width: 76vw; */
+  height: 95vh;
+  min-height: 95vh;
   overflow-y: hidden;
-  margin: 10px;
-  /* margin: 10px 25px 0; */
-  /* border: 1px solid blue; */
+  margin-left: 5px;
+  /* border: 1px solid red; */
 }
 
 .column__container {

@@ -25,7 +25,11 @@
 
 
 .chat {
-  width: 78vw;
+  /* width: 78vw; */
+  max-width: 78vw;
+  min-width: 78vw;
+  min-height: 100vh;
+  height: 100vh;
   float: right;
   margin: 0 !important;
   padding: 0 !important;

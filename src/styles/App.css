@@ -10,7 +10,12 @@
   --red-bg: #fef9f8;
   --atlassian-blue: #0052cc;
 }
-
+.app {
+  min-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+}
 /* .btn-primary {
   background-color: #0061FE !important;
 }
