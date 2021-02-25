@@ -134,7 +134,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
       >
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">New item</h5>
+            <h5 className="modal-title">Thẻ mới</h5>
             <button
               type="button"
               className="btn-close"
@@ -144,7 +144,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
           </div>
           <div className="modal-body">
             <div className="mb-3">
-              <label className="form-label">What needs to be done?</label>
+              <label className="form-label">Tiêu đề</label>
               <input
                 type="text"
                 ref={cardTitle}
@@ -156,7 +156,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
             <div className="row">
               <div className="col-lg-6">
                 <div className="mb-3">
-                  <label className="form-label">Assignee</label>
+                  <label className="form-label">Đảm nhiệm</label>
                   <select className="form-select" ref={cardAssignee} required>
                     {assignees.map((assignee, index) => (
                       <option key={index} value={`${assignee.userEmail}`}>
@@ -190,7 +190,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
               </div> */}
               <div className="col-lg-6">
                 <div className="mb-3">
-                  <label className="form-label">Deadline</label>
+                  <label className="form-label">Thời hạn</label>
                   <input
                     type="date"
                     ref={cardDeadline}
@@ -205,7 +205,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
             <div className="row">
               <div className="col-lg-6">
                 <div className="mb-3">
-                  <label className="form-label">Document group</label>
+                  <label className="form-label">Nhóm tài liệu</label>
                   <select
                     className="form-select"
                     ref={cardDocumentGroup}
@@ -227,12 +227,12 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
               </div>
               <div className="col-lg-6">
                 <div className="mb-3">
-                  <label className="form-label">Reporter</label>
+                  <label className="form-label">Người giao</label>
                   <input
                     type="text"
                     // ref={cardDocumentGroup}
                     className="form-control"
-                    placeholder={currentUserName + " (you)"}
+                    placeholder={currentUserName + " (bạn)"}
                     disabled
                   />
                 </div>
@@ -241,7 +241,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
               <div className="col-lg-6">
                 <div className="mb-3">
                   <div>
-                    <label className="form-label">Tag color</label>
+                    <label className="form-label">Thẻ màu</label>
                     <div className="row g-2">
                       <div className="col-auto">
                         <label className="form-colorinput form-colorinput-light">
@@ -345,7 +345,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
 
               <div className="col-lg-6">
                 <div className="mb-3">
-                  <label className="form-label">Priority</label>
+                  <label className="form-label">Ưu tiên</label>
                   <select className="form-select" ref={cardPriority} required>
                     <option value="Normal" selected>
                       Normal
@@ -358,7 +358,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
 
               <div className="col-lg-12">
                 <div>
-                  <label className="form-label">Description</label>
+                  <label className="form-label">Mô tả</label>
                   <textarea
                     className="form-control"
                     ref={cardBody}
@@ -376,7 +376,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
               className="btn btn-link link-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </a>
             <a
               className="btn btn-primary ms-auto"
@@ -399,7 +399,7 @@ function CreateCardModal({ taskRoomId, roomName, columnId }) {
                 <line x1={12} y1={5} x2={12} y2={19} />
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
-              Create new item
+              Tạo thẻ mới
             </a>
           </div>
         </div>
