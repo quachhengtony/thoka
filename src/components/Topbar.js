@@ -39,22 +39,22 @@ function Topbar() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a className="nav-link" href="javascript:void(0)">
-                    <span className="nav-link-title">Product</span>
+                    <span className="nav-link-title">Sản phẩm</span>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="javascript:void(0)">
-                    <span className="nav-link-title">Learn</span>
+                    <span className="nav-link-title">Tìm hiểu</span>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="javascript:void(0)">
-                    <span className="nav-link-title">Pricing</span>
+                    <span className="nav-link-title">Bảng giá</span>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="javascript:void(0)">
-                    <span className="nav-link-title">Contact</span>
+                    <span className="nav-link-title">Liên hệ</span>
                   </a>
                 </li>
               </ul>
@@ -67,7 +67,7 @@ function Topbar() {
                     href="javascript:void(0)"
                     onClick={() => history.push("/signin")}
                   >
-                    <span className="nav-link-title">Sign in</span>
+                    <span className="nav-link-title">Đăng nhập</span>
                   </a>
                 </li>
                 <li className="nav-item">
@@ -76,7 +76,7 @@ function Topbar() {
                     href="javascript:void(0)"
                     onClick={() => history.push("/signup")}
                   >
-                    <span className="nav-link-title">Sign up</span>
+                    <span className="nav-link-title">Đăng ký</span>
                   </a>
                 </li>
               </ul>

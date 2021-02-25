@@ -3,6 +3,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import logo from "../assets/thoka.png";
 
 function SignInPage() {
   const history = useHistory();
@@ -56,7 +57,7 @@ function SignInPage() {
           </a> */}
               <a href=".">
                 <img
-                  src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
+                  src={logo}
                   height={36}
                   alt="Thoka"
                 />
@@ -69,29 +70,29 @@ function SignInPage() {
             >
               <div className="card-body">
                 <h2 className="card-title text-center mb-4">
-                  Sign in to your account
+                  Đăng nhập vào tài khoản
                 </h2>
                 <div className="mb-3">
-                  <label className="form-label">Email address</label>
+                  <label className="form-label">Địa chỉ email</label>
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="Enter email"
+                    placeholder="Email"
                     ref={emailRef}
                   />
                 </div>
                 <div className="mb-2">
                   <label className="form-label">
-                    Password
+                    Mật khẩu
                     <span className="form-label-description">
-                      <a href="javascript:void(0)">I forgot password</a>
+                      <a href="javascript:void(0)">Quên mật khẩu</a>
                     </span>
                   </label>
                   <div className="input-group input-group-flat">
                     <input
                       type="password"
                       className="form-control"
-                      placeholder="Password"
+                      placeholder="Nhập mật khẩu"
                       autoComplete="off"
                       ref={passwordRef}
                     />
@@ -130,7 +131,7 @@ function SignInPage() {
                       checked
                     />
                     <span className="form-check-label">
-                      Remember me on this device
+                      Ghi nhớ lần đăng nhập này
                     </span>
                   </label>
                 </div>
@@ -140,11 +141,11 @@ function SignInPage() {
                     className="btn btn-primary w-100"
                     disabled={isSigningIn}
                   >
-                    Login
+                    Đăng nhập
                   </button>
                 </div>
               </div>
-              <div className="hr-text">or</div>
+              <div className="hr-text">hoặc</div>
               <div className="card-body">
                 <div className="row">
                   <div className="col">
@@ -164,7 +165,7 @@ function SignInPage() {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M17.788 5.108a9 9 0 1 0 3.212 6.892h-8" />
                       </svg>
-                      Login with Google
+                      Google
                     </button>
                   </div>
                   <div className="col">
@@ -187,22 +188,22 @@ function SignInPage() {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
                       </svg>
-                      Login with Facebook
+                      Facebook
                     </a>
                   </div>
                 </div>
               </div>
             </form>
             <div className="text-center text-muted mt-3">
-              Don't have account yet?{" "}
+              Chưa có tài khoản?{" "}
               <a href="javascript:void(0)" tabIndex={-1}>
-                <Link to="/signup">Sign up</Link>
+                <Link to="/signup">Đăng ký</Link>
               </a>
             </div>
             <div className="text-center text-muted">
-              Back to{" "}
+              Trở về{" "}
               <a href="javascript:void(0)" tabIndex={-1}>
-                <Link to="/">home</Link>
+                <Link to="/">trang chủ</Link>
               </a>
             </div>
           </div>

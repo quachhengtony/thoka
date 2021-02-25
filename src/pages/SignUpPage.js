@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import firebase from "firebase";
 import "../styles/SignUpPage.css";
 import { v4 as uuidv4 } from "uuid";
+import logo from "../assets/thoka.png";
 
 function SignUpPage() {
   const history = useHistory();
@@ -64,57 +65,51 @@ function SignUpPage() {
                   </div>
                 )}
                 <a href=".">
-                  <img
-                    src="https://cdn.worldvectorlogo.com/logos/dropbox-3.svg"
-                    height={36}
-                    alt="Thoka"
-                  />
+                  <img src={logo} height={36} alt="Thoka" />
                 </a>
               </div>
               <form className="card card-md" onSubmit={handleSignUp}>
                 <div className="card-body">
                   <h2 className="card-title text-center mb-4">
-                    Create new account
+                   Tạo tài khoản mới
                   </h2>
                   {/* <div className="mb-3">
             <label className="form-label">Name</label>
             <input type="text" className="form-control" placeholder="Enter name" />
           </div> */}
                   <div className="mb-3">
-                    <label className="form-label">Name</label>
+                    <label className="form-label">Tên tài khoản</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Name"
+                      placeholder="Nhập tên"
                       ref={nameRef}
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">Role</label>
+                    <label className="form-label">Vai trò</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Role"
+                      placeholder="Nhập vai trò"
                       ref={roleRef}
                       required
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">
-                      Business, organization, team
-                    </label>
+                    <label className="form-label">Tên đội nhóm/tổ chức</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Business, organization, team"
+                      placeholder="Nhập tên đội nhóm/tổ chức"
                       ref={businessNameRef}
                       required
                     />
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Email address</label>
+                    <label className="form-label">Địa chỉ email</label>
                     <input
                       type="email"
                       className="form-control"
@@ -125,12 +120,12 @@ function SignUpPage() {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Password</label>
+                    <label className="form-label">Mật khẩu</label>
                     <div className="input-group input-group-flat">
                       <input
                         type="password"
                         className="form-control"
-                        placeholder="Password"
+                        placeholder="Nhập mật khẩu"
                         autoComplete="off"
                         ref={passwordRef}
                         required
@@ -164,12 +159,12 @@ function SignUpPage() {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Confirm password</label>
+                    <label className="form-label">Xác nhận mật khẩu</label>
                     <div className="input-group input-group-flat">
                       <input
                         type="password"
                         className="form-control"
-                        placeholder="Confirm Password"
+                        placeholder="Nhập lại mật khẩu"
                         autoComplete="off"
                         ref={passwordConfirmRef}
                         required
@@ -209,11 +204,11 @@ function SignUpPage() {
                         checked
                       />
                       <span className="form-check-label">
-                        Agree the{" "}
+                        Đồng ý với{" "}
                         <a href="javascript:void(0)" tabIndex={-1}>
-                          terms and policy
+                          điều khoản dịch vụ và chính sách bảo mật{" "}
                         </a>
-                        .
+                        của Thoka.
                       </span>
                     </label>
                   </div>
@@ -223,21 +218,21 @@ function SignUpPage() {
                       className="btn btn-primary w-100"
                       disabled={isSigningUp}
                     >
-                      Create new account
+                      Tạo tài khoản
                     </button>
                   </div>
                 </div>
               </form>
               <div className="text-center text-muted mt-3">
-                Already have account?{" "}
+                Đã có tài khoản?{" "}
                 <a href="javascript:void(0)" tabIndex={-1}>
-                  <Link to="/signin">Sign in</Link>
+                  <Link to="/signin">Đăng nhập</Link>
                 </a>
               </div>
               <div className="text-center text-muted">
-                Back to{" "}
+                Trở về{" "}
                 <a href="javascript:void(0)" tabIndex={-1}>
-                  <Link to="/">home</Link>
+                  <Link to="/">trang chủ</Link>
                 </a>
               </div>
             </div>
