@@ -197,19 +197,18 @@ function PrivateTopbar() {
                 </div>
               </a>
               <div className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a className="dropdown-item">Switch to Community</a>
-                <a className="dropdown-item">Set status</a>
+                <a className="dropdown-item">Cập nhật trạng thái</a>
                 <a
                   className="dropdown-item"
                   onClick={() => history.push("/profile-account")}
                 >
-                  Profile & account
+                  Tài khoản
                 </a>
-                <a className="dropdown-item">Billing</a>
+                <a className="dropdown-item">Hóa đơn</a>
                 <div className="dropdown-divider" />
-                <a className="dropdown-item">Settings</a>
+                <a className="dropdown-item">Cài đặt</a>
                 <a onClick={handleSignOut} className="dropdown-item">
-                  Sign out
+                  Đăng xuất
                 </a>
               </div>
             </div>
@@ -248,10 +247,10 @@ function PrivateTopbar() {
                         <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Home</span>
+                    <span className="nav-link-title">Trang chủ</span>
                   </a>
                 </li>
-                <li className="nav-item" onClick={() => history.push("/teams")}>
+                <li className="nav-item" onClick={() => history.push("/channels")}>
                   <a className="nav-link" href="javascript:void(0)">
                     <span className="nav-link-icon d-md-none d-lg-inline-block">
                       <svg
@@ -273,7 +272,7 @@ function PrivateTopbar() {
                         <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Teams</span>
+                  <span className="nav-link-title">Kênh xã hội</span>
                   </a>
                 </li>
                 <li
@@ -300,7 +299,7 @@ function PrivateTopbar() {
                         <path d="M12 8h0l4.524 -3.77a0.9 .9 0 0 1 1.476 .692v12.156a0.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Announcements</span>
+                    <span className="nav-link-title">Thông báo</span>
                   </a>
                 </li>
                 <li
@@ -327,7 +326,7 @@ function PrivateTopbar() {
                         <line x1="4" y1="8" x2="4" y2="16" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Workspaces</span>
+                    <span className="nav-link-title">Không gian làm việc</span>
                   </a>
                 </li>
                 <li className="nav-item">
@@ -353,7 +352,7 @@ function PrivateTopbar() {
                         <path d="M3 12h4l3 8l4 -16l3 8h4" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Activities</span>
+                    <span className="nav-link-title">Hoạt động</span>
                   </a>
                 </li>
               </ul>

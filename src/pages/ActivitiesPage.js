@@ -7,9 +7,9 @@ export default function ActivitiesPage() {
         <div className="page-header">
           <div className="row align-items-center">
             <div className="col">
-              <h2 className="page-title">Activities</h2>
+              <h2 className="page-title">Hoạt động</h2>
               <div className="text-muted mt-1">
-                Mentions, tasks and private messages
+                Nhắc đến, nhiệm vụ và tin nhắn riêng
               </div>
             </div>
             <div className="col-auto ms-auto d-print-none">
@@ -19,7 +19,7 @@ export default function ActivitiesPage() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Search…"
+                      placeholder="Tìm kiếm..."
                     />
                     <span className="input-icon-addon">
                       <svg
@@ -77,10 +77,10 @@ export default function ActivitiesPage() {
                       </div>
                       <div className="col">
                         <div className="text-truncate">
-                          <strong>Phạm Hạnh</strong> mentioned you in{" "}
-                          <strong>[Thoka] #Lean Model Canvas</strong>.
+                          <strong>Phạm Hạnh</strong> nhắc đến bạn trong{" "}
+                          <strong>Team Business - #Chung</strong>
                         </div>
-                        <div className="text-muted">yesterday</div>
+                        <div className="text-muted">hôm qua</div>
                       </div>
                       <div className="col-auto align-self-center">
                         <div className="badge bg-primary" />
@@ -90,36 +90,34 @@ export default function ActivitiesPage() {
                   <div>
                     <div className="row">
                       <div className="col-auto">
-                        <span className="avatar">BT</span>
+                        <span className="avatar">AĐ</span>
                       </div>
                       <div className="col">
                         <div className="text-truncate">
-                          <strong>Bảo Trương</strong> assigned you to a new task
-                          in <strong>[Thoka] #Thiết kế Logo</strong>.
+                          <strong>Ánh Đoan</strong> giao cho bạn nhiệm vụ mới
+                          trong <strong>Team Marketing - #Kawai 2021</strong>.
                         </div>
-                        <div className="text-muted">yesterday</div>
+                        <div className="text-muted">hôm qua</div>
                       </div>
                       <div className="col-auto align-self-center">
                         <div className="badge bg-primary" />
                       </div>
                     </div>
                   </div>
-                  
                   <div>
                     <div className="row">
                       <div className="col-auto">
-                        <span className="avatar">EM</span>
+                        <span className="avatar">QL</span>
                       </div>
                       <div className="col">
                         <div className="text-truncate">
-                          <strong>Elon Musk</strong> sent you a private message
-                          in <strong>[Thoka]</strong>.
+                          <strong>Lập Quang</strong> gửi tin nhắn riêng cho bạn
+                          trong <strong>Team Business</strong>.
                         </div>
-                        <div className="text-muted">2 days ago</div>
+                        <div className="text-muted">2 ngày trước</div>
                       </div>
                     </div>
                   </div>
-                 
                 </div>
               </div>
             </div>

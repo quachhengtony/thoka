@@ -16,9 +16,9 @@ export default function ProfileAccountPage() {
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col">
-                <h2 className="page-title">Profile & Account</h2>
+                <h2 className="page-title">Tài khoản</h2>
                 <div className="text-muted mt-1">
-                  Basic information and account details
+                  Thông tin cơ bản & chi tiết tài khoản
                 </div>
               </div>
               <div className="col-auto ms-auto d-print-none">
@@ -41,7 +41,7 @@ export default function ProfileAccountPage() {
                       <path d="M16 5l3 3" />
                       <path d="M9 7.07a7.002 7.002 0 0 0 1 13.93a7.002 7.002 0 0 0 6.929 -5.999" />
                     </svg>
-                    Update
+                    Cập nhật
                   </button>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function ProfileAccountPage() {
                   <div className="text-muted">{currentUserRole}</div>
                   <div className="text-muted">{currentUserBusinessName}</div>
                   <div className="mt-3">
-                    <span className="badge bg-purple-lt">Employee</span>
+                    <span className="badge bg-purple-lt">Thành viên</span>
                   </div>
                 </div>
               </div>

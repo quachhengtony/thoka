@@ -47,13 +47,13 @@ export default function ListWorkspace(props) {
             </a>
             <div className="dropdown-menu dropdown-menu-end">
               <a className="dropdown-item" href="#">
-                Analytics
+                Thống kê
               </a>
               <a className="dropdown-item" href="#">
-                Settings
+                Cài đặt
               </a>
               <a className="dropdown-item" href="#">
-                Delete
+                Xóa
               </a>
             </div>
           </div>

@@ -546,21 +546,22 @@ export default function Storage(props) {
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col">
-                <h2 className="page-title">Storage</h2>
+                <h2 className="page-title">Kho tài liệu</h2>
                 <div className="text-muted mt-1">
-                  Share and manage documents
+                  Chia sẻ & quản lí tài liệu
                 </div>
               </div>
             </div>
           </div>
           <div className="--storage-header-card">
             <div className="card-body">
-              <div>
-                <div class="form-label">Document group:</div>
+              <div className="leftSide">
+                <div class="form-label">Nhóm tài liệu:</div>
                 <select
                   className="form-select"
                   ref={groupToGetFiles}
                   onChange={getFiles}
+                  style={{ width: "400px" }}
                 >
                   {storageGroups.map((storageGroup, index) => (
                     <option key={index} value={storageGroup.groupName}>
@@ -569,7 +570,7 @@ export default function Storage(props) {
                   ))}
                 </select>
               </div>
-              <div>
+              <div className="rightSide">
                 <input
                   id="file_input"
                   type="file"
@@ -597,7 +598,7 @@ export default function Storage(props) {
                     <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
                     <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
                   </svg>
-                  Refresh
+                  Làm mới
                 </button>
                 <button
                   type="button"
@@ -620,7 +621,7 @@ export default function Storage(props) {
                     <line x1={12} y1={5} x2={12} y2={19} />
                     <line x1={5} y1={12} x2={19} y2={12} />
                   </svg>
-                  New group
+                  Nhóm tài liệu
                 </button>
 
                 <button
@@ -643,7 +644,7 @@ export default function Storage(props) {
                     <circle cx="12" cy="12" r="2" />
                     <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
                   </svg>
-                  Watch
+                  Theo dõi
                 </button>
 
                 <button
@@ -671,14 +672,14 @@ export default function Storage(props) {
                     <line x1="12" y1="11" x2="12" y2="17" />
                     <polyline points="9 14 12 11 15 14" />
                   </svg>
-                  Add document
+                  Tài liệu
                 </button>
               </div>
             </div>
           </div>
           <div className="--storage-body-card">
             <div className="card-header">
-              <h3 className="card-title">Today</h3>
+              <h3 className="card-title">Hôm nay</h3>
             </div>
             {files.map(
               ({
@@ -755,7 +756,7 @@ export default function Storage(props) {
 
           <div className="--storage-body-card">
             <div className="card-header">
-              <h3 className="card-title">Past uploads</h3>
+              <h3 className="card-title">Đã thêm vào</h3>
             </div>
             {files.map(
               ({

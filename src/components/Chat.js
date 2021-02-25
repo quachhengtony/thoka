@@ -70,11 +70,11 @@ function Chat(props) {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Options
+              Lựa chọn
             </a>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="#">
-                Search message
+                Tìm kiếm tin nhắn
               </a>
             </div>
           </li>

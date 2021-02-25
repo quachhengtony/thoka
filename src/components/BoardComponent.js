@@ -136,7 +136,7 @@ function BoardComponent(props) {
                     data-bs-target="#modal-card"
                     onClick={() => setColumnId(column.id)}
                   >
-                    New item
+                    Thẻ mới
                   </button>
                 </div>
               </div>
@@ -172,7 +172,7 @@ function BoardComponent(props) {
               className="btn btn-primary btn-sm --new-column-btn"
               onClick={addColumn}
             >
-              New list
+              Danh sách mới
             </button>
           </div>
         </div>

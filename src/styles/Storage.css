@@ -14,9 +14,24 @@
   align-items: center;
 }
 
-.--storage-header-card > div > div {
+/* .--storage-header-card > div > div {
   flex: 1;
+  border: 1px solid red;
   margin: auto;
+} */
+
+.--storage-header-card > div > div {
+  /* flex: 1; */
+  /* border: 1px solid red; */
+  margin: auto;
+}
+
+.leftSide {
+  flex: 0.3;
+}
+
+.rightSide {
+  flex: 0.7;
 }
 
 .--storage-btn {

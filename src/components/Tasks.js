@@ -5,6 +5,7 @@ import db from "../adapters/firebase";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 import TaskDescriptionModal from "./TaskDescriptionModal";
 import TaskUpdateModal from "./TaskUpdateModal";
+import Spinner from "../shared/Spinner";
 
 export default function Tasks(props) {
   const { workspaceId, roomId } = useParams();
@@ -57,6 +58,12 @@ export default function Tasks(props) {
       );
   }, []);
 
+  if (!tasks) {
+    return (
+      <Spinner />
+    )
+  }
+
   return (
     <div className="tasks" id="tasksPanel" style={{ width: props.tasksPanelWidth }}>
       <div className="content">
@@ -64,9 +71,9 @@ export default function Tasks(props) {
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col">
-                <h2 className="page-title">Tasks</h2>
+                <h2 className="page-title">Nhiệm vụ</h2>
                 <div className="text-muted mt-1">
-                  Những tasks được giao và chi tiết của nó
+                  Được giao, đã giao & chi tiết
                   {/* Assigned tasks and details */}
                 </div>
               </div>
@@ -302,7 +309,7 @@ export default function Tasks(props) {
                       className="btn btn-sm btn-square btn-primary"
                       data-bs-toggle="dropdown"
                     >
-                      Lọc theo room
+                      Lọc theo phòng
                     </button>
                     <div className="dropdown-menu">
                       {filterRooms.map((filterRoom, index) => (
@@ -335,7 +342,7 @@ export default function Tasks(props) {
                       className="btn btn-sm btn-square btn-primary"
                       data-bs-toggle="dropdown"
                     >
-                      Lọc theo deadline
+                      Lọc theo thời hạn
                     </button>
                     <div className="dropdown-menu">
                       <a className="dropdown-item" href="#">
@@ -365,7 +372,7 @@ export default function Tasks(props) {
                     tasks
                   </div>
                   <div className="ms-auto text-muted">
-                    Search:
+                    Tìm kiếm:
                     <div className="ms-2 d-inline-block">
                       <input
                         type="text"
@@ -384,7 +391,7 @@ export default function Tasks(props) {
                     {/* <th className="w-1"></th> */}
                     <th>Tiêu đề</th>
                     <th>Được giao</th>
-                    <th>Deadline</th>
+                    <th>Thời hạn</th>
                     <th>Người giao</th>
                     <th>Ưu tiên</th>
                     <th>Phòng</th>
@@ -446,7 +453,7 @@ export default function Tasks(props) {
                               className="dropdown-item"
                               href="javascript:void(0)"
                             >
-                              Xóa task
+                              Xóa nhiệm vụ
                             </a>
                           </div>
                         </span>

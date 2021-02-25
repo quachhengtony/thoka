@@ -47,16 +47,38 @@ export default function WorkspaceOverview(props) {
                   {workspaceDetails.authorBusinessName}
                 </h2>
                 <div className="text-muted mt-1">
-                  {workspaceDetails.workspaceName} workspace
+                  Không gian làm việc của {workspaceDetails.workspaceName}
                 </div>
               </div>
               <div className="col-auto ms-auto d-print-none">
                 <div className="d-flex">
-                  <input
-                    type="search"
-                    className="form-control d-inline-block w-9 me-3"
-                    placeholder="Search people..."
-                  />
+                  <div className="me-3 d-none d-md-block">
+                  <div className="input-icon">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Tìm kiếm..."
+                    />
+                    <span className="input-icon-addon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon"
+                        width={24}
+                        height={24}
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <circle cx={10} cy={10} r={7} />
+                        <line x1={21} y1={21} x2={15} y2={15} />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -112,7 +134,7 @@ export default function WorkspaceOverview(props) {
                         <line x1="8" y1="9" x2="16" y2="9" />
                         <line x1="8" y1="13" x2="14" y2="13" />
                       </svg>
-                      Chat
+                      Nhắn tin
                     </a>
                     )}
                     <a href="javascript:void(0)" className="card-btn">

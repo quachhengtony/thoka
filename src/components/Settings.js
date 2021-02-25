@@ -221,9 +221,9 @@ function Settings(props) {
           <div className="page-header">
             <div className="row align-items-center">
               <div className="col">
-                <h2 className="page-title">Settings</h2>
+                <h2 className="page-title">Cài đặt</h2>
                 <div className="text-muted mt-1">
-                  {workspaceDetails.workspaceName} workspace
+                  Quản lí không gian làm việc & phân quyền
                 </div>
               </div>
             </div>
@@ -241,12 +241,12 @@ function Settings(props) {
           <div className="--settings-room-list-card">
             <div>
               <div className="card-header">
-                <h3 className="card-title">Rooms</h3>
+                <h3 className="card-title">Phòng</h3>
               </div>
               <div className="card-body border-bottom py-3">
                 <div className="d-flex">
                   <div className="text-muted">
-                    Found
+                    Tìm thấy
                     <div className="mx-2 d-inline-block">
                       <input
                         type="text"
@@ -257,11 +257,11 @@ function Settings(props) {
                         disabled
                       />
                     </div>
-                    rooms
+                    phòng
                   </div>
                   <div className="ms-auto text-muted">
                     <a href="javascript:void(0)" className="button">
-                      Create new room
+                      Tạo phòng mới
                     </a>
                     {/* Search:
                     <div className="ms-2 d-inline-block">
@@ -279,9 +279,9 @@ function Settings(props) {
               <table className="table table-vcenter card-table">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Author</th>
-                    <th>Created</th>
+                    <th>Tên</th>
+                    <th>Tác giả</th>
+                    <th>Tạo</th>
                     <th className="w-1" />
                   </tr>
                 </thead>
@@ -296,7 +296,7 @@ function Settings(props) {
                           href="javascript:void(0)"
                           onClick={() => deleteRoom(room.roomId)}
                         >
-                          Delete
+                          Xóa
                         </a>
                       </td>
                     </tr>
@@ -325,12 +325,12 @@ function Settings(props) {
           <div className="--settings-people-list-card">
             <div>
               <div className="card-header">
-                <h3 className="card-title">People</h3>
+                <h3 className="card-title">Thành viên</h3>
               </div>
               <div className="card-body border-bottom py-3">
                 <div className="d-flex">
                   <div className="text-muted">
-                    Found
+                    Tìm thấy
                     <div className="mx-2 d-inline-block">
                       <input
                         type="text"
@@ -341,11 +341,11 @@ function Settings(props) {
                         disabled
                       />
                     </div>
-                    users
+                    thành viên
                   </div>
                   <div className="ms-auto text-muted">
                     <a href="javascript:void(0)" onClick={handleAddUsers} className="button">
-                      Link new user
+                      Kết nối thành viên
                     </a>
                     {/* Search:
                     <div className="ms-2 d-inline-block">
@@ -363,9 +363,9 @@ function Settings(props) {
               <table className="table table-vcenter card-table">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Linked</th>
+                    <th>Tên</th>
+                    <th>Chức vụ</th>
+                    <th>Kết nối</th>
                     <th className="w-1" />
                   </tr>
                 </thead>

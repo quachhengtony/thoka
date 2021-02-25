@@ -252,7 +252,7 @@ function App() {
             <PrivateTopbar />
             <MaintenancePage />
           </PrivateRoute>
-          <PrivateRoute path="/teams">
+          <PrivateRoute path="/channels">
             <PrivateTopbar />
             <MaintenancePage />
           </PrivateRoute>

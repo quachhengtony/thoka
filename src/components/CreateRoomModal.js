@@ -43,7 +43,7 @@ export default function CreateRoomModal() {
       <div className="modal-dialog modal-lg" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">New room</h5>
+            <h5 className="modal-title">Phòng mới</h5>
             <button
               type="button"
               className="btn-close"
@@ -53,16 +53,16 @@ export default function CreateRoomModal() {
           </div>
           <div className="modal-body">
             <div className="mb-3">
-              <label className="form-label">Name</label>
+              <label className="form-label">Tên</label>
               <input
                 type="text"
                 className="form-control"
                 name="example-text-input"
-                placeholder="Name"
+                placeholder=""
                 ref={roomName}
               />
             </div>
-            <label className="form-label">Room type</label>
+            <label className="form-label">Loại phòng</label>
             <div className="form-selectgroup-boxes row mb-3">
               <div className="col-lg-6">
                 <label className="form-selectgroup-item">
@@ -83,7 +83,7 @@ export default function CreateRoomModal() {
                         Project
                       </span>
                       <span className="d-block text-muted">
-                        Everything you need to collaborate in one place
+                        Mọi thứ cần để cộng tác trên một dự án
                       </span>
                     </span>
                   </span>
@@ -108,7 +108,7 @@ export default function CreateRoomModal() {
                         Page
                       </span>
                       <span className="d-block text-muted">
-                        General knowledge and overviews in rich text form
+                        Cộng tác viết thông tin, dữ liệu về dự án
                       </span>
                     </span>
                   </span>
@@ -135,7 +135,7 @@ export default function CreateRoomModal() {
                         Chat
                       </span>
                       <span className="d-block text-muted">
-                        Fast pace, uninterrupted communication
+                        Trao đổi thông tin nhanh, không đứt mạch, gián đoạn
                       </span>
                     </span>
                   </span>
@@ -159,7 +159,7 @@ export default function CreateRoomModal() {
                         Board
                       </span>
                       <span className="d-block text-muted">
-                        Task management and progress tracking
+                        Phân công nhiệm vụ và theo dõi tiến trình
                       </span>
                     </span>
                   </span>
@@ -186,7 +186,7 @@ export default function CreateRoomModal() {
                         Discussions
                       </span>
                       <span className="d-block text-muted">
-                        Organized, well articulated communication
+                        Thảo luận, câu hỏi thường gặp, thăm dò ý kiến, thông tin quan trọng
                       </span>
                     </span>
                   </span>
@@ -211,7 +211,7 @@ export default function CreateRoomModal() {
                         Events
                       </span>
                       <span className="d-block text-muted">
-                        Planning ahead, scheduling, roadmap, timeline
+                        Lên kế hoạch, lịch sự kiện, dòng thời gian dự án
                       </span>
                     </span>
                   </span>
@@ -225,7 +225,7 @@ export default function CreateRoomModal() {
               className="btn link-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               className="btn btn-primary ms-auto"
@@ -248,7 +248,7 @@ export default function CreateRoomModal() {
                 <line x1={12} y1={5} x2={12} y2={19} />
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
-              Create new room
+              Tạo phòng mới
             </button>
           </div>
         </div>

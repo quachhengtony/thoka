@@ -222,11 +222,11 @@ function Board(props) {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Options
+              Lựa chọn
             </a>
             <div className="dropdown-menu">
               <a className="dropdown-item" href="#">
-                Show my tasks only
+                Chỉ thể hiện nhiệm vụ của tôi
               </a>
             </div>
           </li>
@@ -250,7 +250,7 @@ function Board(props) {
                     data-bs-target="#modal-card"
                     onClick={() => setColumnId(column.id)}
                   >
-                    New item
+                    Thẻ mới
                   </button>
                 </div>
               </div>
@@ -286,7 +286,7 @@ function Board(props) {
               className="btn btn-primary btn-sm --new-column-btn"
               onClick={addColumn}
             >
-              New list
+              Danh sách mới
             </button>
           </div>
         </div>

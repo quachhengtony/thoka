@@ -271,9 +271,8 @@ function Sidebar(props) {
             </svg>
           </button>
         </div>
-
         <div className="dropdown-menu dropdown-menu-demo right" id="rightBar">
-          <h6 className="dropdown-header">Overview</h6>
+          <h6 className="dropdown-header">Tổng quan</h6>
           <a
             href="javascript:void(0)"
             className="dropdown-item"
@@ -292,14 +291,15 @@ function Sidebar(props) {
               strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <line x1="3" y1="21" x2="21" y2="21" />
-              <line x1="9" y1="8" x2="10" y2="8" />
-              <line x1="9" y1="12" x2="10" y2="12" />
-              <line x1="9" y1="16" x2="10" y2="16" />
-              <line x1="14" y1="8" x2="15" y2="8" />
-              <line x1="14" y1="12" x2="15" y2="12" />
-              <line x1="14" y1="16" x2="15" y2="16" />
-              <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <path d="M8 16v.01" />
+              <path d="M8 12v.01" />
+              <path d="M8 8v.01" />
+              <path d="M16 16v.01" />
+              <path d="M16 12v.01" />
+              <path d="M16 8v.01" />
+              <path d="M12 8v.01" />
+              <path d="M12 16v.01" />
             </svg>
             {workspaceName ? workspaceName : "..."}
           </a>
@@ -328,7 +328,7 @@ function Sidebar(props) {
               <line x1="11" y1="12" x2="20" y2="12" />
               <line x1="11" y1="18" x2="20" y2="18" />
             </svg>
-            Tasks
+            Nhiệm vụ
           </a>
           <a
             href="javascript:void(0)"
@@ -351,10 +351,10 @@ function Sidebar(props) {
               <rect x="4" y="4" width="16" height="16" rx="2" />
               <path d="M4 13h3l3 3h4l3 -3h3" />
             </svg>
-            Inbox
+            Hộp thư
           </a>
           <div className="dropdown-divider" />
-          <h6 className="dropdown-header">Rooms</h6>
+          <h6 className="dropdown-header">Phòng</h6>
           {rooms.map((room, index) => (
             <SelectRoom
               text={room.roomName}
@@ -363,14 +363,14 @@ function Sidebar(props) {
               roomType={room.roomType}
             />
           ))}
-          <h6 className="dropdown-header">People</h6>
+          <h6 className="dropdown-header">Thành viên</h6>
           <a href="javascript:void(0)" className="dropdown-item">
             <span className="avatar avatar-xs rounded me-2">T</span>
             {currentUserName}
-            <span className="badge bg-red-lt ms-auto">you</span>
+            <span className="badge bg-red-lt ms-auto">bạn</span>
           </a>
           <div className="dropdown-divider" />
-          <h6 className="dropdown-header">Actions</h6>
+          <h6 className="dropdown-header">Hành động</h6>
           <a
             href="#"
             data-bs-toggle="modal"
@@ -393,7 +393,7 @@ function Sidebar(props) {
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
-            New room
+            Tạo phòng mới
           </a>
           <a href="javascript:void(0)" className="dropdown-item">
             <svg
@@ -412,7 +412,7 @@ function Sidebar(props) {
               <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
               <path d="M7 12h14l-3 -3m0 6l3 -3" />
             </svg>
-            Sign out
+            Đăng xuất
           </a>
         </div>
       </aside>

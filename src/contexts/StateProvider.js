@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import db, { auth } from "../adapters/firebase";
-
 export const StateContext = createContext();
 
 export function StateProvider(props) {
@@ -38,7 +37,9 @@ export function StateProvider(props) {
   }, []);
 
   if (pending) {
-    return <>Loading...</>;
+    return (
+      <p>Loading<span class="animated-dots"></span></p>
+    )
   }
 
   const value = {
