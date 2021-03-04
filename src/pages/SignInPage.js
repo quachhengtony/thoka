@@ -3,7 +3,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
-import logo from "../assets/thoka.png";
+import logo from "../assets/thoka_logo.svg";
 
 function SignInPage() {
   const history = useHistory();
