@@ -4,7 +4,7 @@ import db from "../adapters/firebase";
 import "../styles/Topbar.css";
 import { useState, useEffect } from "react";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
-import logo from "../assets/thoka_logo.svg";
+import logo from "../assets/new-logo.svg";
 
 function Topbar() {
   const history = useHistory();

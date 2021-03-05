@@ -405,7 +405,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Marketing</a>
-                              <div className="text-muted">John Doe</div>
+                              <div className="text-muted">Thoka</div>
                             </div>
                           </div>
                         </div>
@@ -694,7 +694,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Marketing</a>
-                              <div className="text-muted">John Doe</div>
+                              <div className="text-muted">Thoka</div>
                             </div>
                           </div>
                         </div>

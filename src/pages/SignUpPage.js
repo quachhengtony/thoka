@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import firebase from "firebase";
 import "../styles/SignUpPage.css";
 import { v4 as uuidv4 } from "uuid";
-import logo from "../assets/thoka_logo.svg";
+import logo from "../assets/new-logo-gray.svg";
 
 function SignUpPage() {
   const history = useHistory();
@@ -65,7 +65,7 @@ function SignUpPage() {
                   </div>
                 )}
                 <a href=".">
-                  <img src={logo} height={36} alt="Thoka" />
+                  <img src={logo} height={76} alt="Thoka" />
                 </a>
               </div>
               <form className="card card-md" onSubmit={handleSignUp}>
@@ -98,11 +98,11 @@ function SignUpPage() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label">Tên đội nhóm/tổ chức</label>
+                    <label className="form-label">Tên đội nhóm</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Nhập tên đội nhóm/tổ chức"
+                      placeholder="Nhập tên đội nhóm"
                       ref={businessNameRef}
                       required
                     />
