@@ -46,6 +46,7 @@ function ViewCardModal(props) {
                       {props.columns.map((column) => (
                         <a
                           href="javascript:void(0)"
+                          data-bs-dismiss="modal"
                           onClick={() =>
                             props.handleChangeCardStatus(column.id)
                           }

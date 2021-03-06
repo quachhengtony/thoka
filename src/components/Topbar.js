@@ -1,6 +1,5 @@
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../contexts/StateProvider";
-import db from "../adapters/firebase";
 import "../styles/Topbar.css";
 import { useState, useEffect } from "react";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";

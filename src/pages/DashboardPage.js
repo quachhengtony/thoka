@@ -324,7 +324,7 @@ function DashboardPage() {
                       <div className="d-flex align-items-center">
                         <div className="subheader">Báo cáo</div>
                       </div>
-                      <div className="h1 mb-3">12/25</div>
+                      <div className="h1 mb-3">12</div>
                       <div className="d-flex mb-2">
                         <div>Dung lượng</div>
                       </div>
@@ -404,7 +404,7 @@ function DashboardPage() {
                           </div>
                           <div className="col">
                             <div className="card-body">
-                              <a href="javascript:void(0)">Team Marketing</a>
+                              <a href="javascript:void(0)">Team Managers</a>
                               <div className="text-muted">Thoka</div>
                             </div>
                           </div>
@@ -693,7 +693,7 @@ function DashboardPage() {
                           </div>
                           <div className="col">
                             <div className="card-body">
-                              <a href="javascript:void(0)">Team Marketing</a>
+                              <a href="javascript:void(0)">Team Managers</a>
                               <div className="text-muted">Thoka</div>
                             </div>
                           </div>
