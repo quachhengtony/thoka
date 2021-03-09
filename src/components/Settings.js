@@ -251,7 +251,7 @@ function Settings(props) {
                       <input
                         type="text"
                         className="form-control form-control-sm"
-                        defaultValue={1}
+                        defaultValue={8}
                         size={3}
                         aria-label="Invoices count"
                         disabled
@@ -335,7 +335,7 @@ function Settings(props) {
                       <input
                         type="text"
                         className="form-control form-control-sm"
-                        defaultValue={2}
+                        defaultValue={8}
                         size={3}
                         aria-label="Invoices count"
                         disabled

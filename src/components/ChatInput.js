@@ -12,7 +12,11 @@ function ChatInput({ roomName, roomId, workspaceId }) {
   const input = useRef("");
   const { currentUser, currentDate } = useStateValue();
   const history = useHistory();
-  const { currentUserName, currentUserEmail, currentUserUUId } = useCurrentUserDetails();
+  const {
+    currentUserName,
+    currentUserEmail,
+    currentUserUUId,
+  } = useCurrentUserDetails();
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -113,10 +117,10 @@ function ChatInput({ roomName, roomId, workspaceId }) {
           stroke-linejoin="round"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <line x1="15" y1="8" x2="15.01" y2="8" />
-          <rect x="4" y="4" width="16" height="16" rx="3" />
-          <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5" />
-          <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2" />
+          <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+          <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+          <line x1="12" y1="11" x2="12" y2="17" />
+          <polyline points="9 14 12 11 15 14" />
         </svg>
       </a>
 

@@ -184,7 +184,8 @@ export default function CreateRoomModal() {
                         Discussions
                       </span>
                       <span className="d-block text-muted">
-                        Thảo luận, câu hỏi thường gặp, thăm dò ý kiến, thông tin quan trọng
+                        Thảo luận, câu hỏi thường gặp, thăm dò ý kiến, thông tin
+                        quan trọng
                       </span>
                     </span>
                   </span>
@@ -215,13 +216,22 @@ export default function CreateRoomModal() {
                 </label>
               </div>
             </div>
-            <div className="form-selectgroup-boxes row mb-3"></div>
+            {/* <div className="row">
+                <div className="col-lg-4">
+                  <div className="mb-3">
+                    <label className="form-label">Chế độ</label>
+                    <select className="form-select">
+                      <option value={1} selected>
+                        Riêng tư
+                      </option>
+                      <option value={2}>Công khai</option>
+                    </select>
+                  </div>
+                </div>
+              </div> */}
           </div>
           <div className="modal-footer">
-            <button
-              className="btn link-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button className="btn link-secondary" data-bs-dismiss="modal">
               Hủy
             </button>
             <button

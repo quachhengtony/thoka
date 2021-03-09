@@ -8,7 +8,13 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 function CreateWorkpsaceModal(props) {
   const workspaceName = useRef("");
   const { currentUser, currentDate } = useStateValue();
-  const { currentUserName, currentUserEmail, currentUserUUId, currentUserRole, currentUserBusinessName } = useCurrentUserDetails();
+  const {
+    currentUserName,
+    currentUserEmail,
+    currentUserUUId,
+    currentUserRole,
+    currentUserBusinessName,
+  } = useCurrentUserDetails();
 
   const handleCreateWorkspace = async () => {
     if (workspaceName.current.value !== "") {
@@ -47,8 +53,8 @@ function CreateWorkpsaceModal(props) {
             .set({
               userName: currentUserName,
               userEmail: currentUserEmail,
-              timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            })
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            });
         })
         .then(() => {
           db.collection("workspaces")
@@ -175,7 +181,7 @@ function CreateWorkpsaceModal(props) {
               </div>
             </div>
             <div className="form-selectgroup-boxes row mb-3">
-            <div className="col-lg-6">
+              <div className="col-lg-6">
                 <label className="form-selectgroup-item">
                   <input
                     type="radio"
@@ -199,28 +205,6 @@ function CreateWorkpsaceModal(props) {
                   </span>
                 </label>
               </div>
-              {/* <div className="col-lg-6">
-                <label className="form-selectgroup-item">
-                  <input
-                    type="radio"
-                    defaultValue={1}
-                    className="form-selectgroup-input"
-                  />
-                  <span className="form-selectgroup-label d-flex align-items-center p-3">
-                    <span className="me-3">
-                      <span className="form-selectgroup-check" />
-                    </span>
-                    <span className="form-selectgroup-label-content">
-                      <span className="form-selectgroup-title strong mb-1">
-                        Advanced
-                      </span>
-                      <span className="d-block text-muted">
-                        Rooms and document groups to streamline professional works
-                      </span>
-                    </span>
-                  </span>
-                </label>
-              </div> */}
             </div>
 
             <div className="row">
@@ -251,37 +235,8 @@ function CreateWorkpsaceModal(props) {
               </div>
             </div>
           </div>
-          {/* <div className="modal-body">
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="mb-3">
-                  <label className="form-label">Client name</label>
-                  <input type="text" className="form-control" />
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="mb-3">
-                  <label className="form-label">Reporting period</label>
-                  <input type="date" className="form-control" />
-                </div>
-              </div>
-              <div className="col-lg-12">
-                <div>
-                  <label className="form-label">Additional information</label>
-                  <textarea
-                    className="form-control"
-                    rows={3}
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className="modal-footer">
-            <button
-              className="btn link-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button className="btn link-secondary" data-bs-dismiss="modal">
               Hủy
             </button>
             <button

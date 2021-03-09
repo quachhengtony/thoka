@@ -40,7 +40,7 @@ function Chat(props) {
               onClick={() =>
                 history.push(`/workspace/${workspaceId}/room/${roomId}/chat`)
               }
-              class="nav-link"
+              className="nav-link"
               data-bs-toggle="tab"
             >
               <svg
@@ -62,7 +62,52 @@ function Chat(props) {
               {roomDetails ? roomDetails.roomName : "..."}
             </a>
           </li>
-          <li className="nav-item dropdown">
+          <li class="nav-item">
+            <a className="nav-link" data-bs-toggle="tab">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon me-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <line x1="15" y1="8" x2="15.01" y2="8" />
+                <rect x="4" y="4" width="16" height="16" rx="3" />
+                <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5" />
+                <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2" />
+              </svg>
+              Đa phương tiện
+            </a>
+          </li>
+          <li class="nav-item">
+            <a className="nav-link" data-bs-toggle="tab">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon me-2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 3v4a1 1 0 0 0 1 1h4" />
+                <path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2z" />
+                <path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" />
+              </svg>
+              Tài liệu
+            </a>
+          </li>
+          {/* <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
@@ -77,6 +122,32 @@ function Chat(props) {
                 Tìm kiếm tin nhắn
               </a>
             </div>
+          </li> */}
+          <li className="nav-item ms-auto">
+            <a
+              href="#tabs-settings-ex2"
+              className="nav-link"
+              title="Settings"
+              data-bs-toggle="tab"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="5" cy="12" r="1" />
+                <circle cx="12" cy="12" r="1" />
+                <circle cx="19" cy="12" r="1" />
+              </svg>
+            </a>
           </li>
         </ul>
       </div>

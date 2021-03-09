@@ -8,7 +8,6 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 import ListWorkspace from "../components/ListWorkspace";
 import CreateWorkpsaceModal from "../components/CreateWorkpsaceModal";
 import { useHistory } from "react-router-dom";
-import Spinner from "../shared/Spinner";
 
 function DashboardPage() {
   const [workspaces, setWorkspaces] = useState([]);
@@ -274,7 +273,7 @@ function DashboardPage() {
                       <div className="d-flex align-items-center">
                         <div className="subheader">Đang hoạt động</div>
                       </div>
-                      <div className="h1 mb-3">2/6</div>
+                      <div className="h1 mb-3">{workspaces.length}/6</div>
                       <div className="d-flex mb-2">
                         <div>Dung lượng</div>
                       </div>

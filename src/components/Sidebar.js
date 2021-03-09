@@ -248,7 +248,7 @@ function Sidebar(props) {
 
           <button
             onClick={props.handleHideRightbar}
-            className="btn btn-bitbucket btn-icon wpbtn"
+            className="btn btn-bitbucket btn-icon wpbtn --handleRightbarButton"
             aria-label="Button"
           >
             <svg

@@ -190,7 +190,7 @@ function Board(props) {
               onClick={() =>
                 history.push(`/workspace/${workspaceId}/room/${roomId}/board`)
               }
-              class="nav-link"
+              className="nav-link"
               data-bs-toggle="tab"
             >
               <svg
@@ -214,7 +214,7 @@ function Board(props) {
               {roomDetails ? roomDetails.roomName : "..."}
             </a>
           </li>
-          <li className="nav-item dropdown">
+          {/* <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
@@ -229,6 +229,32 @@ function Board(props) {
                 Chỉ thể hiện nhiệm vụ của tôi
               </a>
             </div>
+          </li> */}
+           <li className="nav-item ms-auto">
+            <a
+              href="#tabs-settings-ex2"
+              className="nav-link"
+              title="Settings"
+              data-bs-toggle="tab"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="5" cy="12" r="1" />
+                <circle cx="12" cy="12" r="1" />
+                <circle cx="19" cy="12" r="1" />
+              </svg>
+            </a>
           </li>
         </ul>
       </div>

@@ -288,6 +288,15 @@ function App() {
             <Sidebar handleHideRightbar={handleHideRightbar} />
             <Board boardPanelWidth={boardPanelWidth} />
           </PrivateRoute>
+          <PrivateRoute path="/workspace/:workspaceId/room/:roomId/discussions">
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+          </PrivateRoute>
+          <PrivateRoute path="/workspace/:workspaceId/room/:roomId/events">
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+          </PrivateRoute>
+          <PrivateRoute path="/workspace/:workspaceId/room/:roomId/page">
+            <Sidebar handleHideRightbar={handleHideRightbar} />
+          </PrivateRoute>
 
           <PrivateRoute path="/workspace/:workspaceId/room/:roomId/schedule">
             <Sidebar handleHideRightbar={handleHideRightbar} />
