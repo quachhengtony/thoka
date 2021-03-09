@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import firebase from "firebase";
 import "../styles/SignUpPage.css";
 import { v4 as uuidv4 } from "uuid";
-import logo from "../assets/new-logo-gray.svg";
+import logo from "../assets/thoka_logo.svg";
 
 function SignUpPage() {
   const history = useHistory();

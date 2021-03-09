@@ -34,7 +34,7 @@ function CreateWorkpsaceModal(props) {
               authorName: currentUserName,
               authorEmail: currentUserEmail,
               authorId: currentUserUUId,
-              roomType: "Project",
+              roomType: "Chat",
               createdDate: currentDate,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
@@ -104,7 +104,7 @@ function CreateWorkpsaceModal(props) {
       <div className="modal-dialog modal-lg" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">New workspace</h5>
+            <h5 className="modal-title">Không gian mới</h5>
             <button
               type="button"
               className="btn-close"
@@ -114,7 +114,7 @@ function CreateWorkpsaceModal(props) {
           </div>
           <div className="modal-body">
             <div className="mb-3">
-              <label className="form-label">Name</label>
+              <label className="form-label">Tên</label>
               <input
                 type="text"
                 className="form-control"
@@ -123,7 +123,7 @@ function CreateWorkpsaceModal(props) {
                 ref={workspaceName}
               />
             </div>
-            <label className="form-label">Workspace type</label>
+            <label className="form-label">Loại không gian</label>
             <div className="form-selectgroup-boxes row mb-3">
               <div className="col-lg-6">
                 <label className="form-selectgroup-item">
@@ -140,10 +140,10 @@ function CreateWorkpsaceModal(props) {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Simple
+                        Đội nhóm
                       </span>
                       <span className="d-block text-muted">
-                        Basic rooms and a main document group
+                        Mọi thứ cần để cộng tác đội nhóm hiệu quả
                       </span>
                     </span>
                   </span>
@@ -164,10 +164,10 @@ function CreateWorkpsaceModal(props) {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Advanced
+                        Họp: video
                       </span>
                       <span className="d-block text-muted">
-                        Rooms and document groups to streamline professional works
+                        Lorem ipsum dolor sit amet is a dummy text
                       </span>
                     </span>
                   </span>
@@ -179,6 +179,7 @@ function CreateWorkpsaceModal(props) {
                 <label className="form-selectgroup-item">
                   <input
                     type="radio"
+                    name="report-type"
                     defaultValue={1}
                     className="form-selectgroup-input"
                     disabled
@@ -188,10 +189,11 @@ function CreateWorkpsaceModal(props) {
                       <span className="form-selectgroup-check" />
                     </span>
                     <span className="form-selectgroup-label-content">
-                      <span className="form-selectgroup-title mb-1">
-                        More workspace templates
+                      <span className="form-selectgroup-title strong mb-1">
+                        Họp: âm thanh
                       </span>
                       <span className="d-block text-muted">
+                        Lorem ipsum dolor sit amet is a dummy text
                       </span>
                     </span>
                   </span>
@@ -224,9 +226,9 @@ function CreateWorkpsaceModal(props) {
             <div className="row">
               <div className="col-lg-8">
                 <div className="mb-3">
-                  <label className="form-label">Workspace ID</label>
+                  <label className="form-label">Không gian ID</label>
                   <div className="input-group input-group-flat">
-                    <span className="input-group-text">workspace/</span>
+                    <span className="input-group-text">space/</span>
                     <input
                       type="text"
                       className="form-control ps-0"
@@ -238,12 +240,12 @@ function CreateWorkpsaceModal(props) {
               </div>
               <div className="col-lg-4">
                 <div className="mb-3">
-                  <label className="form-label">Visibility</label>
+                  <label className="form-label">Chế độ</label>
                   <select className="form-select">
                     <option value={1} selected>
-                      Private
+                      Riêng tư
                     </option>
-                    <option value={2}>Public</option>
+                    <option value={2}>Công khai</option>
                   </select>
                 </div>
               </div>
@@ -280,7 +282,7 @@ function CreateWorkpsaceModal(props) {
               className="btn link-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Hủy
             </button>
             <button
               className="btn btn-primary ms-auto"
@@ -303,7 +305,7 @@ function CreateWorkpsaceModal(props) {
                 <line x1={12} y1={5} x2={12} y2={19} />
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
-              Create new workspace
+              Tạo không gian mới
             </button>
           </div>
         </div>

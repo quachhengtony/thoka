@@ -94,10 +94,9 @@ export default function CreateRoomModal() {
                   <input
                     type="radio"
                     name="report-type"
-                    value="Discussion"
+                    value="Page"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
-                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -172,10 +171,9 @@ export default function CreateRoomModal() {
                   <input
                     type="radio"
                     name="report-type"
-                    value="Discussion"
+                    value="Discussions"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
-                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">
@@ -197,10 +195,9 @@ export default function CreateRoomModal() {
                   <input
                     type="radio"
                     name="report-type"
-                    value="Event"
+                    value="Events"
                     onChange={(e) => setRoomType(e.target.value)}
                     className="form-selectgroup-input"
-                    disabled
                   />
                   <span className="form-selectgroup-label d-flex align-items-center p-3">
                     <span className="me-3">

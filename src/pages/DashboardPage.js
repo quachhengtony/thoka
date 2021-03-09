@@ -204,13 +204,13 @@ function DashboardPage() {
                 <div className="row align-items-center">
                   <div className="col">
                     <div className="page-pretitle">Tổng quan</div>
-                    <h2 className="page-title">Không gian làm việc</h2>
+                    <h2 className="page-title">Không gian</h2>
                   </div>
                   <div className="col-auto ms-auto d-print-none">
                     <div className="btn-list">
                       <span className="d-none d-sm-inline">
                         <a href="javascipt:void(0)" className="btn btn-white">
-                          Tạo không gian làm việc trống
+                          Tạo không gian trống
                         </a>
                       </span>
                       <button
@@ -235,7 +235,7 @@ function DashboardPage() {
                           <line x1={12} y1={5} x2={12} y2={19} />
                           <line x1={5} y1={12} x2={19} y2={12} />
                         </svg>
-                        Không gian làm việc theo mẫu
+                        Không gian theo mẫu mới
                       </button>
                       <a
                         href="#"

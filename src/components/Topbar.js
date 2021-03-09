@@ -3,7 +3,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import "../styles/Topbar.css";
 import { useState, useEffect } from "react";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
-import logo from "../assets/new-logo.svg";
+import logo from "../assets/thoka_logo.svg";
 
 function Topbar() {
   const history = useHistory();
@@ -325,7 +325,7 @@ function PrivateTopbar() {
                         <line x1="4" y1="8" x2="4" y2="16" />
                       </svg>
                     </span>
-                    <span className="nav-link-title">Không gian làm việc</span>
+                    <span className="nav-link-title">Không gian</span>
                   </a>
                 </li>
                 <li className="nav-item">
