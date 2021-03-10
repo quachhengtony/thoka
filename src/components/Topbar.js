@@ -3,7 +3,7 @@ import { useStateValue } from "../contexts/StateProvider";
 import "../styles/Topbar.css";
 import { useState, useEffect } from "react";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
-import logo from "../assets/thoka_logo.svg";
+import logo from "../assets/thoka.svg";
 
 function Topbar() {
   const history = useHistory();

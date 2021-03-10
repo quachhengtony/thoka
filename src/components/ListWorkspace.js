@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import thoka_reversed from "../assets/thoka_reversed.svg";
 
 export default function ListWorkspace(props) {
   const history = useHistory();
@@ -9,7 +10,7 @@ export default function ListWorkspace(props) {
         <div className="col-auto text-h3">{props.number + 1}</div>
         <div className="col-auto">
           <img
-            src="https://i.pinimg.com/originals/6c/16/ce/6c16ce434979881b61a953aa7ae46043.png"
+            src={thoka_reversed}
             className="rounded"
             alt="Workspace avatar"
             width={40}

@@ -8,6 +8,7 @@ import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
 import ListWorkspace from "../components/ListWorkspace";
 import CreateWorkpsaceModal from "../components/CreateWorkpsaceModal";
 import { useHistory } from "react-router-dom";
+import thoka_reversed from "../assets/thoka_reversed.svg";
 
 function DashboardPage() {
   const [workspaces, setWorkspaces] = useState([]);
@@ -394,7 +395,7 @@ function DashboardPage() {
                         <div className="row row-0">
                           <div className="col-auto">
                             <img
-                              src="https://i.pinimg.com/originals/6c/16/ce/6c16ce434979881b61a953aa7ae46043.png"
+                              src={thoka_reversed}
                               className="rounded-start"
                               alt="Workspace avatar"
                               width={80}
@@ -603,7 +604,7 @@ function DashboardPage() {
                             <div className="col-auto text-h3">{index + 1}</div>
                             <div className="col-auto">
                               <img
-                                src="https://i.pinimg.com/originals/6c/16/ce/6c16ce434979881b61a953aa7ae46043.png"
+                                src={thoka_reversed}
                                 className="rounded"
                                 alt="Workspace avatar"
                                 width={40}
@@ -683,7 +684,7 @@ function DashboardPage() {
                         <div className="row row-0">
                           <div className="col-auto">
                             <img
-                              src="https://i.pinimg.com/originals/6c/16/ce/6c16ce434979881b61a953aa7ae46043.png"
+                              src={thoka_reversed}
                               className="rounded-start"
                               alt="Workspace avatar"
                               width={80}
