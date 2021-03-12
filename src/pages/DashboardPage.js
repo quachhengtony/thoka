@@ -203,8 +203,8 @@ function DashboardPage() {
               <div className="page-header d-print-none">
                 <div className="row align-items-center">
                   <div className="col">
-                    <div className="page-pretitle">Tổng quan</div>
-                    <h2 className="page-title">Không gian</h2>
+                    <div className="page-pretitle">Đội nhóm | họp video | họp âm thanh</div>
+                    <h2 className="page-title">Tổng quan</h2>
                   </div>
                   <div className="col-auto ms-auto d-print-none">
                     <div className="btn-list">
@@ -274,16 +274,16 @@ function DashboardPage() {
                       <div className="d-flex align-items-center">
                         <div className="subheader">Đang hoạt động</div>
                       </div>
-                      <div className="h1 mb-3">{workspaces.length}/6</div>
+                      <div className="h1 mb-3">{workspaces.length}/15</div>
                       <div className="d-flex mb-2">
-                        <div>Dung lượng</div>
+                        <div>Tỉ lệ chuyển đổi</div>
                       </div>
                       <div className="progress progress-sm">
                         <div
                           className="progress-bar bg-blue"
-                          style={{ width: "75%" }}
+                          style={{ width: "100%" }}
                           role="progressbar"
-                          aria-valuenow={75}
+                          aria-valuenow={100}
                           aria-valuemin={0}
                           aria-valuemax={100}
                         >
@@ -306,9 +306,9 @@ function DashboardPage() {
                       <div className="progress progress-sm">
                         <div
                           className="progress-bar bg-blue"
-                          style={{ width: "75%" }}
+                          style={{ width: "2.5%" }}
                           role="progressbar"
-                          aria-valuenow={75}
+                          aria-valuenow={2.5}
                           aria-valuemin={0}
                           aria-valuemax={100}
                         >
@@ -326,14 +326,14 @@ function DashboardPage() {
                       </div>
                       <div className="h1 mb-3">12</div>
                       <div className="d-flex mb-2">
-                        <div>Dung lượng</div>
+                        <div>Tỉ lệ chuyển đổi</div>
                       </div>
                       <div className="progress progress-sm">
                         <div
                           className="progress-bar bg-blue"
-                          style={{ width: "75%" }}
+                          style={{ width: "0.5%" }}
                           role="progressbar"
-                          aria-valuenow={75}
+                          aria-valuenow={0.5}
                           aria-valuemin={0}
                           aria-valuemax={100}
                         >
@@ -356,9 +356,9 @@ function DashboardPage() {
                       <div className="progress progress-sm">
                         <div
                           className="progress-bar bg-blue"
-                          style={{ width: "75%" }}
+                          style={{ width: "7%" }}
                           role="progressbar"
-                          aria-valuenow={75}
+                          aria-valuenow={7}
                           aria-valuemin={0}
                           aria-valuemax={100}
                         >
@@ -405,7 +405,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted">Thoka</div>
+                              <div className="text-muted">Không gian đội nhóm</div>
                             </div>
                           </div>
                         </div>
@@ -425,8 +425,8 @@ function DashboardPage() {
               <div className="page-header d-print-none">
                 <div className="row align-items-center">
                   <div className="col">
-                    <div className="page-pretitle">Workspaces</div>
-                    <h2 className="page-title">Your teams</h2>
+                    <div className="page-pretitle">Đội nhóm | họp video | họp âm thanh</div>
+                    <h2 className="page-title">Tổng quan</h2>
                   </div>
                   {/* <div className="col-auto ms-auto d-print-none">
                   <div className="btn-list">
@@ -623,7 +623,10 @@ function DashboardPage() {
                                 {linkWorkspace.workspaceName}
                               </a>
                               <div className="text-muted">
-                                {linkWorkspace.createdAt}
+                                Không gian đội nhóm
+                              </div>
+                              <div className="text-muted">
+                                {new Date(linkWorkspace.timestamp?.toDate()).toUTCString()}
                               </div>
                             </div>
                             <div className="col-auto lh-1">
@@ -694,7 +697,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted">Thoka</div>
+                              <div className="text-muted">Không gian đội nhóm</div>
                             </div>
                           </div>
                         </div>

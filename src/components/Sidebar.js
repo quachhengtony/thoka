@@ -21,10 +21,6 @@ function Sidebar(props) {
     currentUserUUId,
   } = useCurrentUserDetails();
 
-  const push = (destination) => {
-    history.push(destination);
-  };
-
   const memoizedSetRooms = useCallback(() => {
     db.collection("workspaces")
       .doc(workspaceId)
@@ -84,9 +80,12 @@ function Sidebar(props) {
       <aside className="navbar navbar-vertical navbar-expand-lg sidebar">
         <div className="left" id="leftBar">
           <button
-            onClick={() => history.push("/workspaces")}
+            onClick={() => history.push("/spaces")}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Không gian"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,6 +109,9 @@ function Sidebar(props) {
             onClick={() => history.push(`/workspace/${workspaceId}/reports`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Báo cáo"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -136,6 +138,9 @@ function Sidebar(props) {
             onClick={() => history.push(`/workspace/${workspaceId}/search`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Tìm kiếm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +163,9 @@ function Sidebar(props) {
             onClick={() => history.push(`/workspace/${workspaceId}/storage`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Kho tài liệu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -183,6 +191,9 @@ function Sidebar(props) {
             onClick={() => history.push(`/workspace/${workspaceId}/settings`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Cài đặt"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -205,6 +216,9 @@ function Sidebar(props) {
             onClick={() => history.push(`/workspace/${workspaceId}/links`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Không gian được kết nối"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -224,9 +238,12 @@ function Sidebar(props) {
             </svg>
           </button>
           <button
-            onClick={() => history.push(`/workspace/${workspaceId}/account`)}
+            onClick={() => history.push(`/profile-account`)}
             className="btn btn-bitbucket btn-icon wpbtn"
             aria-label="Button"
+            data-bs-toggle="tooltip" 
+            data-bs-placement="right" 
+            title="Tài khoản"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +289,7 @@ function Sidebar(props) {
           </button>
         </div>
         <div className="dropdown-menu dropdown-menu-demo right" id="rightBar">
-          <h6 className="dropdown-header">Tổng quan</h6>
+          <h6 className="dropdown-header">Đội nhóm</h6>
           <a
             href="javascript:void(0)"
             className="dropdown-item"
@@ -355,6 +372,29 @@ function Sidebar(props) {
           </a>
           <div className="dropdown-divider" />
           <h6 className="dropdown-header">Phòng</h6>
+
+          {/* <div className="accordion-item">
+            <h2 className="accordion-header" id="heading-1">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-1"
+                aria-expanded="false"
+              >
+                Accordion Item #1
+              </button>
+            </h2>
+            <div
+              id="collapse-1"
+              className="accordion-collapse collapse"
+              data-bs-parent="#accordion-example"
+              style={{}}
+            >
+              <div className="accordion-body pt-0"></div>
+            </div>
+          </div> */}
+
           {rooms.map((room, index) => (
             <SelectRoom
               text={room.roomName}

@@ -1,5 +1,6 @@
 .board {
-  width: 78vw;
+  width: 79vw;
+  min-width: 79vw;
   float: right;
   margin: 0 !important;
   padding: 0 !important;

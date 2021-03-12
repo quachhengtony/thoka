@@ -22,6 +22,9 @@ export default function ListWorkspace(props) {
             {props.name}
           </a>
           <div className="text-muted">
+            Không gian đội nhóm
+          </div>
+          <div className="text-muted">
             {new Date(props.timestamp?.toDate()).toUTCString()}
           </div>
         </div>
@@ -48,7 +51,7 @@ export default function ListWorkspace(props) {
             </a>
             <div className="dropdown-menu dropdown-menu-end">
               <a className="dropdown-item" href="#">
-                Thống kê
+                Quản trị
               </a>
               <a className="dropdown-item" href="#">
                 Cài đặt

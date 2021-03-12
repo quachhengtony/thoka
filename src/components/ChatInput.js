@@ -61,10 +61,10 @@ function ChatInput({ roomName, roomId, workspaceId }) {
     }
   };
 
-  // const createRoomVideoConference = () => {
-  //   const id = uuid();
-  //   history.push(`video/${id}`);
-  // };
+  const createRoomVideoConference = () => {
+    const id = uuid();
+    history.push(`video/${id}`);
+  };
 
   return (
     <div className="chatinput">
@@ -152,7 +152,7 @@ function ChatInput({ roomName, roomId, workspaceId }) {
 
       <a
         href="javascript:void(0)"
-        onClick={sendMessage}
+        onClick={createRoomVideoConference}
         class="btn btn-white btn-icon chatinput__btn"
         aria-label="Button"
       >

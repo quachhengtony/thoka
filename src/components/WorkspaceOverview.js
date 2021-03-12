@@ -3,12 +3,72 @@ import db from "../adapters/firebase";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import firebase from "firebase";
+import { useStateValue } from "../contexts/StateProvider";
 
 export default function WorkspaceOverview(props) {
   const { workspaceId } = useParams();
   const [workspaceDetails, setWorkspaceDetails] = useState([]);
   const [workspaceUsers, setWorkspaceUsers] = useState([]);
   const { currentUserEmail } = useCurrentUserDetails();
+  const [userToLinkDetails, setUserToLinkDetails] = useState([]);
+  const { currentUser, currentDate } = useStateValue();
+  const [message, setMessage] = useState("");
+
+  const handleAddUsers = async () => {
+    const userEmail = prompt("User email");
+    if (userEmail !== "") {
+      try {
+        await db
+          .collection("users")
+          .doc(userEmail)
+          .get()
+          .then((doc) => {
+            setUserToLinkDetails(doc.data());
+          });
+
+        db.collection("workspaces")
+          .doc(workspaceId)
+          .collection("settings")
+          .doc("link")
+          .collection("users")
+          .add({
+            userEmail: userEmail,
+            userName: userToLinkDetails.userName,
+            userRole: userToLinkDetails.userRole,
+            isAdmin: false,
+            isAuthor: false,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            date: currentDate,
+          });
+
+        db.collection("users")
+          .doc(userEmail)
+          .collection("workspaces")
+          .doc(workspaceId)
+          .set({
+            workspaceId: workspaceId,
+            workspaceName: workspaceDetails.workspaceName,
+            authorEmail: workspaceDetails.authorEmail,
+            authorName: workspaceDetails.authorName,
+            authorRole: workspaceDetails.authorRole,
+            authorBusinessName: workspaceDetails.authorBusinessName,
+            createdAt: workspaceDetails.date,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+
+        db.collection("workspaces")
+          .doc(workspaceId)
+          .collection("users")
+          .doc(userEmail)
+          .set({
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+      } catch {
+        setMessage("Failed to link user");
+      }
+    } else return;
+  };
 
   useEffect(() => {
     db.collection("workspaces")
@@ -37,7 +97,11 @@ export default function WorkspaceOverview(props) {
   }, []);
 
   return (
-    <div className="workspaceoverview" id="overviewPanel" style={{ width: props.overviewPanelWidth }}>
+    <div
+      className="workspaceoverview"
+      id="overviewPanel"
+      style={{ width: props.overviewPanelWidth }}
+    >
       <div className="content">
         <div className="container-xl">
           <div className="page-header d-print-none">
@@ -47,11 +111,14 @@ export default function WorkspaceOverview(props) {
                   {workspaceDetails.authorBusinessName}
                 </h2>
                 <div className="text-muted mt-1">
-                  Không gian làm việc của {workspaceDetails.workspaceName}
+                  Không gian đội nhóm /{" "}
+                  <a className="text-muted">
+                    {workspaceDetails.workspaceName}
+                  </a>
                 </div>
               </div>
               <div className="col-auto ms-auto d-print-none">
-                <div className="d-flex">
+                {/* <div className="d-flex">
                   <div className="me-3 d-none d-md-block">
                   <div className="input-icon">
                     <input
@@ -79,7 +146,34 @@ export default function WorkspaceOverview(props) {
                     </span>
                   </div>
                 </div>
+                </div> */}
+                <div className="d-flex">
+                  <input
+                    type="search"
+                    className="form-control d-inline-block w-9 me-3"
+                    placeholder="Email"
+                  />
+                  <button className="btn btn-primary" onClick={handleAddUsers}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="icon"
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <line x1={12} y1={5} x2={12} y2={19} />
+                      <line x1={5} y1={12} x2={19} y2={12} />
+                    </svg>
+                    Kết nối thành viên
+                  </button>
                 </div>
+
               </div>
             </div>
           </div>
@@ -105,8 +199,7 @@ export default function WorkspaceOverview(props) {
                     <div className="mt-3">
                       {workspaceUser.isAuthor && (
                         <span className="badge bg-red-lt">Author</span>
-                      )}
-                      {" "}
+                      )}{" "}
                       {workspaceUser.isAdmin ? (
                         <span className="badge bg-green-lt">Admin</span>
                       ) : (
@@ -117,25 +210,25 @@ export default function WorkspaceOverview(props) {
                   <div className="d-flex --workspaceoverview-d-flex">
                     {workspaceUser.email !== currentUserEmail && (
                       <a href="javascript:void(0)" className="card-btn">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="icon me-2 text-muted"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />
-                        <line x1="8" y1="9" x2="16" y2="9" />
-                        <line x1="8" y1="13" x2="14" y2="13" />
-                      </svg>
-                      Nhắn tin
-                    </a>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="icon me-2 text-muted"
+                          width={24}
+                          height={24}
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />
+                          <line x1="8" y1="9" x2="16" y2="9" />
+                          <line x1="8" y1="13" x2="14" y2="13" />
+                        </svg>
+                        Nhắn tin
+                      </a>
                     )}
                     <a href="javascript:void(0)" className="card-btn">
                       <svg

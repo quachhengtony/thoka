@@ -60,8 +60,8 @@
 }
 
 .right {
-  min-width: 19vw !important;
-  max-width: 19vw !important;
+  min-width: 18vw !important;
+  max-width: 18vw !important;
   min-height: 100%;
   /* min-height: 100vh !important; */
   /* max-height: auto !important; */

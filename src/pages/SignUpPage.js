@@ -42,7 +42,7 @@ function SignUpPage() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
       await signUp(emailRef.current.value, passwordRef.current.value);
-      history.push("/workspaces");
+      history.push("/home");
       window.location.reload();
     } catch {
       setError("Failed to create account.");

@@ -303,7 +303,7 @@ function PrivateTopbar() {
                 </li>
                 <li
                   className="nav-item"
-                  onClick={() => history.push("/workspaces")}
+                  onClick={() => history.push("/spaces")}
                 >
                   <a className="nav-link" href="javascript:void(0)">
                     <span className="nav-link-icon d-md-none d-lg-inline-block">

@@ -4,9 +4,12 @@ import firebase from "firebase";
 import { v4 as uuidv4 } from "uuid";
 import { useStateValue } from "../contexts/StateProvider";
 import { useCurrentUserDetails } from "../contexts/CurrentUserDetailsContext";
+import { useHistory } from "react-router";
 
 function CreateWorkpsaceModal(props) {
   const workspaceName = useRef("");
+  const spaceType = useRef("");
+
   const { currentUser, currentDate } = useStateValue();
   const {
     currentUserName,
@@ -15,6 +18,92 @@ function CreateWorkpsaceModal(props) {
     currentUserRole,
     currentUserBusinessName,
   } = useCurrentUserDetails();
+
+  const history = useHistory();
+
+  // const handleCreateWorkspace = async () => {
+  //   if (workspaceName.current.value !== "") {
+  //     await db
+  //       .collection("workspaces")
+  //       .doc(props.workspaceUUID)
+  //       .set({
+  //         workspaceName: workspaceName.current.value,
+  //         authorName: currentUserName,
+  //         authorEmail: currentUserEmail,
+  //         authorId: currentUserUUId,
+  //         authorRole: currentUserRole,
+  //         authorBusinessName: currentUserBusinessName,
+  //         date: currentDate,
+  //         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("rooms")
+  //           .add({
+  //             roomName: "General",
+  //             authorName: currentUserName,
+  //             authorEmail: currentUserEmail,
+  //             authorId: currentUserUUId,
+  //             roomType: "Chat",
+  //             createdDate: currentDate,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("users")
+  //           .doc(currentUserEmail)
+  //           .set({
+  //             userName: currentUserName,
+  //             userEmail: currentUserEmail,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("storage")
+  //           .doc("Main")
+  //           .set({
+  //             groupName: "Main",
+  //             authorName: currentUserName,
+  //             authorId: currentUserUUId,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("settings")
+  //           .doc("link")
+  //           .set({
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .then(() => {
+  //         db.collection("workspaces")
+  //           .doc(props.workspaceUUID)
+  //           .collection("settings")
+  //           .doc("link")
+  //           .collection("users")
+  //           .add({
+  //             userEmail: currentUserEmail,
+  //             userName: currentUserName,
+  //             userRole: currentUserRole,
+  //             isAdmin: true,
+  //             isAuthor: true,
+  //             date: currentDate,
+  //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //           });
+  //       })
+  //       .catch((error) => console.error(error));
+  //   } else return;
+
+  //   workspaceName.current.value = "";
+  // };
+
 
   const handleCreateWorkspace = async () => {
     if (workspaceName.current.value !== "") {
@@ -94,10 +183,19 @@ function CreateWorkpsaceModal(props) {
             });
         })
         .catch((error) => console.error(error));
+    } else if (workspaceName.current.value !== "" && spaceType == "meetingspace") {
+      const meetingspaceId = uuidv4();
+      history.push(`/meetingspace/${meetingspaceId}`);
     } else return;
 
     workspaceName.current.value = "";
   };
+
+
+  const handleCreateMeetingspace = async () => {
+    const meetingspaceId = uuidv4();
+    history.push(`/meetingspace/${meetingspaceId}`);
+  }
 
   return (
     <div
@@ -136,7 +234,8 @@ function CreateWorkpsaceModal(props) {
                   <input
                     type="radio"
                     name="report-type"
-                    defaultValue={1}
+                    defaultValue="teamspace"
+                    ref={spaceType}
                     className="form-selectgroup-input"
                     defaultChecked
                   />
@@ -160,7 +259,8 @@ function CreateWorkpsaceModal(props) {
                   <input
                     type="radio"
                     name="report-type"
-                    defaultValue={1}
+                    defaultValue="meetingspace"
+                    ref={spaceType}
                     className="form-selectgroup-input"
                     disabled
                   />
@@ -170,10 +270,10 @@ function CreateWorkpsaceModal(props) {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Họp: video
+                        Họp: video [WIP]
                       </span>
                       <span className="d-block text-muted">
-                        Lorem ipsum dolor sit amet is a dummy text
+                        Không gian họp video vẫn đang trong quá trình phát triển
                       </span>
                     </span>
                   </span>
@@ -186,7 +286,8 @@ function CreateWorkpsaceModal(props) {
                   <input
                     type="radio"
                     name="report-type"
-                    defaultValue={1}
+                    defaultValue="audiospace"
+                    ref={spaceType}
                     className="form-selectgroup-input"
                     disabled
                   />
@@ -196,10 +297,10 @@ function CreateWorkpsaceModal(props) {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Họp: âm thanh
+                        Họp: âm thanh [WIP]
                       </span>
                       <span className="d-block text-muted">
-                        Lorem ipsum dolor sit amet is a dummy text
+                      Không gian họp âm thanh vẫn đang trong quá trình phát triển
                       </span>
                     </span>
                   </span>
