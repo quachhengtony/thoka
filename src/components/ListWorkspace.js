@@ -22,7 +22,7 @@ export default function ListWorkspace(props) {
             {props.name}
           </a>
           <div className="text-muted">
-            Không gian đội nhóm
+            <i>Không gian đội nhóm</i>
           </div>
           <div className="text-muted">
             {new Date(props.timestamp?.toDate()).toUTCString()}

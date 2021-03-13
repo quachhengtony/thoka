@@ -281,9 +281,9 @@ function DashboardPage() {
                       <div className="progress progress-sm">
                         <div
                           className="progress-bar bg-blue"
-                          style={{ width: "100%" }}
+                          style={{ width: `${(workspaces.length / 15) * 100}%` }}
                           role="progressbar"
-                          aria-valuenow={100}
+                          aria-valuenow={(workspaces.length / 15) * 100}
                           aria-valuemin={0}
                           aria-valuemax={100}
                         >
@@ -405,7 +405,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted">Không gian đội nhóm</div>
+                              <div className="text-muted"><i>Không gian đội nhóm</i></div>
                             </div>
                           </div>
                         </div>
@@ -623,7 +623,7 @@ function DashboardPage() {
                                 {linkWorkspace.workspaceName}
                               </a>
                               <div className="text-muted">
-                                Không gian đội nhóm
+                                <i>Không gian đội nhóm</i>
                               </div>
                               <div className="text-muted">
                                 {new Date(linkWorkspace.timestamp?.toDate()).toUTCString()}
@@ -697,7 +697,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted">Không gian đội nhóm</div>
+                              <div className="text-muted"><i>Không gian đội nhóm</i></div>
                             </div>
                           </div>
                         </div>
