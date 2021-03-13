@@ -26,6 +26,7 @@ import MaintenancePage from "./pages/MaintenancePage";
 import TeamHome from "./pages/TeamHome";
 import ChannelsPage from "./pages/ChannelsPage";
 import AnnouncementsPage from "./pages/AnnouncementsPage";
+import Inbox from "./components/Inbox";
 
 function App() {
   var rightBar = null;
@@ -33,6 +34,7 @@ function App() {
   const [chatPanelWidth, setChatPanelWidth] = useState("");
   const [boardPanelWidth, setBoardPanelWidth] = useState("");
   const [tasksPanelWidth, setTasksPanelWidth] = useState("");
+  const [inboxPanelWidth, setInboxPanelWidth] = useState("");
   const [overviewPanelWidth, setOverviewPanelWidth] = useState("");
   const [settingsPanelWidth, setSettingsPanelWidth] = useState("");
   const [storagePanelWidth, setStoragePanelWidth] = useState("");
@@ -47,6 +49,7 @@ function App() {
       setBoardPanelWidth("97vw");
       setChatPanelWidth("97vw");
       setTasksPanelWidth("97vw");
+      setInboxPanelWidth("97vw");
       setOverviewPanelWidth("97vw");
       setSettingsPanelWidth("97vw");
       setStoragePanelWidth("97vw");
@@ -57,6 +60,7 @@ function App() {
       setChatPanelWidth("79vw");
       setBoardPanelWidth("79vw");
       setTasksPanelWidth("79vw");
+      setInboxPanelWidth("79vw");
       setOverviewPanelWidth("79vw");
       setSettingsPanelWidth("79vw");
       setStoragePanelWidth("79vw");
@@ -121,6 +125,7 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/inbox">
             <Sidebar handleHideRightbar={handleHideRightbar} />
+            <Inbox inboxPanelWidth={inboxPanelWidth} />
           </PrivateRoute>
           <PrivateRoute path="/workspace/:workspaceId/room/undefined/chat">
             <Sidebar />
