@@ -245,7 +245,7 @@ function CreateWorkpsaceModal(props) {
                     </span>
                     <span className="form-selectgroup-label-content">
                       <span className="form-selectgroup-title strong mb-1">
-                        Đội nhóm
+                        Làm việc
                       </span>
                       <span className="d-block text-muted">
                         Mọi thứ cần để cộng tác đội nhóm hiệu quả

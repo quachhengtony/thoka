@@ -77,7 +77,7 @@ export default function ActivitiesPage() {
                       </div>
                       <div className="col">
                         <div className="text-truncate">
-                          <strong>Phạm Hạnh</strong> nhắc đến bạn trong không gian đội nhóm{" "}
+                          <strong>Phạm Hạnh</strong> nhắc đến bạn trong không gian làm việc{" "}
                           <strong>Team Business</strong>
                         </div>
                         <div className="text-muted">hôm qua</div>
@@ -95,7 +95,7 @@ export default function ActivitiesPage() {
                       <div className="col">
                         <div className="text-truncate">
                           <strong>Ánh Đoan</strong> giao cho bạn nhiệm vụ mới
-                          trong không gian đội nhóm <strong>Team Marketing</strong>
+                          trong không gian làm việc <strong>Team Marketing</strong>
                         </div>
                         <div className="text-muted">hôm qua</div>
                       </div>
@@ -112,7 +112,7 @@ export default function ActivitiesPage() {
                       <div className="col">
                         <div className="text-truncate">
                           <strong>Lập Quang</strong> gửi tin nhắn riêng cho bạn
-                          trong không gian đội nhóm <strong>Dự án Thiên Hưng SG</strong>
+                          trong không gian làm việc <strong>Dự án Thiên Hưng SG</strong>
                         </div>
                         <div className="text-muted">2 ngày trước</div>
                       </div>

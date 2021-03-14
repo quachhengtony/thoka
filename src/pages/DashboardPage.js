@@ -203,7 +203,7 @@ function DashboardPage() {
               <div className="page-header d-print-none">
                 <div className="row align-items-center">
                   <div className="col">
-                    <div className="page-pretitle">Đội nhóm | họp video | họp âm thanh</div>
+                    <div className="page-pretitle">Làm việc | Họp video | Họp âm thanh</div>
                     <h2 className="page-title">Tổng quan</h2>
                   </div>
                   <div className="col-auto ms-auto d-print-none">
@@ -405,7 +405,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted"><i>Không gian đội nhóm</i></div>
+                              <div className="text-muted"><i>Không gian làm việc</i></div>
                             </div>
                           </div>
                         </div>
@@ -425,7 +425,7 @@ function DashboardPage() {
               <div className="page-header d-print-none">
                 <div className="row align-items-center">
                   <div className="col">
-                    <div className="page-pretitle">Đội nhóm | họp video | họp âm thanh</div>
+                    <div className="page-pretitle">Làm việc | Họp video | Họp âm thanh</div>
                     <h2 className="page-title">Tổng quan</h2>
                   </div>
                   {/* <div className="col-auto ms-auto d-print-none">
@@ -623,7 +623,7 @@ function DashboardPage() {
                                 {linkWorkspace.workspaceName}
                               </a>
                               <div className="text-muted">
-                                <i>Không gian đội nhóm</i>
+                                <i>Không gian làm việc</i>
                               </div>
                               <div className="text-muted">
                                 {new Date(linkWorkspace.timestamp?.toDate()).toUTCString()}
@@ -697,7 +697,7 @@ function DashboardPage() {
                           <div className="col">
                             <div className="card-body">
                               <a href="javascript:void(0)">Team Managers</a>
-                              <div className="text-muted"><i>Không gian đội nhóm</i></div>
+                              <div className="text-muted"><i>Không gian làm việc</i></div>
                             </div>
                           </div>
                         </div>

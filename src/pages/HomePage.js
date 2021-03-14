@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/HomePage.css";
 import { useHistory } from "react-router-dom";
-import hero from "../assets/hero.svg";
+import hero from "../assets/hero-hq.svg";
 
 function HomePage() {
   const history = useHistory();

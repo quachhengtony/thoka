@@ -111,7 +111,7 @@ export default function WorkspaceOverview(props) {
                   {workspaceDetails.authorBusinessName}
                 </h2>
                 <div className="text-muted mt-1">
-                  Không gian đội nhóm /{" "}
+                  Không gian làm việc /{" "}
                   <a className="text-muted">
                     {workspaceDetails.workspaceName}
                   </a>

@@ -289,7 +289,7 @@ function Sidebar(props) {
           </button>
         </div>
         <div className="dropdown-menu dropdown-menu-demo right" id="rightBar">
-          <h6 className="dropdown-header">Đội nhóm</h6>
+          <h6 className="dropdown-header">Workspace</h6>
           <a
             href="javascript:void(0)"
             className="dropdown-item"
