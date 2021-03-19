@@ -74,6 +74,7 @@ function ChatInput({ roomName, roomId, workspaceId }) {
         type="text"
         className="form-control"
         placeholder=""
+        style={{borderRadius: 0}}
       />
       <a
         href="javascript:void(0)"

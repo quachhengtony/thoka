@@ -4,6 +4,7 @@
     height: 100vh;
     overflow-y: scroll;
     /* padding: 0 25px 0; */
+    background: #fff;
 }
 
 .--workspaceoverview-d-flex {

@@ -2,6 +2,7 @@
   margin-left: 10px;
   margin-right: 10px;
   cursor: default;
+  flex-wrap: wrap !important;
 }
 
 .message:hover {
